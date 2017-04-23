@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>location 对象常见属性</title>
+</head>
+<body>
+	<input type="button" value="跳转" id="btn">
+
+<script>
+	// 点击按钮 查看location 对象效果
+	var btn = document.getElementById("btn");
+	btn.onclick = function (){
+		//window.location location 相当于网页地址栏
+		// href属性可以 设置地址栏中的地址
+		//location.href = "http://www.baidu.com"; 
+		//location.href = "mailto:aaa@itcast.cn"; //邮件地址 上面的是网页地址
+
+		console.log(window.location.hash);// 锚点 当在地址后面追加#aaa 那么location.hash值就是#aaa,做单页面应用时多见
+		console.log(window.location.host);// 主机： 主机名:端口号
+		console.log(window.location.hostname);// 主机名
+		console.log(window.location.pathname);//路径名
+		console.log(window.location.port);// 端口
+		console.log(window.location.protocol);// 协议：http等
+		console.log(window.location.search);// 一些参数 当在地址后面追加?wd=abc 就相当于在百度搜索框中搜索abc，只是现在把abc直接写在了地址里 那么location.search值就是?wd=abc.
+
+
+	};
+</script>
+</body>
+</html>

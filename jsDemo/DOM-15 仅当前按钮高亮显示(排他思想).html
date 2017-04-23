@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>只有当前按钮高亮显示-排他思想</title>
+	<style>
+		.current {
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+<input type="button" value="按钮">
+<input type="button" value="按钮">
+<input type="button" value="按钮">
+<input type="button" value="按钮">
+</body>
+
+<script>
+	// 点击当前按钮高亮显示  其他按钮不高亮
+	var aBtn = document.getElementsByTagName("input");
+	for (var i = 0; i < aBtn.length; i++){
+		aBtn[i].onclick = function (){
+			//首先让所有按钮 类名都为空；然后只让给当前的按钮添加类名
+			for (var i = 0; i < aBtn.length; i++){
+				aBtn[i].className = "";
+			}
+			this.className = "current";
+		};
+	}
+</script>
+</html>

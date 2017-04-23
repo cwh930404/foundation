@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    document.onclick = function (event) {
+        //var event = event || window.event;
+        //var event = getEvent(event);
+        var event = eventUtils.getEvent(event);
+
+        //var pageX = event.pageX || event.clientX + document.documentElement.scrollLeft;
+        //var pageX = getPageX(event);
+        var pageX = eventUtils.getPageX(event);
+        //var pageY = getPageY(event);
+        var pageY = eventUtils.getPageY(event);
+
+        /*if (event.stopPropagation) {
+         event.stopPropagation();
+         } else {
+         event.cancelBubble = true;
+         }*/
+        //stopPropagation(event);
+        eventUtils.stopPropagation(event);
+
+        //var target = event.target || event.srcElement;
+        //var target = getTarget(event);
+        var target = eventUtils.getTarget(event);
+    };
+
+var eventUtils = {
+    getEvent: function (event) {
+        return event || window.event;
+    },
+    getPageX: function (event) {
+        return event.pageX || event.clientX + document.documentElement.scrollLeft;
+    },
+    getPageY: function (event) {
+        return event.pageY || event.clientY + document.documentElement.scrollTop;
+    },
+    stopPropagation: function (event) {
+        if (event.stopPropagation) {
+            event.stopPropagation();
+        } else {
+            event.cancelBubble = true;
+        }
+    },
+    getTarget: function (event) {
+        return event.target || event.srcElement;
+    }
+};
+
+   
+</script>
+</body>
+</html>

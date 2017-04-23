@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义属性</title>
+	<style>
+		div {
+			width: 200px;
+			height: 100px;
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	<!-- <div age="18" skill="eatfood"></div> -->
+	<!-- 之前像这样 为元素定义自定义属性时，自定义属性名可以随便起，看起来就很乱 -->
+	<!-- HTML5中为了规范自定义属性，规定自定义属性 以 data- 开头，并且在js中可以通过 元素.dataset.属性 的方式来获取 以 data- 开头 的自定义属性-->
+
+	<div data-age="18" data-skill="eatfood" data-Habbit="sleep" data-food-vegetable="牛肉"></div>
+
+	<script>
+	// dataset 是一个对象，里面保存着每个以 data- 开头 的自定义属性及值
+	/* 注意：
+	* 1. 设置自定义属性时，如果有大写字母，js会自动转化为小写。
+	* 2. 如果自定义属性有三个单词data-food-vegetable，js会自动把 - 去掉，并第三个单词首字母大写
+	*/
+		console.log( document.querySelector('div').dataset ); 
+		// DOMStringMap {age: "18", skill: "eatfood", habbit: "sleep", foodVegetable: "牛肉"}
+
+		console.log( document.querySelector('div').dataset.age ); // 18
+		console.log( document.querySelector('div').dataset.foodVegetable ); // 牛肉
+		document.querySelector('div').dataset.foodVegetable = "猪肉"; // 设置值
+
+	</script>
+</body>
+</html>

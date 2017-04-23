@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>清除浮动之使用after before双伪元素清除浮动</title>
+	<style>
+		.father {
+			border: 1px solid red;
+		}
+		.son1 {
+			height: 100px;
+			width: 100px;
+			background-color: silver;
+			float: left;
+		}
+		.son2 {
+			height: 100px;
+			width: 150px;
+			background-color: purple;
+			float: left;
+
+		}
+		.next {
+			height: 150px;
+			width: 200px;
+			background-color: black;
+		}
+		
+		/* 清除浮动代码 */
+		.clearfix:before, .clearfix:after {
+			content: ""; 
+			display: table;/* 此元素会作为块级表格来显示（类似 <table>），表格前后带有换行符。 */
+		}
+		.clearfix:after {
+			clear: both;
+		}
+		.clearfix {
+			*zoom: 1;  /* ie6 7不支持:after 所以添加*zoom: 1; 加上字符 * 只有ie6 7才能识别*/
+		}
+
+		
+	</style>
+</head>
+<body>
+	<div class="father clearfix">
+		<div class="son1"></div>
+		<div class="son2"></div>
+	</div>
+	<div class="next"></div>
+</body>
+</html>

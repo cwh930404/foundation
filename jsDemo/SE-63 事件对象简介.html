@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<script>
+	/*
+		document.onclick = function (){
+		//1. 之前我们写的这些事件 function()都是 没有参数的；
+		//2. 实际上 这里只是注册事件onclick ,真正调用这个函数的是浏览器
+		//3. 浏览器调用时，会传入一个参数，这个参数是一个对象，包含了很多和事件发生时有关的信息
+		//4. 例如 鼠标点击事件发生时 浏览器传入的参数中包含鼠标点击的位置等
+			alert("文档被点击了");
+		};
+		*/
+
+	document.onclick = function (event){ // event只是一个名字
+		console.log(event);
+	};
+	</script>
+</body>
+</html>

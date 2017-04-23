@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<img src="images/SE-67/img.jpg" alt="" width="50" height="50" id="pic"/>
+
+<script>
+var pic = document.getElementById("pic");
+    //鼠标在页面上点击 获取点击时的位置 然后 让图片缓动飞过来
+    document.onclick = function (event){
+        var event = event || window.event; 
+        // 鼠标在页面上位置
+        var pageX = event.pageX || event.clientX + document.documentElement.scrollLeft;
+        var pageY = event.pageY || event.clientY + document.documentElement.scrollTop;
+
+        //计算图片用该到的位置(计算是为了让图片中心动到 点击位置，不计算时图片只是左上角到点击位置)
+        var targetX = pageX - pic.offsetWidth / 2;
+        var targetY = pageY - pic.offsetHeight / 2;
+        // 让图片动画效果过来
+        animate(pic, {"top": targetY, "left": targetX});
+
+    };
+
+function animate(obj, json, fn) {
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+            var flag = true;
+            for(var k in json){ // {k:json[k]}
+
+                if (k === "opacity"){
+                    //var leader = parseInt(getStyle(obj, k)) || 0;
+                    var leader = getStyle(obj, k) * 100; //1
+                    // 因为没有单位所以不用parseInt，参与运算自动转换为数值
+                    var target = json[k] * 100; //0.5
+                    var step = (target - leader) / 10; //0.5-1=-0.5
+                    step = step > 0 ? Math.ceil(step) : Math.floor(step); //-1
+                    leader = leader + step; // 1-1 = 0
+                    obj.style[k] = leader / 100;
+                } else if (k === "zIndex") {
+                    obj.style.zIndex = json[k]; //无需渐变 
+                } else {
+                    var leader = parseInt(getStyle(obj, k)) || 0;
+                    var target = json[k];
+                    var step = (target - leader) / 10;
+                    step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                    leader = leader + step;
+                    obj.style[k] = leader + "px";
+                }
+                if (leader !== target) { 
+                    flag = false;
+                    
+                }
+            }
+            if(flag){
+
+                clearInterval(obj.timer);
+                if(fn){//如果有实参才调用,没有为undefined,注意不要写成fn()
+                    fn();//动画执行完成后执行
+                }
+                
+            }
+
+        }, 15);
+    }
+
+    function getStyle(obj, attr) {
+        if (window.getComputedStyle) {
+            return window.getComputedStyle(obj, null)[attr];
+        } else {
+            return obj.currentStyle[attr];
+        }
+    }
+</script>
+</body>
+</html>

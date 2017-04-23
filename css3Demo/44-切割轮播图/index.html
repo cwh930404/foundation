@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		ul {
+			list-style: none;
+			padding: 0;
+			width: 560px;
+			height: 380px;
+			margin: 100px auto;
+			border: 1px solid gray;
+			position: relative;
+			/* 2.2 让两个li紧挨着显示(因为两个li中间有文本节点不能紧挨) */
+			display: flex; 
+		}
+		li {
+			/* width: 100%; */
+			width: 50%; /* 2.1 两个li各占50% */
+
+			height: 100%;
+			position: relative;
+
+			/* 让div在空间中呈现3d效果 */
+			transform-style: preserve-3d;
+			transition: all 1s;
+		}
+		li>div{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+		}
+		.first {
+			background: url(imgs/01.jpg) no-repeat;
+			transform: rotateX(0deg) translateZ(190px); /* 380/2=190 */
+		}
+		.second {
+			background: url(imgs/02.jpg) no-repeat;
+			transform: rotateX(-90deg) translateZ(190px);
+			
+		}
+		.third {
+			background: url(imgs/03.jpg) no-repeat;
+			transform: rotateX(180deg) translateZ(190px);
+			
+		}
+		.four {
+			background: url(imgs/04.jpg) no-repeat;
+			transform: rotateX(90deg) translateZ(190px);
+		}
+
+		/* 左右按钮 */
+		
+		ul a {
+			font-size: 38px;
+			color: white;
+			position: absolute;
+			width: 50px;
+			height: 50px;
+			text-align: center;
+			line-height: 50px;
+			
+			background-color: gray;
+			text-decoration: none;
+
+		}
+		.left {
+			top: 50%;
+			left: -50px;
+			transform: translateY(-25px);
+		}
+		.right {
+			top: 50%;
+			right: -50px;
+			transform: translateY(-25px);
+
+		}
+
+		/* 2.3 因为第一个li默认显示左半边，现在要让第二个li显示右半边(显示一张完整的图片)，设置第二个li的div background图片的偏移 */
+		li:nth-child(2)>div {
+			background-position: -280px 0;
+		}
+		/* 2.4 让第二个li延迟0.1s，这样就可以呈现一张图片分两部分先后出来的效果 */
+		li:nth-child(2) {
+			transition: all 1s .1s;
+		}
+
+	</style>
+	<script src="js/jquery-3.0.0.min.js"></script>
+	<script src="js/index.js"></script>
+</head>
+<body>
+	<ul>	
+		<li>
+		<!-- 3d空间的四个面 -->
+			<div class="first"></div>
+			<div class="second"></div> <!-- 第二张在底面 -->
+			<div class="third"></div><!-- 第三张在后面 -->
+			<div class="four"></div><!-- 第四张在顶上 -->
+		</li>
+<!-- 2. 现在是两个li标签，li标签的宽度由100%变为50% -->
+		<li>
+		<!-- 3d空间的四个面 -->
+			<div class="first"></div>
+			<div class="second"></div> <!-- 第二张在底面 -->
+			<div class="third"></div><!-- 第三张在后面 -->
+			<div class="four"></div><!-- 第四张在顶上 -->
+		</li>
+
+		<a href="javascript:void(0)" class="left">&lt;</a>
+		<a href="javascript:void(0)" class="right">&gt;</a>
+	</ul>
+	
+		
+	
+</body>
+</html>

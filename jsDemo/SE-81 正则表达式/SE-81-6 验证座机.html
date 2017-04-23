@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style type="text/css">
+    body {
+        background: #ccc;
+    }
+
+    label {
+        width: 40px;
+        display: inline-block;
+    }
+
+    span {
+        color: red;
+    }
+
+    .container {
+        margin: 100px auto;
+        width: 400px;
+        padding: 50px;
+        line-height: 40px;
+        border: 1px solid #999;
+        background: #efefef;
+    }
+
+    span {
+        margin-left: 30px;
+        font-size: 12px;
+    }
+
+    .wrong {
+        color: red
+    }
+
+    .right {
+        color: green;
+    }
+
+    .defau {
+        width: 200px;
+        height: 20px;
+    }
+
+    .de1 {
+        background-position: 0 -20px;
+    }
+</style>
+<body>
+<div class="container">   
+    <label>座机</label><input type="text" id="inp1"><span></span><br/>
+</div>
+<script>
+ //需求(座机验证)： 用户在文本框中输入完成后(即失去焦点时)，获取文本框中值判断是否符合要求
+ var inp1 = document.getElementById('inp1');
+ inp1.onblur = function (){
+    /*匹配电话号码：
+    010-12345678
+    0313-1234567
+    开头3或4位（首位为0）
+    后面7或8位
+*/
+    // /^[0][0-9]{2,3}$/
+    //var regTel = /^0\d\d-\d\d\d\d\d\d\d\d$/;
+    var regTel = /^0\d{2,3}-\d{7,8}$/;
+    if (regTel.test(this.value)) {
+        alert('正确');
+    } else {
+        alert('错误');
+    }
+ };
+
+
+
+
+
+
+
+
+ /*<label>Q Q</label><input type="text" id="inp1"><span></span><br/>
+    <label>手机</label><input type="text" id="inp2"><span></span><br/>
+    <label>邮箱</label><input type="text" id="inp3"><span></span><br/> 
+    <label>姓名</label><input type="text" id="inp5"><span></span><br/>*/
+
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单事件</title>
+</head>
+<body>
+<input type="text" id="inp">
+
+<script>
+var inp = document.getElementById("inp");
+//onfocus 获取焦点
+	inp.onfocus = function (){
+		console.log('onfocus');
+	};
+	//onblur 失去焦点事件
+	inp.onblur = function (){
+		console.log('onblur');
+	};
+	//oninput 在输入时执行：每输入一个字母执行一次
+	inp.oninput = function (){
+		console.log('oninput');
+	};
+	//onchange 失去焦点后 如果表单元素内容发生了改变 才会执行
+	inp.onchange = function (){
+		console.log('onchange');
+	};
+</script>
+</body>
+</html>

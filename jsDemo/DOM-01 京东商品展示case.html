@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>京东商品展示案例</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        #box {
+            width: 360px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+
+        #box img {
+            vertical-align: middle;
+        }
+
+        #box ul {
+            overflow: hidden;
+            border-top: 1px solid #ccc;
+        }
+
+        #box li {
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <img src="images/01big.jpg" id="bigImg" alt=""/>
+    <ul id="itemList">
+        <li><img src="images/01.jpg" onclick="changeImg(1);" alt=""/></li>
+        <li><img src="images/02.jpg" onclick="changeImg(2);" alt=""/></li>
+        <li><img src="images/03.jpg" onclick="changeImg(3);" alt=""/></li>
+        <li><img src="images/04.jpg" onclick="changeImg(4);" alt=""/></li>
+        <li><img src="images/05.jpg" onclick="changeImg(5);" alt=""/></li>
+    </ul>
+</div>
+
+<script>
+	function changeImg(imgName){
+		var bigImg = document.getElementById("bigImg");
+		bigImg.src = "images/0" + imgName + "big.jpg";
+	}
+</script>
+</body>
+</html>

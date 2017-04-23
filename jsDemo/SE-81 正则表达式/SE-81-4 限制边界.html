@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<script>
+	// 1.只限制开头 2. 只限制结尾 3.不能多也不能少
+	//1.  ^ 表示只限制开头
+	console.log(/^chuan/.test("chuang"));//true 必须以chuan开头 只限制开头 结尾不管
+	
+	//2.  $ 表示只限制结尾
+	console.log(/chuan$/.test("chuang"));//false
+	console.log(/chuan$/.test("achuan"));//true 必须以chuan结尾 只限制结尾 开头不管
+
+	//3.  ^和$一起使用表示 要什么就必须得给什么 *不能多也不能少*
+	console.log(/^chuan$/.test("chuan")); //true
+	console.log(/^chuan$/.test("chuanchuan"));//false
+</script>	
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body {
+			background-color: #f7f7f7;
+		}
+		img {
+			display: block;
+			width: 100px;
+			height: 150px;
+			margin: 20px auto;
+
+			/* 设置 2d变换参照点 */
+			transform-origin: bottom right; /* 右下角为参照 */
+			transition: all 1s;
+		}
+		img:hover {
+			transform: rotate(60deg);
+		}
+	</style>
+</head>
+<body>
+	<img src="images/pk1.png" alt="">
+</body>
+</html>

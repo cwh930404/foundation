@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>内置数组方法 </title>
+	<script>
+		
+	var arr=[1,2,3];
+	console.log(arr);//console.log(arr.valueOf());一样的，输出arr默认调用valueOf()方法
+
+	arr.push(4,5,6);//从数组尾部添加,可以传一个或多个
+	console.log( arr );
+	console.log(arr.push(4,5,6));//push方法有返回值，可以返回新数组的长度 9 。
+
+	arr.pop();//从数组尾部删除 一个值
+	console.log( arr );
+	console.log(arr.pop());//pop方法也有返回值，返回被删除的那个元素 5。
+
+	arr.unshift(-1);//往数组头部添加，也可以添加多个.unshift方法有返回值，返回新数组的长度。
+	console.log( arr );
+
+	arr.shift();//从数组头部删除 一个值
+	console.log( arr );
+	console.log(arr.shift());//shift方法也有返回值，返回被删除的那个元素。
+
+	//利用有返回值的这点 可以做
+	// 1. 把开始的元素放到最后
+	//arr.push( arr.shift() );
+	// 2. 把的最后元素放到开始
+	//arr.unshift( arr.pop() );
+
+	// 数组拼接(concat)
+	var arr1 = [4, 5, 6];
+	var arr2 = ["a", "b", "c"];
+
+	var newArr = arr2.concat(arr1); // 赋值给新数组，尽量不破坏原来的数组
+	console.log(newArr);
+	// 把 数组内的字符( 用指定连接符 )连接成字符串(join)
+	var arr3 = ["马超","赵云","黄忠"];
+	console.log(arr3.toString());//将数组以字符串形式输出(逗号隔开)，效果和下面的一样
+	var newJarr = arr3.join(); // 如果括号里为空的，默认逗号连接。
+	console.log(newJarr);
+
+	var newJarr = arr3.join("-"); // 如果括号里为空的，默认逗号连接
+	console.log(newJarr);
+
+	// 倒序数组
+	var arr4 = ["马超","赵云","黄忠"];
+	arr4.reverse();
+	console.log(arr4);
+
+	// 冒泡排序
+	var num = [10, 4, 78, 2, 70];
+
+	function sortNumber(a, b){
+		return a-b;    //  a - b冒泡的升序排序
+	}
+	function sortNumber1(a, b){
+		return b-a;    //  b - a冒泡的降序排序
+	}  
+	console.log( num.sort(sortNumber) ); // sort必须和以上两个函数搭配使用才能正确排序
+	console.log( num.sort(sortNumber1) ); 
+
+	// 冒泡升序排序原理
+	/*var arr = [65, 97, 76, 13, 27, 49, 58];
+	//外层循环控制的是比较的趟数
+	//5个元素比较4趟 arr.length个元素比较arr.length-1趟
+	for (var i = 0; i < arr.length - 1; i++){
+		//内层循环控制的是 两两比较的次数
+		//5个元素比较4次 arr.length个元素比较arr.length-1次
+		for (var j = 0; j < arr.length - 1; j++){
+			if (arr[j] > arr[j + 1]){
+				var temp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = temp;
+			}
+		}
+	}
+	console.log(arr);*/
+
+	// 冒泡升序排序原理：优化内层:因为每次的排序都会把最大的数排在了最后面，
+	//所以会呈现这样的规律：第一趟排序内层多比较0次，第二趟排序内层多比较1次...所以内层减 i
+	/*var arr = [65, 97, 76, 13, 27, 49, 58];
+	for (var i = 0; i < arr.length - 1; i++){
+		for (var j = 0; j < arr.length - 1 - i; j++){
+			if (arr[j] > arr[j + 1]){
+				var temp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = temp;
+			}
+		}
+	}
+	console.log(arr);*/
+
+	// 冒泡升序排序原理：终极优化:如果中间哪一趟已经排好了就break,可以减少排序次数
+	//var arr = [65, 97, 76, 13, 27, 49, 58];
+	var arr = [1,2,3,4,5];
+	for (var i = 0; i < arr.length - 1; i++){
+		var flag = true; //已经排好了
+		for (var j = 0; j < arr.length - 1 - i; j++){
+			if (arr[j] > arr[j + 1]){
+				flag = false;
+				var temp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = temp;
+			}
+		}
+		if (flag){ //如果真的排好了 就不会进入内层进行排序了，这样flag 的值就不会发生变化
+			break;
+		}
+	}
+	console.log(arr);
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

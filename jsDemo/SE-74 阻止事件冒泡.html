@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<button id="btn">按钮</button>
+<script>
+//阻止事件冒泡 
+	document.onclick = function (){
+		alert("文档被点击了");
+	};
+	var btn = document.getElementById("btn");
+	btn.onclick = function (event){
+		alert("按钮被点击了");
+
+		var event = event || window.event;
+		if(event.stopPropagation){
+			event.stopPropagation();
+		} else {
+			event.cancelBubble = true;//ie678
+		}
+		
+		//阻止事件冒泡，想阻止谁身上的事件冒泡，就在谁身上加上这两句
+	};
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+		.father {
+			width: 400px;
+			height: 400px;
+			background-color: pink;
+			border-radius: 200%;   /* 200% 100% 50%效果一样 */
+			behavior: url(ie-css3.htc);    /* ie 6/ 7 /8中可以变为圆，但是只呈现 黑色 */
+			/*
+			* 1. behavior 属性是设置或检索 对象的DHTML行为；
+			* 2. ie-css3.htc 文件只能兼容css3中的 border-radius、text-shadow、box-shadow,并且其中阴影只支持黑色。
+			*/
+		}
+		
+	</style>
+
+	
+</head>
+<body>
+	<div class="father">
+		
+	</div>
+</body>
+</html>

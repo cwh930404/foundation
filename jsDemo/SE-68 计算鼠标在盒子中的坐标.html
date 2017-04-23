@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		#box {
+			width: 300px;
+			height: 300px;
+			background-color: pink;
+			margin: 100px;
+		}
+	</style>
+</head>
+<body>
+<div id="box"></div>
+
+<script>
+// 鼠标在box中移动 动态获得鼠标在box中的坐标 并显示
+var box = document.getElementById("box");
+box.onmousemove = function (event){
+	//没办法直接获取 通过计算获取
+	var event = event || window.event; 
+    // 鼠标在页面上位置
+    var pageX = event.pageX || event.clientX + document.documentElement.scrollLeft;
+    var pageY = event.pageY || event.clientY + document.documentElement.scrollTop;
+
+    // 鼠标在盒子中的坐标
+    var boxX = pageX - box.offsetLeft;
+    var boxY = pageY - box.offsetTop;
+    box.innerHTML= boxX+'--'+boxY;
+};
+</script>	
+</body>
+</html>

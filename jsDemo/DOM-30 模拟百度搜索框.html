@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        fieldset, img, input, button {
+            border: none;
+            padding: 0;
+            margin: 0;
+            outline-style: none;
+        }
+
+        ul, ol {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #box {
+            width: 405px;
+            margin: 200px auto;
+            position: relative;
+        }
+
+        #txtSearch {
+            float: left;
+            width: 300px;
+            height: 32px;
+            padding-left: 4px;
+            border: 1px solid #b6b6b6;
+            border-right: 0;
+        }
+
+        #btnSearch {
+            float: left;
+            width: 100px;
+            height: 34px;
+            font: 400 14px/34px "microsoft yahei";
+            color: white;
+            background: #3385ff;
+            cursor: pointer;
+        }
+
+        #btnSearch:hover {
+            background: #317ef3;
+        }
+
+        #pop {
+            width: 303px;
+            border: 1px solid #ccc;
+            padding: 0px;
+            position: absolute;
+            top: 34px;
+        }
+
+        #pop ul li {
+            padding-left: 5px;
+        }
+
+        #pop ul li:hover {
+            background-color: #CCC;
+        }
+    </style>
+    <script src="common.js"></script>
+</head>
+<body>
+<div id="box">
+    <input type="text" id="txtSearch">
+    <input type="button" value="百度一下" id="btnSearch">
+</div>
+
+<script>
+//用户输入的同时，根据用户在文本框中的输入内容，寻找匹配项目，然后创建盒子。
+//假数据 模拟从后台获得的匹配项
+    var datas = ["a", "abc", "abbbb", "abxxxx", "xyz", "abcdef", "abzzzz"];
+    var txt = document.getElementById("txtSearch");
+    var box = document.getElementById("box");
+    txt.onkeyup = function (){
+        //获取文本框内容并判断
+        var val = this.value;
+        //从datas中寻找和val 匹配的项目，如果匹配放在一个数组filterArr中
+        var filterArr = [];
+        for(var i = 0; i < datas.length; i++){
+            var data = datas[i]; //数组中的每一项
+            if(data.indexOf(val) == 0 ){//如果val和数组项的第一个字母相同，indexOf会返回0
+                filterArr.push(data);
+            }
+
+        }
+        //console.log(filterArr);
+
+
+//问题1：每匹配一次会动态生成一个盒子，这样盒子会摞在一起，
+//解决：每次创建div之前 要先判断 是否已经有div,如果有要删除掉。
+        var popDiv = document.getElementById("pop");//假装已经有了div
+        if(popDiv){
+            box.removeChild(popDiv);
+        }
+//问题2：如果没有匹配项，就不要创建div了。
+        if (filterArr.length == 0){return;}
+//问题3：如果用户输入为空，也不要创建div.
+        if(val == ""){return;}
+
+        //把放有匹配数据的数组 动态放在盒子中
+        var popDiv = document.createElement("div");
+        popDiv.id = "pop";
+        box.appendChild(popDiv);
+        var ul = document.createElement("ul");
+        popDiv.appendChild(ul);
+        //根据filterArr里的数据 创建li 并追加到ul中
+        for(var i = 0; i < filterArr.length; i++){
+            var item = filterArr[i];
+            var li = document.createElement("li");
+            setInnerText(li, item);
+            ul.appendChild(li);
+
+        }
+
+    };
+</script>
+</body>
+</html>

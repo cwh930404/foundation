@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>用户提交之前验证数据合法性</title>
+</head>
+<body>
+<!-- 前面的新类型标签如email,自带了验证，但是不能验证空值，并且只有提交时候才验证 -->
+	<form action="#">
+	    <!-- required 属性 用于验证非空 -->
+		<input type="email" name="userEmail" required><br><br>
+		<!-- pattern 属性 用于自定义正则表达式进行验证 -->
+		<input type="tel" name="userPhone" placeholder="请输入电话" required pattern="\d{3}" oninvalid="this.setCustomValidity('错了哦')"><br><br>
+
+		<!-- oninvalid 有一点小问题，需要新增一个属性  pattern="\d{11}"-->
+
+        <input type="tel">
+
+		<input type="submit">
+	</form>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box {
+            width: 322px;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            overflow: hidden;
+        }
+
+        span {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <span id="closeButton"></span>
+    <div class="hd" id="headPart">
+        <img src="images/SE-56/t.jpg" alt=""/>
+    </div>
+    <div class="bd" id="bottomPart">
+        <img src="images/SE-56/b.jpg" alt=""/>
+    </div>
+</div>
+<script>
+//点击按钮 先让bottomPart高度变为0 然后再让box宽度为0
+var closeButton = document.getElementById("closeButton");
+var bottomPart = document.getElementById("bottomPart");
+closeButton.onclick = function (){
+    animate(bottomPart, {"height": 0}, function(){
+        animate(bottomPart.parentNode, {"width": 0});
+    });
+    //animate(bottomPart.parentNode, {"width": 0});// 上面的执行完之后再执行这句，所以放在 第三个参数中实现依次执行
+};
+
+function animate(obj, json, fn) {
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+            var flag = true;
+            for(var k in json){ // {k:json[k]}
+
+                var leader = parseInt(getStyle(obj, k)) || 0;
+                var target = json[k];
+                var step = (target - leader) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                leader = leader + step;
+                obj.style[k] = leader + "px";
+                if (leader !== target) { 
+                    flag = false;
+                    
+                }
+            }
+            if(flag){
+
+                clearInterval(obj.timer);
+                if(fn){//如果有实参才调用,没有为undefined,注意不要写成fn()
+                    fn();//动画执行完成后执行
+                }
+                
+            }
+
+        }, 15);
+    }
+
+    function getStyle(obj, attr) {
+        if (window.getComputedStyle) {
+            return window.getComputedStyle(obj, null)[attr];
+        } else {
+            return obj.currentStyle[attr];
+        }
+    }
+</script>
+</body>
+</html>

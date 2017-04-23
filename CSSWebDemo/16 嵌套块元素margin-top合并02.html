@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>父盒子里两个子盒子margin合并</title>
+	<style>
+		.father {
+			width: 500px;
+			height: 500px;
+			background-color: pink;
+			overflow: hidden;
+		}
+		.son1, .son2 {
+			width: 100px;
+			height: 100px;
+			background-color: blue;
+			margin-bottom: 50px; 
+		}
+		.son2 {
+			background-color: purple;
+			margin-top: 100px;
+		}
+		/*现象：margin合并 两个子盒子间距只有100px;
+		*原因：
+		*BFC布局规则特性：
+		*2.盒子垂直方向的距离由margin决定。属于同一个BFC的两个相邻盒子的margin会发生重叠(外边距合并)。
+		*解决方法：我们创建不属于同一个BFC，就不会发生margin重叠了。即给son1外加一个.box的div并触发BFC。
+		*/
+		.box {
+			overflow: hidden;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="box">
+			<div class="son1"></div>
+		</div>
+		<div class="son2"></div>
+	</div>
+</body>
+</html>

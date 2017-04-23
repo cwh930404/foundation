@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>新表单元素</title>
+</head>
+<body>
+	<form action="#">
+	<!-- datalist 元素规定输入域的选项列表 和 input标签输入域 组合使用。通过 id 和 list属性联系在一起。 -->
+	<!-- datalist元素的 选项option设置的是value属性 -->
+		<input type="text" list="foodlist">
+		<datalist id="foodlist">
+			<option value="西葫芦">
+			<option value="牛肉">
+		</datalist>
+		<br>
+		<br>
+		<br>
+
+		<input type="url" list="url_list">
+		<datalist id="url_list">
+			<option label="W3School" value="http://www.w3school.com.cn" />
+			<option label="Google" value="http://www.google.com" />
+			<option label="Microsoft" value="http://www.microsoft.com" />
+		</datalist>
+		<br>
+		<br>
+
+		<!-- output标签 只是语义性较强而已，如果要修改它的值，还是要通过js,这样这个标签也可以用span等其他标签代替，只是语义性不太强 -->
+		<input type="number"> + <input type="number"> = <output>123</output>
+		<input type="button" value="计算结果">
+	</form>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>五角星评分案例</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .comment {
+            font-size: 40px;
+            color: yellow;
+        }
+
+        .comment li {
+            float: left;
+        }
+
+        ul {
+            list-style: none;
+        }
+    </style>
+    <script src="jquery-1.12.2.js"></script>
+    <script>
+    // 需求：鼠标经过一个五角星，该五角星及前面五角星变为实心；鼠标离开都为空心；如果鼠标点击了，离开之后保持经过时的样子
+
+        $(function (){
+            $('.comment>li').mouseover(function (){
+                $(this).text('★').prevAll('li').text('★');
+                $(this).nextAll('li').text('☆');
+                 // $(this).text('★').prevAll('li').text('★').end().nextAll('li').text('☆');
+            }).mouseout(function (){
+                $('.comment').find('li').text('☆');
+                $('.comment>li[index=1]').text('★').prevAll('li').text('★');
+            }).click(function (){
+                $(this).attr('index', '1').siblings('li').removeAttr('index');
+            });
+        });
+    </script>
+    
+</head>
+<body>
+<ul class="comment">
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+</ul>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>selected属性</title>
+</head>
+<body>
+<select name="" id="">
+	<option value="">A</option>
+	<option value="">B</option>
+	<option value="">C</option>
+	<option value="" id="d">D</option>
+</select>
+<input type="button" id="btn" value="按钮">
+
+<script>
+//点击按钮 给D 添加selected属性
+	var btn = document.getElementById("btn");
+	var d = document.getElementById("d");
+	//console.dir(d);
+	//console.log(d.selected); //false
+	btn.onclick = function (){
+		d.selected = true;
+	};
+
+</script>
+</body>
+</html>

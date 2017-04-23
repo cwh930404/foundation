@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		#box {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			position: absolute; /*一定记得加定位*/
+		}
+	</style>
+</head>
+<body>
+<div id="box"></div>
+
+<script>
+	// 业务：移动盒子
+	var box = document.getElementById("box");
+	var y = 0;
+	var timer = null;
+	timer = setInterval(function (){
+		if(y < 300){
+			y++;
+			box.style.top = y + "px"; // 一定要记得加单位 
+			//改变top值 就可以上下移动了
+		} else {
+			clearInterval(timer);// 移动到300px 停止
+		}
+		
+	}, 15);//15ms可以让动画看起来更细腻
+</script>	
+</body>
+</html>

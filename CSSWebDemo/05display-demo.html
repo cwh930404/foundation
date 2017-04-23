@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>display 属性case</title>
+	<style>
+		div {
+			background-color: yellow;
+			display: inline;
+		}
+		span {
+			display: block;
+			/* display: none;  */  /*直接把当前标签移除，不影响页面布局 */
+			visibility: hidden;    /* 只是不显示，但还保留标签的在页面占用的位置 */
+			background-color: silver;  
+		}
+
+		.demo-inline {
+			background-color: green;
+			display: inline-block;  
+			/* 不独占一行却能设置宽高；行内标签不能设置宽高，只能通过内容开撑开宽度和高度 */
+			height: 200px;
+		}
+
+	</style>
+</head>
+<body>
+	<span>我是span标签</span>
+	<strong>我是strong标签</strong>
+	<del>删除线</del>
+	<div>
+		我是一个div
+	</div>
+
+	<div class="demo-inline">
+		我是一个行内块标签
+	</div>
+</body>
+</html>

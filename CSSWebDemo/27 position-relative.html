@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>定位之相对定位+边偏移</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		div {
+			width: 100px;
+			height: 100px;
+		}
+		.one {
+			background-color: silver;
+		}
+		.two {
+			background-color: purple;
+			position: relative;
+			top: 10px;
+			left: 10px;
+			/* 它在文档流中的位置仍然保留，而且移动的位置是相对于  自身原来的位置  来说的。 */
+		}
+		.three {
+			background-color: #f40;
+		}
+	</style>
+</head>
+<body>
+	<div class="one">1</div>
+	<div class="two">2</div>
+	<div class="three">3</div>
+</body>
+</html>

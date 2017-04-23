@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul {
+            list-style-type: none;
+            width: 200px;
+            position: absolute;
+            left: 500px;
+        }
+
+        ul li {
+            margin-top: 10px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 20px;
+        }
+    </style>
+    <script src="jquery-1.12.2.js"></script>
+    <script>
+    	$(function (){
+    		// 获取ul中所有的li 给li注册鼠标进入事件，鼠标移出事件，鼠标点击事件
+    		$('ul>li').mouseenter(function (){
+    			// 鼠标进入当前li高亮，其它兄弟li不高亮
+    			$(this).css('backgroundColor', 'red').siblings().css('backgroundColor', "");
+    		}).mouseleave(function (){
+    			// 鼠标移出所有都不高亮
+    			$(this).css('backgroundColor', '').siblings().css('backgroundColor', "");
+    		}).click(function (){
+    			// 鼠标点击时，当前元素前面的所有兄弟元素背景色为黄色，后面的所有兄弟元素的背景色为蓝色
+    			/*$(this).prevAll().css('backgroundColor', 'yellow');
+    			$(this).nextAll().css('backgroundColor', 'blue');*/
+
+    			// 链式编程
+    			// 断链：对象调用方法后 返回的不是当前对象(这里返回的是当前对象的多个兄弟元素)
+    			// $(this).prevAll().css('backgroundColor', 'yellow').nextAll().css('backgroundColor', 'blue');// 断链
+    			// 解决(修复)断链：添加.end()方法 该方法可 恢复到断链之前的对象
+    			$(this).prevAll().css('backgroundColor', 'yellow').end().nextAll().css('backgroundColor', 'blue');
+
+    		});
+    	});
+    </script>
+</head>
+<body>
+<ul>
+    <li>青岛啤酒（TsingTao）</li>
+    <li>瓦伦丁（Wurenbacher）</li>
+    <li>雪花（SNOW）</li>
+    <li>奥丁格教士（Franziskaner）</li>
+    <li>科罗娜喜力柏龙（Paulaner）</li>
+    <li>嘉士伯Kaiserdom</li>
+    <li>罗斯福（Rochefort）</li>
+    <li>粉象（Delirium）</li>
+    <li>爱士堡（Eichbaum）</li>
+    <li>哈尔滨牌蓝带</li>
+</ul>
+
+</body>
+</html>

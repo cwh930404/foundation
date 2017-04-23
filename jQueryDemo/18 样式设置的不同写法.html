@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery-1.12.2.js"></script>
+	<script>
+		$(function (){
+			
+			// 1.设置样式的第一种方式
+			/*$('ul>li').css('backgroundColor', 'yellow');
+			$('ul>li').css('fontSize', '50px');
+			$('ul>li').css('fontFamily', '微软雅黑');
+			$('ul>li').css('color', 'blue');*/
+
+			// 2.设置样式的第二种方式（链式编程）
+			// $('ul>li').css('backgroundColor', 'yellow').css('fontSize', '50px').css('fontFamily', '微软雅黑').css('color', 'blue');
+
+			// 3.设置样式的第三种方式（键值对）
+			// $('ul>li').css({'backgroundColor':'yellow', 'fontSize':'50px', 'fontFamily':'微软雅黑', 'color':'blue'});
+			var style = {
+				'backgroundColor':'yellow',
+				'fontSize':'50px',
+				'fontFamily':'微软雅黑',
+				'color':'blue'
+			};
+			$('ul>li').css(style);
+
+		});
+	</script>
+</head>
+<body>
+
+<ul>
+		<li>清蒸</li>
+		<li>凉拌</li>
+		<li>水煮</li>
+		<li>红烧</li>
+	</ul>	
+</body>
+</html>

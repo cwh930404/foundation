@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>阻止a便签的默认跳转行为</title>
+</head>
+<body>
+	<a href="http://www.baidu.com">点击跳转</a>
+	<a href="http://www.baidu.com" onclick="return false;">阻止跳转</a>
+
+	<a href="http://www.baidu.com" onclick="return test(18);">未满十八岁禁止跳转</a>
+	<p>阻止a便签的默认跳转-脚本结构分离：</p>
+	<a href="http://www.baidu.com" id="demo">DEMO</a>
+
+<script>
+	function test(age){
+		if(age >= 18){
+			alert("允许，并跳转");
+		}else {
+			alert("禁止，不跳转");
+			return false;
+		 // 只返回false一个单词，所以要在onclick中添加return ,onclick="return test(16);"
+		}
+	}
+
+	//阻止a便签的默认跳转-脚本结构分离格式：
+	var vDemo = document.getElementById("demo");
+	vDemo.onclick = function (){
+		return test(16);
+		//return false;
+	};
+	//事件源.事件 = function(){事件处理程序};
+	//<标签 事件 = "事件处理程序"> 两种方式的事件处理程序雷同，把写在标签里的事件处理程序 放在分离格式中同样起作用。
+</script>
+	
+</body>
+</html>

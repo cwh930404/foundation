@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取页面滚动坐标</title>
+	<style>
+		body {
+			height: 3000px;
+		}
+	</style>
+</head>
+<body>
+<script>
+// window.pageYOffset 窗口在 y 方向上的偏移(对主流 浏览器)
+// document.documentElement.scrollTop documentElement指HTML标签(对ie 6 7 8 )
+//document.body.scrollTop body中被卷进去的内容(对 ie 5)
+
+// 页面滚动座标非常常用，但是有很大的兼容性问题，可以合写为
+/*
+window.onscroll = function (){
+	var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+	var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0;
+	console.log(scrollTop);
+}; */
+//封装
+window.onscroll = function (){
+	//scroll().top; // 头部
+	//scroll().left; // 左侧
+	console.log(scroll().top);
+};
+// 封装获取页面被卷去的头部高度和左侧宽度的 兼容函数
+/*
+function scroll(){
+	var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+	var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0;
+	var o = {};
+	o.top = scrollTop;
+	o.left = scrollLeft;
+	return o;
+} */
+// 化简函数
+function scroll(){
+	
+	return {
+		top : window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0,
+		left : window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0
+	};
+}
+</script>	
+</body>
+</html>

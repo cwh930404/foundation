@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		#demo {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			left: 100px;
+		}
+	</style>
+</head>
+<body>
+<div id="demo"></div>
+<script>
+	var demo = document.getElementById("demo");
+// 获取 最终生效的 样式的值
+//console.log(window.getComputedStyle(demo, null).left);// 100px ie9+ chrome ff 支持
+console.log(demo.currentStyle.left); //100px ie 678
+console.log(getStyle(demo, "left") ); // 100px
+
+//封装 获取计算后样式属性的值 的兼容函数
+function getStyle(obj, attr){
+	if (window.getComputedStyle){//如果有这个方法就使用
+		return window.getComputedStyle(obj, null)[attr];
+	} else {
+		return obj.currentStyle[attr];
+	}
+}
+	 
+	
+</script>	
+</body>
+</html>

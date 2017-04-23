@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>怎么让定位的盒子 水平 垂直居中</title>
+	<style>
+		.father {
+			height: 400px;
+			width: 400px;
+			margin: 100px auto;
+			background-color: pink;
+			position: relative;
+		}
+		.son {
+			height: 20px;
+			width: 50px;
+			background-color: purple;
+			position: absolute;
+			top: 50%;
+			margin-top: -10px;/* 垂直居中 */
+			left: 50%;
+			margin-left: -25px;/* 水平居中 */
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son"></div>
+	</div>
+</body>
+</html>

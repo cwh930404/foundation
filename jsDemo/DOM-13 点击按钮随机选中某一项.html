@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>点击按钮随机选中某一项</title>
+</head>
+<body>
+<select name="" id="sel">
+	<option value="">A</option>
+	<option value="">B</option>
+	<option value="">C</option>
+	<option value="">D</option>
+</select>
+<input type="button" id="btn" value="按钮">
+
+<script>
+//点击按钮 随机给一个option 添加selected属性
+	var btn = document.getElementById("btn");
+	var sel = document.getElementById("sel");
+	var options = sel.children;
+	btn.onclick = function (){
+		//产生 0 1 2 3 的随机数
+		//[0,1) -->需要4个数字就乘4 -->[0,4) -->parseInt取整，并取不到4 --> 0 1 2 3
+		//var random = parseInt(Math.random() * 4);
+		//4不应该写死，而是有几个option 就是几
+		var random = parseInt(Math.random() * options.length);
+		options[random].selected = true;
+	};
+</script>
+</body>
+</html>

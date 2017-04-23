@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>scrollTop </title>
+	<style>
+		#demo {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			overflow: auto;
+			/* 当元素内容超出添加滚动条 */
+		}
+	</style>
+</head>
+<body>
+	<div id="demo">很多内容很多内容很多内容很多内容很多内容很多内容很多内容很多内容很多内容很多内容很多内容</div>
+	<script>
+	// scrollTop 当元素有滚动条，滚动上下滚动条时，被滚动条卷进去的元素内容的多少
+		var demo = document.getElementById("demo");
+		// onscroll 滚动事件
+		console.log(demo.scrollHeight);
+		demo.onscroll = function () {
+			console.log(demo.scrollTop);
+		};
+	// scrollLeft 当元素有滚动条，滚动左右滚动条时，被滚动条卷进去的元素内容的多少	
+	</script>
+</body>
+</html>

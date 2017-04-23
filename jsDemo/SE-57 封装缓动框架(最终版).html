@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #demo {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">按钮</button>
+<div id="demo"></div>
+<script>
+// 通过回调函数可以让动画依次执行
+    var timer = null;
+    var btn = document.getElementById("btn");
+    var demo = document.getElementById("demo");
+
+    btn.onclick = function () {
+       /* animate(demo, "left", 400);
+        animate(demo, "top", 400);
+        animate(demo, "height", 400);
+        animate(demo, "width", 400);*/
+        //animate(demo, {"opacity": 0.5}); // {attr:target}
+        // 当前是1 目标是0.5
+
+        animate(demo, {'zIndex': 5});
+
+    };
+
+    //封装 能够让 任意对象 的指定属性 变到指定值处 的缓动动画函数
+    // 之前的属性虽说是任意，但只能是带有单位px的 数值 的属性 
+    // 现在添加 层级 透明度 这种不带单位的
+    // opacity: 0.5;/*没有单位 范围是0-1 默认值是1 0是全透明 1是不透明*/
+    // z-index: 3;/*没有单位 不需要渐变 直接到那个层级即可*/
+    function animate(obj, json, fn) {
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+            var flag = true;
+            for(var k in json){ // {k:json[k]}
+
+                if (k === "opacity"){
+                    //var leader = parseInt(getStyle(obj, k)) || 0;
+                    var leader = getStyle(obj, k) * 100; //1
+                    // 因为没有单位所以不用parseInt，参与运算自动转换为数值
+                    var target = json[k] * 100; //0.5
+                    var step = (target - leader) / 10; //0.5-1=-0.5
+                    step = step > 0 ? Math.ceil(step) : Math.floor(step); //-1
+                    leader = leader + step; // 1-1 = 0
+                    obj.style[k] = leader / 100;
+                } else if (k === "zIndex") {
+                    obj.style.zIndex = json[k]; //无需渐变 
+                } else {
+                    var leader = parseInt(getStyle(obj, k)) || 0;
+                    var target = json[k];
+                    var step = (target - leader) / 10;
+                    step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                    leader = leader + step;
+                    obj.style[k] = leader + "px";
+                }
+                if (leader !== target) { 
+                    flag = false;
+                    
+                }
+            }
+            if(flag){
+
+                clearInterval(obj.timer);
+                if(fn){//如果有实参才调用,没有为undefined,注意不要写成fn()
+                    fn();//动画执行完成后执行
+                }
+                
+            }
+
+        }, 15);
+    }
+
+    function getStyle(obj, attr) {
+        if (window.getComputedStyle) {
+            return window.getComputedStyle(obj, null)[attr];
+        } else {
+            return obj.currentStyle[attr];
+        }
+    }
+</script>
+</body>
+</html>

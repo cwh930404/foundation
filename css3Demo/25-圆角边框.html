@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+		li {
+			width: 200px;
+			height: 40px;
+			border: 1px solid gray;
+			background-color: skyblue;
+			margin: 10px 0;
+		}
+		li:nth-child(1) {
+			border-radius: 10px;
+		}
+		li:nth-child(2) {
+			border-top-left-radius: 10px;
+			border-top-right-radius: 20px;
+			border-bottom-left-radius: 30px;
+			border-bottom-right-radius: 40px;
+		}
+		li:nth-child(3) {
+			/* border-radius: 左上右下 左下右上; */
+			border-radius: 10px 50px;
+		}
+		li:nth-child(4) {
+			/* border-radius: 左上 左下右上 右下; */
+			border-radius: 10px 50px 90px;
+		}
+		li:nth-child(5) {
+			/* border-radius: 左上 右上 右下 左下; */
+			border-radius: 10px 20px 30px 40px;
+		}
+		li:nth-child(6):hover {
+			border-radius: 10px 50px;
+			transition: all 1s;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+</html>

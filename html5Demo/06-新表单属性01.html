@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>新表单属性</title>
+</head>
+<body>
+
+<form action="#" id="form1">
+	<!-- placeholder 属性 设置提醒信息的占位符 -->
+	<input type="text" placeholder="请输入用户名"><br><br>
+    <!-- autofocus 属性 页面加载时自动获得焦点 -->
+	<input type="email" placeholder="请输入邮箱" autofocus><br><br>
+	<!-- multiple 属性 规定输入域中可选择多个值 -->
+	<input type="file" multiple><br><br>
+	<!-- autocomplete 属性 自动完成功能(输入一个电话号，点击提交，当下次输入时，会自动提示原来输入过的电话号) -->
+	<!-- 注意 autocomplete 属性 必须和name属性配合使用 -->
+	<input type="tel" placeholder="请输入电话" name="telphone" autocomplete><br><br>
+
+	<input type="submit">
+
+	<!-- 在表单中，如果标签有 name 属性值，那么在点击 提交按钮 后，name属性值会被显示在地址栏中 -->
+
+</form>
+<!-- form 属性 和 表单 id 属性配合使用，可以使表单外的标签像在表单内的标签一样被提交 (不建议使用)-->
+<input type="text" name="userHabbit" form="form1">
+	
+</body>
+</html>

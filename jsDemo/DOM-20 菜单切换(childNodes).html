@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>节点方式找东西 之 练习</title>
+	<style>
+        #list li {
+            list-style-type: none;
+            width: 80px;
+            height: 30px;
+            line-height: 30px;
+            background-color: beige;
+            text-align: center;
+            float: left;
+            margin-left: 5px;
+        }
+
+        #list li.current {
+            background-color: burlywood;
+        }
+
+        #list li a {
+            text-decoration: none;
+        }
+
+        .odd {
+            background-color: #ccc;
+        }
+
+        .even {
+            background-color: #999;
+        }
+    </style>
+</head>
+<body>
+<div id="menu">
+    <ul id="list">
+        <li class="current"><a href="javascript:void(0)">首页</a></li>
+        <li><a href="javascript:void(0)">播客</a></li>
+        <li><a href="javascript:void(0)">博客</a></li>
+        <li><a href="javascript:void(0)">相册</a></li>
+        <li><a href="javascript:void(0)">关于</a></li>
+        <li><a href="javascript:void(0)">帮助</a></li>
+    </ul>
+</div>	
+
+<script>
+	//给每一个li注册事件 当前li被选中高亮，其他均不能高亮
+	var ul = document.getElementById("list");
+	var nodes = ul.childNodes;
+	for(var i = 0; i < nodes.length; i++){
+		var node = nodes[i];//表示每个节点
+		if( node.nodeType != 1){//不是元素节点结束本次循环
+			continue;
+		}
+		node.onclick = function (){
+			for (var i = 0; i < nodes.length; i++){
+				var node = nodes[i];
+				if( node.nodeType != 1){
+					continue;
+				}
+				node.className = "";
+			}//所有人类名先清空
+			this.className = "current";
+		};
+	}
+
+	//上述的判断 看起来很麻烦 如果能直接 得到元素节点（子节点） 就可以简化
+</script>
+</body>
+</html>

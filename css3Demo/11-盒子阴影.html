@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body {
+			background-color: gray;
+		}
+		div {
+			width: 200px;
+			height: 200px;
+			margin: 0 auto;
+			/* border: 1px solid gray; */
+			border: 10px solid white;
+
+
+
+			/* 设置盒子阴影 */
+			/* box-shadow: 影子发散方向 h-shadow v-shadow blur 影子放大 color;*/
+			/* 1.影子发散方向：可选。控制影子在盒子外面(默认)，还是在盒子里面(inset),这样可以做内阴影和外阴影。
+			* 2.h-shadow	必需。水平阴影的位置。允许负值。
+			* 3.v-shadow	必需。垂直阴影的位置。允许负值
+			* 4.blur	可选。模糊的距离。默认为0px，影子的模糊会直接放大影子。
+			* 5.影子放大 ：可选。阴影的大小 默认和文字一样大，这个可以放大影子
+			* 6.color	可选。阴影的颜色。默认为黑色。
+			*
+			*/
+
+			/* 影子 h-shadow v-shadow color */
+			/* box-shadow: 1px 1px hotpink,
+						-1px -1px orange; */
+			/* 添加影子模糊 */
+			/* box-shadow: 0px 0px 10px yellow; */
+			/* 添加影子放大 ：直接放大的影子不是模糊的，视觉较差*/
+			/* box-shadow: 0px 0px 0px 10px yellow; */
+			/* 添加影子发散方向 */
+			/* box-shadow: inset 0px 0px 0px 10px yellow; */
+			/* 炫酷效果：让模糊的影子向盒子里面发散 ，好像一个聚焦的效果*/
+			box-shadow: inset 0px 0px 100px 0px yellow;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

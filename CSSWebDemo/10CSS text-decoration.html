@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS 文本装饰</title>
+	<style>
+		.txt-underline {
+			text-decoration: underline;
+		}
+
+		.txt-overline {
+			text-decoration: overline;
+		}
+
+		.txt-linethrough {
+			text-decoration: line-through;
+		}
+
+		.txt-line {
+			text-decoration: underline line-through;/* 同时设置下划线和删除线 */
+		}
+
+		s {
+			text-decoration: none;/* none 没有装饰，可以去掉s标签的装饰(正常文本默认值) */
+		}
+		
+	</style>
+</head>
+<body>
+	<span class="txt-underline">
+		我是一个下划线span
+	</span>
+	<span class="txt-overline">
+		我是一个上划线span
+	</span>
+	<span class="txt-linethrough">
+		我是一个删除线span
+	</span>
+
+	<span class="txt-line">
+		我是一个复合文本装饰span
+	</span>
+	<s>去掉删除线</s>
+</html>

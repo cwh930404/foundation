@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Date对象</title>
+</head>
+<body>
+<script>
+// 1. 创建日期
+	var date  = new Date(); //创建日期对象
+	console.log(date); // 虽然date默认以 字符串的方式输出，但类型仍然是 对象。
+	console.log(date.toString() ); //把日期对象以字符串方式输出(默认输出方式)
+	console.log(date.valueOf() ); //把日期对象以 数值方式输出
+	// 该数值是一个 13位的数字，表示从1970-1-1 00:00:00:000开始到现在所过去的毫秒数
+
+	var date2 = Date.now(); // 这种定义方式 对象默认是 数值方式，但是旧浏览器不支持(ie9+)
+	console.log(date2);
+	var date3 = +new Date(); // 这种定义方式 对象默认是 数值方式，所有浏览器都支持
+	console.log(date3);
+
+// 总结：date对象 的3种  以数值方式呈现的方式，2种以字符串呈现的方式
+
+// 2. 日期格式转换
+// 第一种转换方式 中构造函数参数有以下三种方式
+// var date4 = new Date(2005,10,1);//Tue Nov 01 2005 00:00:00 GMT+0800 (中国标准时间)
+// var date4 = new Date("2005-10-1");
+// var date4 = new Date(1128096000000);
+console.log(date4); // Sat Oct 01 2005 00:00:00 GMT+0800 (中国标准时间)
+
+
+// 第二种转换方式 (转换成毫秒/数值方式)
+// 注意：这种方式把 字符串 或 2005，10，1日期的每一部分 转换成日期的毫秒形式，如果字符串的格式不是时间的正确格式返回NaN
+
+// var date5 = Date.parse("2005-10-1");
+var date5 = Date.parse(2005,10,1); //1104537600000
+console.log(date5); // 1128096000000
+
+// 3. 日期格式化方法
+var date6 = new Date();
+console.log(date6.toDateString() ); // Mon Feb 13 2017                 (日期以字符串方式显示)
+console.log(date6.toTimeString() ); //15:41:59 GMT+0800 (中国标准时间) (时间以字符串方式显示)
+console.log(date6.toLocaleDateString() ); //2017/2/13               (日期以当地日期方式显示)     
+console.log(date6.toLocaleTimeString() ); //下午3:41:59          (时间以当地时间方式显示) 
+
+//不同的浏览器，各种to...String()返回的结果不一致
+
+// 4. 获取日期中指定部分常用方法
+/*
+setTime()  设置时间  （例 ajax cross 09delivery.html）
+getTime()  返回毫秒数和valueOf()结果一样
+getMilliseconds() 获取当前毫秒数
+getSeconds()  返回0-59
+getMinutes()  返回0-59
+getHours()   返回0-23
+getDay()     返回星期几 0周日   
+getDate()    返回今天是 几号
+getMonth()   返回月份，0-11，从0开始
+getFullYear()   返回4位的年份  如 2016  */
+
+
+
+</script>	
+</body>
+</html>

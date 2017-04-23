@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<button id="btn">按钮</button>
+<script>
+	document.onclick = function (){
+		alert("文档被点击了");
+	};
+	var btn = document.getElementById("btn");
+	btn.onclick = function (){
+		alert("按钮被点击了");
+	};
+//事件冒泡 就是像上面 给 按钮添加了事件，按钮的事件会首先执行，然后找按钮的父级，如果按钮的父级body注册了事件 ，接下来会执行body的注册事件，然后再往上找html,如果html注册了事件也会接着执行，然后再往上找到document,如果document注册了事件也会执行，直到window.
+//像这样 一级一级的往上 执行每一级注册了的事件 就是事件冒泡
+//但是 事件冒泡 有时会出本身的逻辑问题
+</script>
+</body>
+</html>

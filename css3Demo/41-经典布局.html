@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		html,body { /* 必须是 html,body都要height: 100%;才能显示页面 */
+			margin: 0;
+			height: 100%;
+		}
+		.container {
+			height: 100%; /* 有才能显示 */
+			display: flex;
+			flex-direction: column;
+		}
+		.header {
+			background-color: hotpink;
+			flex: 1; /* 占比 */
+		}
+		.main {
+			background-color: skyblue;
+			flex: 8; /* 占比 */
+			width: 80%;
+			align-self: center; /* 跟 居中margin: auto;一样效果 */
+
+			display: flex; /* 弹性的嵌套 */
+		}
+		.main .aside {
+			background-color: red;
+			flex: 2;
+		}
+		.main .article {
+			background-color: yellowgreen;
+			flex: 8;
+		}
+		.footer {
+			background-color: brown;
+			flex: 1; /* 占比 */
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="header"></div>
+		<!-- 弹性的嵌套 -->
+		<div class="main">
+			<div class="aside"></div>
+			<div class="article"></div>
+		</div>
+		<div class="footer"></div>
+	</div>
+</body>
+</html>

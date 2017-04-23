@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<!-- async属性 表示异步加载 引用的外部加载完后就执行 不管当前页面有没有加载完 -->
+	<!-- defer属性 表示延迟加载 当前页面加载完才执行 -->
+	<!-- <script src="common.js" async="async"></script> -->
+	<script src="common.js" defer="defer"></script>
+</head>
+<body>
+	<script>
+		alert(1);
+	</script>
+	<script>
+		alert(2);
+	</script>
+	<script>
+		alert(3);
+	</script>
+	<script>
+		alert(4);
+	</script>
+</body>
+</html>

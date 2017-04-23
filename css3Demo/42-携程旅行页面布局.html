@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+		/* header start */
+		.header a{
+			width: 100%;
+			/* display: block; */ /* 加不加都行，因为img加了 */
+		}
+		.header a img{
+			width: 100%;
+			display: block;
+		}
+		/* header end */
+		/* main start */
+
+		.section {
+			height: 100px;
+			display: flex;
+			margin-top: 10px;
+		}
+		.section .add {
+			flex: 1;
+			background-color: orange;
+		}
+		.section .list {
+			flex: 2;
+			background-color: orange;
+			margin-left: 5px;
+			display: flex; /* 弹性布局嵌套 */
+			flex-wrap: wrap;/* 换行 */
+		}
+		.section .list a {
+			width: 50%;
+			text-decoration: none;
+			color: white;
+			line-height: 50px;
+			text-align: center;
+			border-left: 1px solid white;
+			border-bottom: 1px solid white;
+			box-sizing: border-box; /* 改变盒模型 */
+		}
+
+		.section:last-child .list{
+			margin-left: 0px;
+		}
+		.section:last-child .list a{
+			width: 33.333333%;
+		}
+		/* main end */
+		/* footer start */
+		.footer {
+			display: flex;
+		}
+		.footer a {
+			flex: 1; /* 各占一半 */
+		}
+		.footer a img{
+			display: block;
+			width: 100%;
+		}
+		/* footer end */
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<!-- header 部分开始 -->
+
+		<div class="header">
+			<a href="##">
+				<img src="images/42/banner.jpg" alt="">
+			</a>
+		</div>
+		<!-- main 部分开始 -->
+		<div class="main">
+			<div class="section">
+				<div class="add"></div>
+				<div class="list">
+					<a href="##">住哪儿？</a>
+					<a href="##">住哪儿？</a>
+					<a href="##">住哪儿？</a>
+					<a href="##">住哪儿？</a>
+				</div>
+			</div>
+			<div class="section">
+				<div class="add"></div>
+				<div class="list">
+					<a href="##">住哪儿？</a>
+					<a href="##">住哪儿？</a>
+					<a href="##">住哪儿？</a>
+					<a href="##">住哪儿？</a>
+				</div>
+			</div>
+			<div class="section">
+				<div class="add"></div>
+				<div class="list">
+					<a href="##">住哪儿？</a>
+					<a href="##">住哪儿？</a>
+					<a href="##">住哪儿？</a>
+					<a href="##">住哪儿？</a>
+				</div>
+			</div>
+			<div class="section">		
+				<div class="list">
+					<a href="##">住哪儿？</a>
+					<a href="##">住哪儿？</a>
+					<a href="##">住哪儿？</a>
+					<a href="##">住哪儿？</a>
+					<a href="##">住哪儿？</a>
+					<a href="##">住哪儿？</a>
+				</div>
+			</div>
+		</div>
+		<!-- footer 部分开始 -->
+		<div class="footer">
+			<a href="##">
+				<img src="images/42/extra_01.jpg" alt="">
+			</a>
+			<a href="##">
+				<img src="images/42/extra_01.jpg" alt="">
+			</a>
+		</div>
+	</div>
+</body>
+</html>

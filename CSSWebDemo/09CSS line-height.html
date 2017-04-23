@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css 设置行高的几种方式</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		.demo {
+			background-color: silver;
+			height: 40px;
+			line-height: 40px;/* 使单行文本垂直居中 */
+
+		}
+		.wrap {
+			background-color: green;
+			font: 16px "黑体";
+		}
+		.wrap p {
+			background-color: red;
+
+			/* font: 20px/1.5em "微软雅黑"; */ /* 此时行高是30px=20*1.5 */
+			/* font: 20px/1.5 "微软雅黑"; */
+			font: 20px/150% "微软雅黑";
+			/* font: 20px/30px "微软雅黑"; */
+			
+			/*
+			*继承特性
+			*加上单位 父亲先计算 后继承给孩子 是以父亲为基准
+			*不加单位  先继承给孩子 孩子在自己计算 是以孩子自己的文字大小为基准
+			*/
+		}
+	</style>
+</head>
+<body>
+	<p class="demo">
+		设置行高的第一种方法
+	</p>
+
+	<div class="wrap">
+		<div>我是父div的文本内容</div>
+		<p>我是子段落标签</p>
+		<div>我是父div的文本内容</div>
+	</div>
+</body>
+</html>

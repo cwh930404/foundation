@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>定位之绝对定位-父级没有定位 -边偏移</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.father {
+			width: 400px;
+			height: 400px;
+			background-color: purple;
+			margin: 200px;
+		}
+		.father > div {
+			width: 100px;
+			height: 100px;
+			background-color: silver;
+		}
+		.father .son2 {
+			background-color: #ff0;
+			position: absolute;/* 只加绝对定位 */
+		}
+		.father .son3 {
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son1">1</div>
+		<div class="son2">2</div>
+		<div class="son3">3</div>
+	</div>
+</body>
+</html>

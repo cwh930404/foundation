@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+	/* 一个或两个 冒号都可以 ，但建议使用两个冒号 */
+		p::first-letter { 
+			font-size: 20px;
+			color: pink;
+			float: left; /* 首字母下沉 */
+		}
+		p::first-line {
+			color: skyblue;
+		}
+/* 注意， ::selection只能定义被选择时的background，color及text-shadow(IE11尚不支持定义该属性)。 */
+		p::selection {
+			background-color: red;
+		}
+   /* ::placeholder 设置占位符字体效果 兼容性相当的差 */
+		input::-webkit-input-placeholder {/* chrome写法 */
+			color: red;
+		}
+
+	</style>
+</head>
+<body>
+<p>
+	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero provident distinctio incidunt doloribus id porro itaque excepturi est molestias rem recusandae voluptate eum a, eligendi accusamus, laboriosam quas! Nam, cum!
+</p>
+<input type="text" placeholder="请输入文本">	
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		var re = Math.pow(2, 4);
+		console.log(re);  // 2 的 4 次幂
+
+		console.log( Math.round(6.6) );  // 7 四舍五入 取整方法
+
+		console.log( Math.ceil(6.6) );   //  7 向上取整 
+		console.log( Math.ceil(6.1) );   //  7 向上取整 
+
+		console.log( Math.floor(6.6) );   //  6 向下取整 
+		console.log( Math.floor(6.1) );   //  6 向下取整 
+
+		console.log( Math.abs(-5) );   //  5 去绝对值
+
+		console.log( Math.max(6, 7, 0, 111, -4) );   //  111 返回最大值 
+		console.log( Math.min(6, 7, 0, 111, -4) );   //  -4 返回最小值 
+
+		console.log( Math.random() );   //  生成 0 - 1 之间的随机数
+		console.log( Math.random() * 10 );   //  生成 0 - 10 之间的随机数
+		console.log( Math.round( Math.random() * 10 ) );   //  生成 0 - 10 之间的随机 整数
+
+		// 随机点名 小案例
+		var arr = ["赵云", "马超", "关羽", "张飞", "黄忠"];
+		var round = Math.round( Math.random() * (arr.length -1) );
+		console.log(arr[round]);
+
+		console.log( Math.PI );   // 圆周率 Math.PI * r * r 计算圆的面积
+		console.log( Math.E );   // 自然对数的 底数 e
+
+		console.log( Math.sqrt(4) );   // 4开平方根
+		console.log( Math.pow(8, 1/3) );   // 8开立方根
+
+		console.log( Math.sin(0) );   // 三角函数sin ,还有Math.cos()等三角函数
+
+		console.log( Math.log(10) );   // 10 的自然对数
+		console.log( Math.log(100) / Math.LN10 );   // 以 10为底 100的对数
+		console.log( Math.log(512) / Math.LN2 );   // 以 2为底 512的对数
+
+		console.log( Math.exp(3) );   // e 的三次幂
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

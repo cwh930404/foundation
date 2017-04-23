@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#dialog-link {
+			padding: .4em 1em .4em 20px;
+			text-decoration: none;
+			position: relative;
+		}
+		#dialog-link span.ui-icon {
+			margin: 0 5px 0 0;
+			position: absolute;
+			left: .2em;
+			top: 50%;
+			margin-top: -8px;
+		}
+	</style>
+	<link rel="stylesheet" href="jquery-ui-1.12.1.custom/jquery-ui.css">
+	<script src="jquery-1.12.2.js"></script>
+	<script src="jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+
+	<script>
+		$(function (){
+			$( "#dialog" ).dialog({
+				autoOpen: false,
+				width: 400,
+				buttons: [
+					{
+						text: "确认",
+						click: function() {
+							$( this ).dialog( "close" );
+							if( $('#userName').val() === 'admin' ){
+								alert('登录成功');
+							} else {
+								alert('账号错误');
+							}
+
+						}
+					},
+					{
+						text: "取消",
+						click: function() {
+							$( this ).dialog( "close" );
+						}
+					}
+				]
+			});
+
+			// Link to open the dialog
+			$( "#dialog-link" ).click(function( event ) {
+				$( "#dialog" ).dialog( "open" );
+				event.preventDefault();
+			});
+
+			// Hover states on the static widgets
+			$( "#dialog-link, #icons li" ).hover(
+				function() {
+					$( this ).addClass( "ui-state-hover" );
+				},
+				function() {
+					$( this ).removeClass( "ui-state-hover" );
+				}
+			);
+
+
+	});
+	</script>
+</head>
+<body>
+
+<h2 class="demoHeaders">请登录</h2>
+<p>
+	<button id="dialog-link" class="ui-button ui-corner-all ui-widget">
+		<span class="ui-icon ui-icon-newwin"></span>登录
+	</button>
+</p>
+
+<!-- ui-dialog -->
+<div id="dialog" title="欢迎登录">
+	<p>
+		账号：<input type="text" id="userName" value="admin"><br>
+		密码：<input type="text" id="userPwd">
+	</p>
+</div>
+	
+</body>
+</html>

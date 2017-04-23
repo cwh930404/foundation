@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文字阴影</title>
+	<style>
+		body {
+			background-color: #ccc;
+		}
+		h1 {
+			font-size: 200px;
+			font-weight: 900;
+
+			/* 为文字添加阴影 */
+			/* text-shadow: h-shadow v-shadow blur color; */
+			/*
+			* h-shadow	必需。水平阴影的位置。允许负值。
+			* v-shadow	必需。垂直阴影的位置。允许负值
+			* blur	可选。模糊的距离。默认为0px，影子的模糊会直接放大影子。
+			* color	可选。阴影的颜色。默认为黑色。
+			* 阴影的大小 默认和文字一样大
+			*  可以设置多个影子，用 逗号 分隔。
+			*/
+			text-shadow: 10px 10px 5px red,
+						-10px -10px 0px yellow;
+		}
+	</style>
+</head>
+<body>
+	<h1>感觉天气不错</h1>
+</body>
+</html>

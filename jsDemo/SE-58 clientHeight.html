@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		#demo {
+			width: 100px;
+			height: 100px;
+			margin: 10px;
+			border: 10px solid #000;
+			padding: 10px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+<div id="demo">很多内容很多内容很多内容很多内容很多内容很多内容很多内容很多内容很多内容很多内容很多内容很多内容</div>
+<script>
+	var demo = document.getElementById("demo");
+	
+	console.log(demo.offsetHeight);//width  +  padding  +  border
+	console.log(demo.scrollHeight);// width  +  padding  不包含border   内部内容的大小
+	console.log(demo.clientHeight);// width  +  padding  不包含border   用户可视区
+	// 获取的都是数值
+        
+        
+</script>	
+</body>
+</html>

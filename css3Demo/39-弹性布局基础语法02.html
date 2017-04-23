@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>设置主轴方向</title>
+	<style>
+		ul {
+			list-style: none;
+			padding: 0;
+			height: 400px;
+			border: 1px solid gray;
+
+			
+			display: flex; /* 开启弹性布局 */
+
+			/* 设置主轴方向为 y方向 (只是改变主轴方向)*/
+			flex-direction: column; /* 默认为row */
+
+			/* 设置元素 在主轴上的排布方式 */
+			justify-content: space-around;
+			/* 设置元素 在副轴上的排布方式 */
+			align-items: flex-end;
+			
+			
+		}
+		li {
+			width: 100px;
+			height: 100px;
+			border: 1px solid gray;
+			margin: 5px;
+			font-size: 50px;
+			text-align: center;
+			line-height: 100px;
+		}
+
+		/* 设置第二个元素居中 */
+		li:nth-child(2) {
+			align-self: center;
+		}
+		/* 设置第三个元素到最左边 */
+		li:nth-child(3) {
+			align-self: flex-start;
+		}
+		
+	</style>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+</body>
+</html>

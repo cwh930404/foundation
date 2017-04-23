@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery-1.12.2.js"></script>
+	<script>
+		$(function (){
+			// 鼠标经过li 当前li高亮显示(变为红色)，鼠标点击当前li时，该li字体变大，并改变颜色
+			$(function (){
+				$('#ul>li').mouseover(function (){
+					$(this).css('backgroundColor', 'red').siblings('li').css('backgroundColor', "");
+				}).click(function (){
+					$(this).css('fontSize', '50px').css('color', 'yellow');
+					// $(this).css('fontSize', '50px').css('color', 'yellow').siblings('li').css('fontSize', '').css('color', '');
+				});
+				// 事件和方法都应用链式编程
+
+				/*$('#ul>li').click(function (){
+
+				});*/
+			});
+		});
+	</script>
+</head>
+<body>
+<ul id="ul">
+	<li>第一个</li>
+	<li>第二个</li>
+	<li>第三个</li>
+	<li>第四个</li>
+	<li>第五个</li>
+</ul>	
+</body>
+</html>

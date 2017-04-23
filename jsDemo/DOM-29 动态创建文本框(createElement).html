@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>使用createElement动态创建文本框</title>
+</head>
+<body>
+<input type="button" id="btn" value="创建">	
+<div id="box"></div>
+
+<script>
+	//点击按钮 往box中动态创建文本框
+	var btn = document.getElementById("btn");
+	var box = document.getElementById("box");
+	btn.onclick = function (){
+		/*var input = document.createElement("input");
+		input.type = "text";
+		box.appendChild(input);*/
+		//这样一直点按钮页面会重复创建，下面做判断，如果页面有就不重复创建
+
+		
+		var input = document.getElementById("t");//先假装获取一下这个文本框
+		if(input){//如果存在，就不在创建了
+			return;
+		}
+		input = document.createElement("input");
+		input.id = "t"; //加id做标记
+		input.type = "text";
+		box.appendChild(input);
+
+	};
+
+</script>
+</body>
+</html>

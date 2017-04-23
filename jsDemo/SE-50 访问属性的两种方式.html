@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		#demo {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+<div id="demo" style="left: 100px;"></div>
+<script>
+// 打印对象的任意属性 到控制台
+	var demo = document.getElementById("demo");
+	console.log(demo.style.left); //100px
+// 第二种方法
+	logStyle("demo", "left"); //100px
+	function logStyle(id, attr){
+		var demo = document.getElementById(id);
+		console.log(demo.style[attr]);
+	}
+</script>	
+</body>
+</html>

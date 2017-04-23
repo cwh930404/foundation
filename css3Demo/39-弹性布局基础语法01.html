@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		ul {
+			list-style: none;
+			padding: 0;
+			height: 300px;
+			border: 1px solid gray;
+
+			/* 1. 在父盒子中 开启弹性布局 
+			*  弹性布局开启以后，分为两个轴排布
+			*  默认主轴 x方向
+			*  副轴 y方向
+			*/
+			display: flex;
+			/* 2. 设置元素 在主轴上的排布方式 
+			*	flex-start主轴开始位置 默认值
+			*	flex-end主轴末尾
+			*	center主轴中间(居中)
+			*	space-between 均匀分散，两边靠边
+			*	space-around 均匀分散，两边不靠边
+			*/
+			justify-content: space-around;
+			/* 3. 设置元素 在副轴上的排布方式 
+			*	flex-start副轴开始位置 默认值
+			*	flex-end副轴末尾
+			*	center副轴中间(居中)
+			*	space-between 均匀分散，两边靠边(用于多于一行，只有一行看不出效果)
+			*	space-around 均匀分散，两边不靠边(用于多于一行，只有一行看不出效果)
+			*/
+			align-items: flex-end;
+
+		}
+		li {
+			width: 100px;
+			height: 100px;
+			border: 1px solid gray;
+			margin: 5px;
+			font-size: 50px;
+			text-align: center;
+			line-height: 100px;
+		}
+		/* 设置第二个元素居中 */
+		li:nth-child(2) {
+			/* 4. 单独设置元素 在副轴上的对齐方式，会覆盖align-items */
+			align-self: center;
+		}
+		/* 设置第三个元素到顶部 */
+		li:nth-child(3) {
+			align-self: flex-start;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+</body>
+</html>

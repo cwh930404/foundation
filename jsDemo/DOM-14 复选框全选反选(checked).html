@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JS脚本实现复选框全选反选</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .wrap {
+            width: 300px;
+            margin: 100px auto 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            border: 1px solid #c0c0c0;
+            width: 300px;
+        }
+
+        th,
+        td {
+            border: 1px solid #d0d0d0;
+            color: #404060;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #09c;
+            font: bold 16px "微软雅黑";
+            color: #fff;
+        }
+
+        td {
+            font: 14px "微软雅黑";
+        }
+
+        tbody tr {
+            background-color: #f0f0f0;
+        }
+
+        tbody tr:hover {
+            cursor: pointer;
+            background-color: #fafafa;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <table>
+        <thead>
+        <tr>
+            <th>
+                <input type="checkbox" id="j_cbAll"/>
+            </th>
+            <th>菜名</th>
+            <th>饭店</th>
+        </tr>
+        </thead>
+        <tbody id="j_tb">
+        <tr>
+            <td>
+                <input type="checkbox"/>
+            </td>
+            <td>红烧肉</td>
+            <td>田老师</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox"/>
+            </td>
+            <td>西红柿鸡蛋</td>
+            <td>田老师</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox"/>
+            </td>
+            <td>红烧狮子头</td>
+            <td>田老师</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox"/>
+            </td>
+            <td>日式肥牛</td>
+            <td>田老师</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+
+<script>
+	//业务逻辑1：表格头部的复选框可以控制 下面四个复选框
+	//如果上面的选中了 下面的都选中；如果上面的不选中，下面的就都不选中
+	var all = document.getElementById("j_cbAll");
+	var tb = document.getElementById("j_tb");
+	var aCheckboxs = tb.getElementsByTagName("input");
+	//all.checked = true;//设置选中
+	all.onclick = function () {
+		for (var i = 0; i < aCheckboxs.length; i++){
+			aCheckboxs[i].checked = all.checked;
+		}
+	};
+	//业务逻辑2:下面的也可以控制上面的 每个复选框都要注册点击事件，点击之后判断。
+	//如果下面的都选中了 all也要被选中；如果下面的没有 都选中 all就不能被选中。
+	for (var i = 0; i < aCheckboxs.length; i++){
+		var checkbox = aCheckboxs[i]; // 可以简写成aCheckboxs[i].onclick = function (){};
+		checkbox.onclick = function (){
+			var isCheckAll = true;//先假设都选中了
+			
+			for (var i = 0; i < aCheckboxs.length; i++){//然后检查是不是每个都被选中了
+				if(aCheckboxs[i].checked !== true){//表示当前 这个没选中
+					isCheckAll = false;
+					break;
+				}
+			}
+			//所有的检查完之后
+			/*if (isCheckAll === true){
+				all.checked = true;
+			}
+			if (isCheckAll === false){
+				all.checked = false;
+			}*/
+			all.checked = isCheckAll;
+		};		
+	}
+</script>
+</html>  

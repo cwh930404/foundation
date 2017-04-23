@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>margin为负值的巧妙运用01</title>
+	<style>
+		div {
+			width: 240px;
+			height: 400px;
+			border: 1px solid #ccc;
+			float: left;
+			margin-left: -1px;
+		}
+		div:hover {/* ie6不支持 */
+			border: 1px solid #f40;
+			/* 定位的盒子层级要高于浮动 和 标准流的盒子；
+			*如果 点击的盒子 不飘起来到 最上层， 会出现盒子一边被压住的现象。
+			*/
+			position: relative;
+		}
+		/* 1.这是第一种情况：只有当鼠标经过时才给盒子添加相对定位
+		*2.如果盒子上要添加 例如淘宝的今日新品 这样一个绝对定位，由于子绝父相所以要给 原本的所有盒子添加相对定位（鼠标不经过时父盒子是相对定位）；这样父盒子原本就是相对定位，鼠标经过时再给父盒子添加相对定位会不起作用，就需要使用z-index来提高盒子的层级 来显示边框色。
+		*/
+	</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>

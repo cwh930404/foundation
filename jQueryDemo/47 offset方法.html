@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		div {
+			width: 200px;
+			height: 100px;
+			background-color: green;
+			position: absolute;
+			left: 100px;
+			top: 50px;
+		}
+	</style>
+	<script src="jquery-1.12.2.js"></script>
+	<script>
+		$(function (){
+			$('#btn').click(function (){
+				// 获取left 和 top的值(都是数字类型)
+				console.log( $('#dv').offset().left ); //$('#dv').offset()整体可看做一个对象
+				console.log( $('#dv').offset().top );
+				// 设置 left 和 top的值
+				$('#dv').offset( {'left': 200, 'top': 200} );
+			});
+		});
+	</script>
+</head>
+<body>
+<input type="button" value="按钮" id="btn">	
+<div id="dv"></div>
+</body>
+</html>

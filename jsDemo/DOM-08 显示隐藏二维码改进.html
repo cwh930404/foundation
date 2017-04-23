@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>改进-封装</title>
+    <style>
+        .nodeSmall {
+            width: 50px;
+            height: 50px;
+            background: url(images/DOM-08/bgs.png) no-repeat -159px -51px;
+            position: fixed;
+            right: 10px;
+            top: 40%;
+        }
+
+        .erweima {
+            position: absolute;
+            top: 0;
+            left: -150px;
+        }
+
+        .nodeSmall a {
+            display: block;
+            width: 50px;
+            height: 50px;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="nodeSmall" id="node_small">
+    <a href="#"></a>
+
+    <div class="erweima hidea hide" id="er">
+        <img src="images/DOM-08/456.png" alt=""/>
+    </div>
+</div>
+
+<script>
+    //鼠标经过父盒子 显示二维码 鼠标离开父盒子 隐藏二维码
+    var node = document.getElementById("node_small");
+    var er = document.getElementById("er");
+
+    node.onmouseover = function (){
+        
+        //er.className = er.className.replace("hide", "show");
+        replaceClassName(er, "hide", "show");
+    };
+    node.onmouseout = function (){
+       
+        //er.className = er.className.replace("show", "hide");
+        replaceClassName(er, "show", "hide");
+    };
+
+    //封装：可以对任意对象类名进行替换
+    /*function replaceClassName(ele, oldStr, newStr){
+        ele.className = ele.className.replace(oldStr, newStr);
+
+    }// 如果 有些类名中只是包含有oldStr而不是全等于oldStr，就会有bug. */
+    function replaceClassName(ele, oldStr, newStr){
+        var nameArr = ele.className.split(" ");
+        for (var i = 0; i < nameArr.length; i++){
+            if(nameArr[i] == oldStr){
+                nameArr[i] = newStr;
+            }
+        }
+        ele.className = nameArr.join(" ");
+    }
+
+
+    
+</script>
+</body>
+</html>                         

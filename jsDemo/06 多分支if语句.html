@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+	/*
+      1、年份能够被4整除，同时不能被100整除 的是闰年  
+
+      2、年份能被400整除的也是闰年
+
+      3、剩余的是平年*/
+
+    var year = prompt("请输入您要查询的年份");
+
+    if( year % 4 == 0 && year % 100 != 0){
+
+    	alert("这个年份是闰年");
+
+    } else if( year % 400 == 0 ){
+
+		alert("这个年份是闰年");
+		
+    } else {
+		alert("这个年份是平年");
+
+    }
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

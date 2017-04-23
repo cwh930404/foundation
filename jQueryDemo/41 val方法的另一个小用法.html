@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery-1.12.2.js"></script>
+	<script>
+		$(function (){
+			// 点击按钮 选中深圳一项
+			$('#btn').click(function (){
+				$('#sel').val(5);// val(4) 也可用于选中下拉列表的某一项
+			});
+		});
+	</script>
+</head>
+<body>
+<input type="button" value="按钮" id="btn">
+<select id="sel">
+	<option value="1">北京</option>
+	<option value="2">天津</option>
+	<option value="3">上海</option>
+	<option value="4">广州</option>
+	<option value="5">深圳</option>
+</select>	
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		body {
+			height: 3000px;
+		}
+	</style>
+</head>
+<body>
+	<script>
+	document.onclick = function (event){ 
+		var event = event || window.event; 
+		console.log('screen:'+ event.screenX + '--' +event.screenY);//鼠标在屏幕上的坐标
+		console.log('client:'+ event.clientX + '--' +event.clientY);//鼠标在窗口中的坐标
+		console.log('page:'+ event.pageX + '--' +event.pageY);// 鼠标在文档中的坐标
+	};
+	</script>
+</body>
+</html>

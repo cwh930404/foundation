@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		#father {
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+		}
+		#son {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+<div id="father">
+		<div id="son"></div>
+	</div>	
+
+<script>
+	var father = document.getElementById("father");	
+	var son = document.getElementById("son");
+	var arr = [son, father, document.body, document.documentElement, document, window];	
+
+	//事件阶段(事件流)分三个 1.捕获阶段(自上而下) 2.目标阶段 3.冒泡阶段
+	for (var i = 0; i < arr.length ;i++){
+		arr[i].onclick = function (event){
+			console.log(this);
+			console.log(event.eventPhase);
+		};//从子级到父级 自下而上 相当于冒泡的顺序
+
+		/*arr[i].addEventListener("click", function (event){
+			console.log(this);
+			console.log(event.eventPhase);
+		}, false);//不使用捕获 自下而上 相当于冒泡的顺序*/
+
+		/*arr[i].addEventListener("click", function (event){
+			console.log(this);
+			console.log(event.eventPhase);
+		}, true);//使用捕获 自上而下 顺序*/
+	}
+</script>
+</body>
+</html>

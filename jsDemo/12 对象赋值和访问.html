@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		var andy = new Object();
+
+		// 对象赋值：1.属性赋值 2.方法赋值
+		andy.age = 55;
+		 //另一种方法：andy["age"] = 55;这种方式虽然复杂一点，但是可以使用编程的方法灵活的改变属性字符串。
+		andy.height = 174;
+
+		andy.sing = function (){
+			alert("冰雨");
+		};
+
+		andy.movie = function (){
+			alert("无间道");
+		};
+
+		//console.log(andy);
+		console.log(andy.age); // 访问对象属性
+
+		andy.sing(); // 访问对象方法
+
+		//例2
+		var hero = new Object();
+		hero.name = "zs";
+		hero.level = 1;
+		hero.move = function (){
+			console.log("英雄在移动");
+		};
+		hero.attack = function (name){
+			console.log(this.name + "在打" + name);
+			//this.name和hero.name相同，当前的hero.attack对象就是hero所以用this更好
+		};
+
+		console.log(hero.name);
+		hero.move();
+		hero.attack("小坏兽");
+
+		//例3 学生对象(要有姓名 年龄 性别 分数 有同学 会打招呼)
+		var stu = new Object();
+		stu.name = "zs";
+		stu.age = 18;
+		stu.sex = 1;
+		stu.score = 90;
+		stu.sayHi = function (){
+			console.log("大家好,我是" + this.name);
+			//this指当前函数所属的对象
+		};
+		//stu.sayHi();
+		/*var stu1 = new Object();
+		stu1.name = "ls";
+		stu1.age = 20;
+		stu1.sex = 0;
+		stu1.score = 100;
+		stu1.sayHi = function (){
+			console.log("我今年" + this.age + "岁了");
+		};*/
+		//stu1.sayHi();
+		stu.classMate = stu1; 
+		//表示stu的同学是stu1：classMate属性保存了一个对象，属性可以保存任何类型的值。
+
+		//4.对象声明并赋值的另一种方式
+		/*var stu1 = {};*/ //对象字面量方式
+		var stu1 = {
+			name: "ls",
+			age: 20,
+			sex: 0,
+			score: 100,
+			sayHi: function (){
+				console.log("我今年" + this.age + "岁了");
+			}
+		};
+		// 属性名可加引号可不加，一般没什么区别，但是如果属性名中想要添加例如 - 就必须加引号（js命名只能是数字 下划线 字母 $）,否则会报错。
+		stu1.sayHi();
+		var stu1 = {
+			"name": "ls",
+			"age": 20,
+			"sex": 0,
+			"score": 100,
+			"say-Hi": function (){
+				console.log("我今年" + this.age + "岁了");
+			}
+		};
+		
+		// 5.使用for循环的第二种方式 遍历对象
+		var obj = {
+			name: "zs",
+			age: 18,
+			sex: 0
+		};
+		for (var k in obj){
+			// k 就是对象的键：属性
+			console.log(obj[k]);
+			//次数不能使用obj.k 因为.k表示obj对象中有一个叫作 k 的属性
+		}
+
+
+		console.log("-------this用法-------")
+		// 附加： this的几种用法
+		/* 1.this用在全局上下文中 (在所有函数外面)，此时this指的是全局对象window */
+		//console.log(this); //window
+		/* 2.this用在函数上下文中 (在某个函数内部)，此时this指的是当前方法所属的对象 */
+		/*var obj = {
+			fn: function (){
+				console.log(this);
+			}
+		};
+		obj.fn();*/
+		/* 3.this用在构造函数中。当一个函数被作为构造函数使用时(前面加new关键字，new关键字会让this的指向改变，并让this成为当前函数的返回值) */
+		function Student(name, age, sex, score){
+			this.name = name;
+			this.age = age;
+			this.sex = sex;
+			this.score = score;
+			this.sayHi = function (){
+				console.log("大家好");
+			};
+		}
+	var s3 = new Student("wu", 20, 0, 100);//new关键字会让this的指向改变，并让this成为当前函数的返回值
+	console.log(s3); // Student {name: "wu", age: 20, sex: 0, score: 100}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

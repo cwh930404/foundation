@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ie6中奇数宽高引起的bug</title>
+	<style>
+		.father {
+			width: 301px;/* 父盒子奇数宽  引起问题*/
+			height: 300px;
+			border: 1px solid red;
+			position: relative;
+		}
+		.son {
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son"></div>
+	</div>
+</body>
+</html>

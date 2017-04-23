@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div {
+			width: 200px;
+			height: 100px;
+			background-color: green;
+		}
+	</style>
+	<script src="jquery-1.12.2.js"></script>
+	<script>
+		$(function (){
+			// 为div和p都绑定点击事件
+			$('#dv>p').click(function (){
+				alert('p被点击了');
+			});
+			/*$('#dv').delegate('p', 'click', function (){
+				alert('p被点击了');
+			});*/
+			$('#dv').click(function (){
+				alert('div被点击了');
+			});
+			// 上面的p 会出现冒泡
+
+			$('#btn1').click(function (){
+				// $('#dv').off('click'); // 一个参数
+				// $('#dv').off('click', '**');// 两个参数
+				$('#dv').off(); // 无参数
+
+			});
+			// 1.如果父级和子级元素都是通过最普通的方式注册的事件，然后父级调用了off('click')解绑方法，那么解除了div的事件，没有解除子级的事件
+			// 2.如果子级元素是父级通过调用delegate方法给子级绑定的事件，然后父级调用了off('click')解绑方法，那么 解除了div的事件，同时也解除了子级的事件
+			// 3.如果子级元素是父级通过调用delegate方法给子级绑定的事件，然后父级调用了off('click', '**')解绑方法,那么解除了p的事件，没有解除父级div的事件
+			// 4.如果子级元素是父级通过调用delegate方法给子级绑定的事件，然后父级调用了off()无参解绑方法,那么p和父级div的事件都解绑了(解绑某个元素和其子级的所有事件)。
+			// 5.如果父级和子级元素都是通过最普通的方式注册的事件，然后父级调用了off()无参解绑方法,那么解除了div的事件，没有解除子级p的事件。
+		});
+	</script>
+</head>
+<body>
+<input type="button" value="解绑事件" id="btn1">
+<div id="dv">
+	<p>这是div中的p标签</p>
+</div>	
+</body>
+</html>

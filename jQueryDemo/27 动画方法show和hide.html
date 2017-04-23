@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		div {
+			width: 200px;
+			height: 100px;
+			background-color: green;
+		}
+	</style>
+	<script src="jquery-1.12.2.js"></script>
+	<script>
+		$(function (){
+			$('#btnHide').click(function (){
+				// hide() 方法
+				// 第一个参数类型： 1.数字 2.字符串
+				// 1.数字 1000表示1000毫秒
+				// 2.字符串："slow" "normal" "fast"
+				// 第二个参数是一个匿名函数(动画完成之后执行)
+				// $('#dv').hide();
+				$('#dv').hide('slow', function(){
+					console.log('隐藏结束');
+				});
+			});
+			$('#btnShow').click(function (){
+				$('#dv').show('normal');			
+			});
+		});
+	</script>
+</head>
+<body>
+<input type="button" value="隐藏" id="btnHide">	
+<input type="button" value="显示" id="btnShow">	
+<div id="dv"></div>
+</body>
+</html>

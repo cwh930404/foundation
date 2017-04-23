@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .wrap {
+            width: 330px;
+            height: 30px;
+            margin: 100px auto 0;
+            padding-left: 10px;
+            background-image: url(images/11/bg.jpg);
+        }
+
+        .wrap li{
+            background-image: url(images/11/libg.jpg);
+        }
+
+        .wrap > ul > li {
+            float: left;
+            margin-right: 10px;
+            position: relative;
+        }
+
+        .wrap a {
+            display: block;
+            height: 30px;
+            width: 100px;
+            text-decoration: none;
+            color: #000;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .wrap li ul {
+            position: absolute;
+            top: 30px;
+            display: none;
+        }
+
+    </style>
+    <script src="jquery-1.12.2.js"></script>
+    <script>
+        $(function (){
+            // 获取div里面ul里的所有li 当鼠标经过时显示该对象下面的列表 鼠标离开隐藏
+            $('.wrap>ul>li').mouseover(function (){
+                // .children() 获取对象里的所有子元素
+                // .children('ul') 获取对象里的所有ul标签子元素
+                // .show() 显示元素 
+                // .show(500) 在500ms时间里 缓缓显示元素  
+                $(this).children('ul').stop().show(500);// 显示
+                // stop()方法不能放在show()后面，如果放在后面元素会刚要显示就停止了
+            });
+            $('.wrap>ul>li').mouseout(function (){
+                $(this).children('ul').stop().hide(500);// 隐藏
+                
+            });
+
+            // 问题：mouseover和mouseout有冒泡现象会影响效果
+            // 解决方法1：换为mouseenter和 mouseleave
+            // 解决方法2：使用停止动画方法stop()
+        });
+    </script>
+</head>
+<body>
+<div class="wrap">
+    <ul>
+        <li>
+            <a href="javascript:void(0);">帅哥系列</a>
+            <ul>
+                <li><a href="javascript:void(0);">乔峰</a></li>
+                <li><a href="javascript:void(0);">张无忌</a></li>
+                <li><a href="javascript:void(0);">郭靖</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:void(0);">美女系列</a>
+            <ul>
+                <li><a href="javascript:void(0);">柳 岩</a></li>
+                <li><a href="javascript:void(0);">杨 幂</a></li>
+                <li><a href="javascript:void(0);">萝 拉</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:void(0);">渣男妇腐女</a>
+            <ul>
+                <li><a href="javascript:void(0);">凤姐</a></li>
+                <li><a href="javascript:void(0);">助教</a></li>
+                <li><a href="javascript:void(0);">导师</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

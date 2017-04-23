@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义属性详情</title>
+</head>
+<body>
+<!-- 标签的自定义属性a -->
+	<div id="box" a="1"></div>
+</body>
+
+<script>
+// 标签中属性 和 在js中获取对应的对象属性的关系
+var box = document.getElementById("box");
+/*
+console.log(box.id); //标准中规定的属性，标签中的属性会映射到对象对应属性。
+console.log(box.a); //标准中没有规定的属性，标签中的属性无法映射到对象上。
+
+box.className = "aaa"; //标准中规定的属性，对象对属性的设置会映射到标签对应属性上。
+box.bb = "22"; //标准中没有规定的属性，对象对自定义属性的设置不会映射到标签上。
+*/
+
+//专门用来操作 标签自定义属性的方法
+//1.获取
+console.log(box.getAttribute("a")); //可以获取标准中没有规定的属性，也可以获取标准规定了的属性,任何标签的属性都可以获取。
+console.log(box.getAttribute("id"));
+
+//2.设置
+box.setAttribute("bb", "22");//可以设置标准中没有规定的属性，也可以设置标准规定了的属性,任何标签的属性都可以获取。
+box.setAttribute("class", "cls");
+
+//3.移除
+// box.removeAttribute("bb");
+// box.removeAttribute("class");
+</script>
+</html>

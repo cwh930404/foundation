@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div {
+			width: 100px;
+			height: 100px;
+			border: 1px solid gray;
+			background-color: skyblue;
+		}
+		/*动画使用
+		* 1. 用@keyframes关键字定义一个动画
+		* 2. 为元素添加 定义好的动画名字 及动画属性
+		*/
+		@keyframes toright {
+			/* 不使用from to 的方式，用分段的方式精确定义 */
+			0% {  /* 默认为起始 */
+
+			}
+			50% {
+				transform: translateX(1000px);
+			}
+			100% {
+				transform: translateX(0); /* 回到起始 */
+			}
+		}
+		.animation {
+		
+			animation: toright 2s 1s linear 5;
+		}
+
+
+
+
+	</style>
+</head>
+<body>
+	<div class="animation"></div>
+</body>
+</html>

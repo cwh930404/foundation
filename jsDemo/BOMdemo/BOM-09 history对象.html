@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<a href="BOM-10 history对象2.html">跳转</a>
+	<button id="btn">前进</button>
+
+	<script>
+	//window.history 历史记录 实现页面上边的 前进后退的箭头的功能
+		document.getElementById("btn").onclick = function () {
+			history.forward(); //前进
+			//history.go(1) 和 history.forward();是一样的
+		};
+	</script>
+</body>
+</html>

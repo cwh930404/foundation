@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.pictureBox {
+			/* 根据图片计算好的宽高 */
+			width: 623px;
+			height: 417px;
+			margin: 100px auto;
+
+			/* 设置多重背景图片,组成一个相框 */
+			/* 最后一张图片dog.gif 大小不合适，要在 下面复合写法中 设置图片大小，用/分隔即可 */
+			/* 不过一般美工会切好尺寸 */
+			background: url(images/bg1.png) no-repeat top left,
+			url(images/bg2.png) no-repeat top right,
+			url(images/bg3.png) no-repeat bottom right,
+			url(images/bg4.png) no-repeat bottom left,
+			url(images/dog.gif) no-repeat 115px 70px / 360px 270px;
+
+
+		}
+	</style>
+</head>
+<body>
+	<div class="pictureBox"></div>
+</body>
+</html>

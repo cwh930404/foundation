@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		body {
+			height: 3000px;
+		}
+	</style>
+</head>
+<body>
+	<script>
+	document.onclick = function (event){ 
+		var event = event || window.event; 
+		//console.log('page:'+ event.pageX + '--' +event.pageY);
+		// ie 678 不支持event.pageX 可以通过event.clientX 解决
+		var pageX = event.pageX || event.clientX + document.documentElement.scrollLeft;
+		var pageY = event.pageY || event.clientY + document.documentElement.scrollTop;
+	};
+	</script>
+</body>
+</html>

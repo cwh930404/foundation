@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery-1.12.2.js"></script>
+	<script>
+		/*var xy = $.noConflict();//让jQuery对$对象释放控制权，从此以后xy就是曾经的$
+		var $ = 100;// $原本是对象--->变量
+		xy(function (){
+			xy('#btn').click(function (){
+				alert('哈哈');
+			});
+		});*/
+
+		var $ = 100;// $原本是对象--->变量
+		jQuery(function (){
+			jQuery('#btn').click(function (){
+				alert('哈哈');
+			});
+		});
+
+		// 多库共存问题：以后可能会引入多个jQuery文件，可能在某个别人写的文件中会把$当做一个变量或函数定义过，这样$就失去了原来的意义，这个时候就可以通过var xy = $.noConflict();这种方法释放控制权
+
+	</script>
+</head>
+<body>
+<input type="button" value="显示效果" id="btn">	
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>开灯关灯</title>
+</head>
+<body>
+<input type="button" id="btn" value="关灯">	
+
+<script>
+	var isOpen = true; //加一个标记，为true表示开灯
+	//点击按钮 实现开灯关灯的切换
+	var btn = document.getElementById("btn");
+	//console.log(document.body);
+	btn.onclick = function (){
+		//style属性是个对象 该对象里的属性是常见的css属性(对应的是行内的样式属性)只是名字不同
+		//style控制的是行内属性样式
+		if(isOpen){//说明灯是开着的
+			document.body.style.backgroundColor = "black";
+			this.value = "开灯";
+			//isOpen = false; //不用每次给isOpen赋值，只要给它取个反就可以了
+		} else {
+			//要开灯
+			document.body.style.backgroundColor = "";
+			this.value = "关灯";
+			//isOpen = true;
+		}
+		isOpen = !isOpen;
+		
+	};
+</script>
+</body>
+</html>

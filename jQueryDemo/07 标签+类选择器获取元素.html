@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>通过标签+类选择器获取元素</title>
+	<style>
+		.cls {
+			background-color: pink;
+		}
+	</style>
+	<script src="jquery-1.12.2.js"></script>
+	<script>
+		// 点击按钮，设置页面上应用了cls类样式的li标签的背景颜色
+		$(function (){
+			$('#btn').click(function (){
+				// 获取应用了cls类样式的li标签
+				$('li.cls').css('backgroundColor','red');
+			});
+		});
+	</script>
+</head>
+<body>
+<input type="button" value="设置样式" id="btn">
+<ul>
+	<li>列表1</li>
+	<li class="cls">列表2</li>
+	<li>列表3</li>
+	<li>列表4</li>
+	<li>列表5</li>
+	<li class="cls">列表6</li>
+</ul>
+</body>
+</html>

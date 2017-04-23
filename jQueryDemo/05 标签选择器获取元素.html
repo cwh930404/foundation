@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>通过标签选择器获取元素</title>
+	<script src="jquery-1.12.2.js"></script>
+	<script>
+		// 点击按钮 设置多个p标签的内容为：我们都是p
+		$(function (){
+			$('#btn').click(function (){
+				// 获取所有的 p
+				$('p').text('我们都是p');
+			});
+		});
+	</script>
+</head>
+<body>
+<input type="button" value="设置内容" id="btn">
+<p>段落一</p>	
+<p>段落二</p>	
+<p>段落三</p>	
+<p>段落四</p>	
+<p>段落五</p>	
+</body>
+</html>

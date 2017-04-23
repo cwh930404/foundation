@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<input type="text" id="inp">
+
+<script>
+	var inp = document.getElementById("inp");
+	//onkeydown 键盘按下  只要一直按着键盘不松就一直执行
+	inp.onkeydown = function (event){
+		console.log('onkeydown');
+		console.log(event.keyCode);// a 65
+	};
+	//onkeyup 键盘弹起 每弹起瞬间执行一次
+	inp.onkeyup = function (event){
+		console.log('onkeyup');
+		console.log(event.keyCode);// a 65
+
+	};
+	//onkeypress 键盘按压 onkeypress=onkeydown
+	//有的也说onkeypress=onkeydown + onkeyup
+	//但是 他们 最本质 的区别在于编码
+	//onkeypress ASCII onkeydown  onkeyup 用的键盘码
+	inp.onkeypress = function (event){
+		console.log('onkeypress');
+		console.log(event.keyCode); // a 97
+	};
+</script>	
+</body>
+</html>

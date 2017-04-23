@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>点击发送验证码倒计时</title>
+</head>
+<body>
+<input type="text" value="请输入短信验证码">
+<input type="button" value="点击发送验证码" id="btn">
+
+<script>
+ // 业务：点击按钮后，按钮不可点/按钮中文字显示倒计时，倒计时后又恢复可点击状态
+ var btn = document.getElementById("btn");
+ btn.onclick = function (){
+ 	//btn.disabled = true; 
+ 	this.disabled = true;
+ 	var num = 5; //记录时间
+ 	var timer = null;
+ 	timer = setInterval(function (){
+ 		num--;
+ 		// 此处btn不能用this代替，因为在定时器中回调函数中的this是指window.
+ 		btn.value = num + "秒后可再次发送";
+ 		if (num === 0){
+ 			clearInterval(timer);
+ 			btn.disabled = false;
+ 			btn.value = "点击发送验证码";
+ 		}
+ 	}, 1000);
+
+ };
+</script>	
+</body>
+</html>

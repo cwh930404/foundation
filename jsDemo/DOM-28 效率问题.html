@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态创建页面结构-效率问题(解决方法1)</title>
+</head>
+<body>
+<input type="button" id="btn" value="按钮">
+<div id="box">
+	<ul>
+		<li>原有</li>
+	</ul>
+</div>
+
+<script>
+//点击按钮 动态创建页面结构
+	var btn = document.getElementById("btn");
+	var box = document.getElementById("box");
+
+	btn.onclick = function (){
+		var start = +new Date();
+
+		var arr = [];
+		for(var i = 0;i < 1000; i++){
+			//box.innerHTML += "<ul><li>111</li></ul>"; 
+			//1. 拼接字符串 2. 把字符串变成DOM对象 3. 把DOM对象挂在DOM树上 4. 渲染到页面
+			//这一句要做四件事情 解决办法就是：在for循环中只做字符串拼接,其他事情放在外面做
+
+			arr.push("<ul><li>111</li></ul>");
+		}
+		box.innerHTML += arr.join("");
+
+		var end = +new Date();
+		console.log(end - start);
+	};
+
+	//所有以后做大量的 创建页面结构，就使用这种方法提高效率
+	//另外，还有一种解决的办法 使用createElement
+
+</script>	
+</body>
+</html>

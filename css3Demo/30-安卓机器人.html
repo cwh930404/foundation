@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body {
+			background-color: skyblue;
+		}
+		.robot {
+			border: 1px solid gray;
+			margin: 50px auto;
+			width: 400px;
+			height: 400px;
+		}
+		.robot>div {
+			background-color: yellowgreen;
+		}
+		/* head begin */
+		.head {
+			width: 230px;
+			height: 105px;
+			margin: 0 auto;
+			border-top-left-radius: 100px;
+			border-top-right-radius: 100px;
+			position: relative;
+		}
+		/* 头部眼睛 用伪元素做 */
+		.head::before,
+		.head::after {
+			content: "";
+			position: absolute;
+			width: 25px;
+			height: 25px;
+			background-color: orange;
+			border-radius: 50%;
+		}
+		.head::before {
+			top: 40px;
+			left: 50px;
+		}
+		.head::after {
+			top: 40px;
+			right: 50px;
+		}
+		/* head end */
+		/* line start */
+		.line {
+			position: relative;
+			width: 230px;
+			margin: 0 auto;
+		}
+		/* 两个触须 也用伪元素做 */
+		.line::before,
+		.line::after {
+			content: "";
+			position: absolute;
+			width: 4px;
+			height: 40px;
+			background-color: yellowgreen;
+			border-radius: 2px;
+
+		}
+		.line::before {
+			top: -20px;
+			left: 50px;
+			transform-origin: bottom right;
+			transform: rotate(-30deg);
+
+		}
+		.line::after {
+			top: -20px;
+			right: 50px;
+			transform-origin: bottom left;
+			transform: rotate(30deg);
+
+		}
+		/* line end */
+		/* body start */
+		.body {
+			width: 230px;
+			height: 170px;
+			background-color: yellowgreen;
+			margin: 10px auto 0px;
+			border-radius: 0 0 20px 20px;
+			position: relative;
+		}
+		/* 两个手 用伪元素做 */
+		.body::before,
+		.body::after {
+			content: "";
+			position: absolute;
+			width: 40px;
+			height: 170px;
+			background-color: yellowgreen;
+			border-radius: 20px;
+			transform-origin: top;/*  旋转参照点 */
+		}
+		.body::before{
+			top: 0px;
+			left: -60px;
+			
+		}
+		.body::after{
+			top: 0px;
+			right: -60px;
+		}
+		/* body end */
+		/* foot start */
+		.foot {
+			margin: -20px auto;
+			width: 230px;
+			position: relative;
+		}
+		/* 两个脚 用伪元素做 */
+
+		.foot::before,
+		.foot::after {
+			content: "";
+			position: absolute;
+			width: 40px;
+			height: 100px;
+			background-color: yellowgreen;
+			border-radius: 20px;
+		}
+		.foot::before{
+			left: 40px;
+		}
+		.foot::after{
+			right: 40px;
+		}
+		/* foot end */
+
+/* 添加鼠标悬停 效果 */
+/*  * 通配符匹配不到 伪元素 */
+		*, ::before, ::after {
+			transition: all 1s;
+		}
+		/* 眼睛变化 */
+		.robot:hover .head::before {
+			background-color: hotpink;
+		}
+		.robot:hover .head::after {
+			background-color: hotpink;
+		}
+		/* 触须变化 */
+		.robot:hover .line::before {
+			transform: rotate(-45deg);
+		}
+		.robot:hover .line::after {
+			transform: rotate(45deg);
+		}
+		/* 手变化 */
+		.robot:hover .body::before {
+			/* transform-origin: top right; */
+			/* transform-origin: top; */
+			/* 旋转参照点放在 上面一起设置最合适，如果放在这分别设置，首先不能设置成top right，而只是top;然后就算在这设置成top 手会出现往外跑的缺憾 */
+			transform: rotate(15deg);
+		}
+		.robot:hover .body::after {
+			/* transform-origin: top left; */
+			/* transform-origin: top; */
+			transform: rotate(-15deg);
+		}
+		/* 腿变化 */
+		.robot:hover .foot::before {
+			/* height: 150px;  *//* 可以高度变高 呈现腿部变化，也可以使用缩放，但缩放时图形会变形 */
+			transform: scaleY(1.5);/* y方向缩放为原来的1.5倍 */
+		}
+		.robot:hover .foot::after {
+			/* height: 150px; */
+			transform: scaleY(1.5);
+		}
+
+
+	</style>
+</head>
+<body>
+	<div class="robot">
+	<!-- 触须 -->
+		<div class="line"></div>
+		<!-- 头部 -->
+		<div class="head"></div>
+		<!-- 身体 -->
+		<div class="body"></div>
+		<!-- 脚 -->
+		<div class="foot"></div>
+		<!-- 其他的 眼睛 手 脚 触须使用伪元素的方式创建，这样可以减少页面的标签数量 -->
+	</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>设置图片背景大小background-size</title>
+	<style>
+		.box {
+			/* width: 424px;
+			height: 291px; */
+			/* 此时 盒子大小和图片大小一样 能很好展现 ，如果盒子和图片大小不一样就不能很好展现，这时就可以使用background-size设置图片的大小*/
+			width: 500px;
+			height: 500px;
+			border: 1px solid gray;
+			background-repeat: no-repeat;
+			background-image: url(images/gyt.jpg);
+
+			/* background-size 用于设置图片大小 可以是直接的宽高值300px 100px(当设置多个背景图片大小时，用逗号隔开)，也可以是contain|cover即图片自由缩放的效果*/
+			/* background-size: 300px 100px; */
+			/* contain使图片两边等比例拉伸，直到某一边顶格，停止拉伸 */
+			/* background-size: contain; */
+			/* cover 使图片两边等比例拉伸，直到两边都顶格，停止拉伸，这样图片会只显示一部分 */
+			background-size: cover;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>

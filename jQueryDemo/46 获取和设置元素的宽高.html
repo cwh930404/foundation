@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div {
+			width: 200px;
+			height: 100px;
+			background-color: green;
+		}
+	</style>
+	<script src="jquery-1.12.2.js"></script>
+	<script>
+		$(function (){
+			// 点击按钮 ，获取div的宽高，并重新设置div的宽高为原来的2倍。
+			$('#btn').click(function (){
+				// 1. 通过css()方法获取和设置
+				// console.log( $('#dv').css('width') ); // 200px 带px的字符串
+				/*var width = parseInt( $('#dv').css('width') ) * 2;
+				var height = parseInt( $('#dv').css('height') ) * 2;
+				$('#dv').css('width', width + 'px');
+				$('#dv').css('height', height + 'px');*/
+
+
+
+				// 2. 通过width()和height()方法获取和设置
+				//  width()和height()设置元素宽高时，参数可以是数字也可以是字符串
+				// console.log( $('#dv').width() ); // 200 数字
+				var width = $('#dv').width() * 2;
+				var height = $('#dv').height() * 2;
+				$('#dv').width( width );
+				$('#dv').height( height );
+				/*$('#dv').width( width + 'px' );
+				$('#dv').height( height + 'px' );*/
+
+
+				// css()方法可以获取元素的 宽高 但没有width()和height()简单
+			});
+		});
+	</script>
+</head>
+<body>
+<input type="button" value="按钮" id="btn">
+<div id="dv"></div>	
+</body>
+</html>

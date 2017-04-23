@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<script>
+// 当页面宽度 大于 960 像素的时候 页面是红色并显示computer
+// 当页面宽度 大于 640 小于960 像素的时候 页面是绿色并显示tablet
+// 剩下的情况为黄色 并显示mobile
+	window.onresize = function (){
+		
+		responsive();
+	};
+	responsive(); // 页面刚加载也要显示
+
+
+	function responsive(){
+		if(client().width > 960){//说明是电脑 针对电脑布局
+			document.body.style.backgroundColor = "red";
+			document.body.innerHTML = "computer";
+		} else if (client().width > 640){//说明是平板 针对平板布局
+			document.body.style.backgroundColor = "green";
+			document.body.innerHTML = "tablet";
+		} else { //剩下的是手机
+			document.body.style.backgroundColor = "yellow";
+			document.body.innerHTML = "mobile";
+		}
+	}
+	// 能够获取网页可视区的宽度和高度
+	function client(){
+		return {
+			width: window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth|| 0,
+			height: window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight|| 0
+		};
+	}
+</script>
+</body>
+</html>

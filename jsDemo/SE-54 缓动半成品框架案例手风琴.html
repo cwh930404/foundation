@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        ul {
+            list-style: none
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 1150px;
+            height: 400px;
+            margin: 50px auto;
+            border: 1px solid red;
+            overflow: hidden;
+        }
+
+        div li {
+            width: 240px;
+            height: 400px;
+            float: left;
+        }
+
+        div ul {
+            width: 1300px;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</body>
+<script>
+    //动态添加图片 刚开始图片的宽都是240，鼠标经过某个li图片变宽800，其他图片变窄100(排他思想),变得过程还要是动画效果
+    var box = document.getElementById("box");
+    var ul = box.children[0];
+    var lis = ul.children;
+    for(var i = 0; i < lis.length; i++){
+        lis[i].style.backgroundImage = "url(images/SE-54/"+ (i+1) +".jpg)";
+        lis[i].onmouseover = function (){
+            for(var j = 0; j < lis.length; j++){
+                animate(lis[j],{"width": 100});
+            }
+            animate(this,{"width": 800})
+        };
+    }
+    box.onmouseout = function (){
+        for(var j = 0; j < lis.length; j++){
+                animate(lis[j],{"width": 240});
+            }
+    };
+
+function animate(obj, json) {
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+            var flag = true;// 假设所有属性都到了目标值
+            for(var k in json){ // {k:json[k]}
+
+                var leader = parseInt(getStyle(obj, k)) || 0;
+                var target = json[k];
+                var step = (target - leader) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                leader = leader + step;
+                obj.style[k] = leader + "px";
+                //console.log("代码还在运行")
+                //if (leader === target) { //如果有一个到了目标值，定时器就被清了
+                if (leader !== target) { 
+                    flag = false;//当前这个属性没有达到目标值，假设错了赋值为false
+                    
+                }
+            }
+            if(flag){//全部遍历之后，如果为true说明所有属性都到目标了
+
+                clearInterval(obj.timer);
+            }
+
+        }, 15);
+    }
+
+    function getStyle(obj, attr) {
+        if (window.getComputedStyle) {
+            return window.getComputedStyle(obj, null)[attr];
+        } else {
+            return obj.currentStyle[attr];
+        }
+    }
+</script>
+</html>

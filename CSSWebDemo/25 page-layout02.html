@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>两列左窄右宽型</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		.top, .banner, .footer {
+			width: 960px;
+			margin: 0 auto;
+			background-color: #eee;
+			border: 1px dashed #aaa;
+			margin-bottom: 10px;
+		}
+		.top {
+			height: 80px;
+
+		}
+		.banner {
+			height: 40px;
+		}
+		.main {
+			height: 500px;
+			width: 962px;
+			margin: 0 auto;
+			
+			
+			margin-bottom: 10px;
+
+
+		}
+		.main .left {
+			height: 498px;
+			width: 249px;/* width: 259px; */
+			background-color: pink;
+			border: 1px dashed #aaa;
+			float: left;
+		}
+		.main .right {
+			height: 498px;
+			width: 699px;
+			background-color: purple;
+			border: 1px dashed #aaa;
+			float: right;
+		}
+
+		.footer {
+			height: 120px;
+		}
+	</style>
+</head>
+<body>
+	<div class="top">头部</div>
+	<div class="banner">广告条</div>
+	<div class="main">
+		<div class="left">左侧</div>
+		<div class="right">右侧</div>
+	</div>
+	<div class="footer">底部</div>
+</body>
+</html>

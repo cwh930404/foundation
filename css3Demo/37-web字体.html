@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	/* 第一步：使用font-face声明字体  (url路径可以修改)*/
+		@font-face {font-family: 'webfont';
+		    src: url('37-webfont/webfont.eot'); /* IE9*/
+		    src: url('37-webfont/webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+		    url('37-webfont/webfont.woff') format('woff'), /* chrome、firefox */
+		    url('37-webfont/webfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+		    url('37-webfont/webfont.svg#webfont') format('svg'); /* iOS 4.1- */
+		}
+
+		/* 第二步：定义使用webfont的样式 */
+		.web-font{
+		    font-family:"webfont" !important;
+		    font-size:16px;font-style:normal;
+		    -webkit-font-smoothing: antialiased;
+		    -webkit-text-stroke-width: 0.2px;
+		    -moz-osx-font-smoothing: grayscale;
+		}
+		/* 可以自己改变字体 */
+		i.web-font {
+			font-size: 50px;
+		}
+
+	</style>
+</head>
+<body>
+	<!-- 第三步：为文字加上对应的样式 （可以换成p标签或其它，但是如果添加其它文字应用不上这种字体）-->
+	<i class="web-font">还没来得及去沾花惹草，就被人拔光了。没来得及怎么办</i>
+</body>
+</html>

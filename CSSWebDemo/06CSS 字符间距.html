@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS 字符间距 letter-spacing/word-spacing</title>
+	<style>
+		.letter-spacingdemo {
+			letter-spacing: 10px;
+			/* 控制字符的间距 */
+		}
+
+		.word-spacingdemo {
+			word-spacing: 20px;
+			/* 控制英文单词的间距，对中文字符间距没影响 ；如果汉字之间有空格的话，会在空格处设置间距为20px*/
+		}
+	</style>
+</head>
+<body>
+	<p class="letter-spacingdemo">
+		百度：http://www.baidu.com
+	</p>
+	<p class="word-spacingdemo">
+		百 度：http://www.baidu.com
+		I am a teacher.
+	</p>
+	<p>
+		百度：http://www.baidu.com
+		I am a teacher.无样式字体
+	</p>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件触发的三种方式</title>
+	<script src="jquery-1.12.2.js"></script>
+	<script>
+		$(function (){
+			// 触发事件：在一个元素的注册事件里触发另一个元素的注册事件
+			$('#btn1').click(function (){
+				$(this).css('backgroundColor', 'red');
+			});
+			// 点击第二个按钮 触发第一个按钮的点击事件
+			// 触发事件有三种方式
+			$('#btn2').click(function (){
+				// 方式1
+				// $('#btn1').click();
+				// 方式2: 对象.trigger('事件名'); 
+				// $('#btn1').trigger('click');
+
+				// 方式3: 对象.triggerHandler('事件名'); 
+				$('#btn1').triggerHandler('click');
+			});
+
+		});
+	</script>
+</head>
+<body>
+<input type="button" value="第一个按钮" id="btn1">	
+<input type="button" value="第二个按钮" id="btn2">	
+</body>
+</html>

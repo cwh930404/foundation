@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS伪类 case</title>
+	<style>
+	a:link {
+		color: red;
+	}
+	a:visited {
+		color: purple;
+	}
+	a:hover {
+		background-color: silver;
+		color: white;
+	}
+	a:active {
+		color: yellow;
+	}
+	.txtName:focus {
+		background-color: red;
+	}
+	a:focus {
+		font-size: 20px;
+	}
+	</style>
+</head>
+<body>
+	<a href="#">当前网站</a>
+	<a href="http://www.baidu.com">百度</a>
+	<a href="http://www.hncj.edu.cn">河南城建学院</a>
+	<a href="http://www.le.com">乐视网</a>
+
+	<input type="text" class="txtName">
+</body>
+</html>

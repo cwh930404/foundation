@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>通过id选择器获取元素</title>
+	<style>
+		div {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+	<script src="jquery-1.12.2.js"></script>
+	<script>
+		// 点击按钮，设置div中显示内容：这是一个div.同时设置div的背景颜色
+		// 页面加载事件
+		$(function (){
+			$('#btn').click(function (){
+				$('#dv').text('这是一个div'); // text()相当于DOM中的innerText或者是textContent
+				$('#dv').css('backgroundColor','yellow');
+			});
+		});
+
+	</script>
+</head>
+<body>
+<input type="button" value="显示效果" id="btn">	
+<div id="dv"></div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组翻转</title>
+	<script type="text/javascript">
+	// 翻转数组
+		var arr = new Array("张飞","关羽","刘备");
+		var arr1 = []; // 声明了一个空数组
+
+		for(var i = 0; i < arr.length; i++){
+			arr1[arr.length- 1- i] = arr[i];
+			// arr1 和 arr 的索引号 和为 arr.length- 1
+			// arr[0] --> arr1[2]
+		}
+		console.log(arr1);
+		//方法二
+		var arr = new Array("张飞","关羽","刘备");
+		var arr1 = [];
+		for(var i = arr.length - 1; i >= 0 ; i--){
+			arr1[arr1.length] = arr[i];	//arr1.push(arr[i]);
+		}
+		console.log(arr1);
+		//方法三 (不用声明新数组-使用中间变量)
+		var arr = new Array("张飞","关羽","刘备");
+
+		for(var i = 0; i < arr.length/2; i++){//奇数偶数个数组元素都可以
+			var temp = arr[i];
+			arr[i] = arr[arr.length- 1- i];
+			arr[arr.length- 1- i] = temp;
+		}
+		console.log(arr);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

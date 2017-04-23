@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//应用:1： 把 1 - 100 之间的所有的奇数放到数组中
+		//第一步
+		/*var arr = [];
+		var j = 0;
+		for (var i = 1; i <= 100;i++){
+			if (i % 2 !== 0){
+				arr[j] = i;
+				j++;
+			}
+		}
+		console.log(arr);*/
+		//第二步：给变量 j 换一个名字
+		/*var arr = [];
+		var length = 0;
+		for (var i = 1; i <= 100;i++){
+			if (i % 2 !== 0){
+				arr[length] = i;
+				length++;
+			}
+		}
+		console.log(arr);*/
+
+		//第三步：再次化简。
+		var arr = []; 
+		//var length = 0;//根本不需要单独声明，因为空数组arr的length属性就是0
+		for (var i = 1; i <= 100;i++){
+			if (i % 2 !== 0){
+				arr[arr.length] = i; // 通过arr.length给数组追加元素
+				//length++;//length属性是动态改变自加一的
+			}
+		}
+		console.log(arr);
+
+		//应用2：通过length给数组追加元素
+		var arr1 = [];
+		for (var i = 1; i <= 50; i++){
+			arr1[arr1.length] = 1;//length属性从0开始 自增一
+		}
+		console.log(arr1);
+
+		//应用3：length属性可以获取数组元素个数 还可以对其进行设置
+		var arr2 = [1,2,3,4,5];
+		console.log(arr2);
+		console.log(arr2.length);     // 5
+		arr2.length = 2;              //可以影响数组中元素的个数
+		console.log(arr2);            // 1 , 2
+		console.log(arr2.length);     // 2
+		arr2.length = 20;  
+		console.log(arr2); 
+		console.log(arr2.length);     // 20
+
+	</script>
+</body>
+</html>

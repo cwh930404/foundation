@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数没有返回值相当于返回了undefined</title>
+</head>
+<body>
+	<script>
+	// 没有返回值的函数相当于返回了undefined。
+	function fn2(){
+		console.log("1");
+	}
+	console.log( fn2() );
+	//注意与  console.log(typeof fn2() ); 的结果的区别。
+	//结果为 1
+	//       undefined
+	// 因为调用fn2时 fn2函数的括号先于 log函数的括号先闭合 ，所以控制台先打印 1 ，再打印fn2函数的返回值undefined
+	console.log( fn2 );
+	//这种情况并不是调用fn2函数，只找到fn2函数的声明，所以控制台会打印函数的声明代码。
+
+	//函数回调
+	function fn3(){
+		console.log("1");
+	}
+	console.log(typeof fn3); //function 返回fn3的类型为function，所以函数也可以当做一种数据类作为参数
+	function fn4(a){
+		//console.log(a);//即为console.log(fn3)，会打印出函数体
+		a(); //即为fn3(), 调用函数fn3
+	}
+	fn4(fn3);//被当做参数传递的函数：fn3即为回调函数
+
+	</script>
+</body>
+</html>

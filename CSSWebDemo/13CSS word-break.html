@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS 自动换行处理 word-break</title>
+	<style>
+		/*
+		*normal:使用浏览器默认的换行规则，即不打断单词;
+		*break-all:允许在单词内换行;
+		*keep-all:只能在 半角空格/全角空格 或 连字符处 换行符 换行;
+		*/
+		div {
+			background-color: silver;
+			width: 100px;
+			height: 400px;
+			
+
+			/* word-break: break-all; */
+			word-break: keep-all;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		I am a teacher teacher teacher
+		Iamateacherteacherteacher
+	</div>
+</body>
+</html>

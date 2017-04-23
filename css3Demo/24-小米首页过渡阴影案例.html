@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	body {
+		background-color: #f7f7f7;
+	}
+		.container {
+			width: 234px;
+			height: 300px;
+			box-shadow: 0px 0px 1px #ccc;
+			background-color: white;
+			/* border: 1px solid black; */
+			transition: all 1s; /* 让影子过渡 */
+
+		}
+		.container a {
+			display: block;
+			width: 160px;
+			height: 166px;
+			margin: 0 auto;
+		}
+		.container a img {
+			display: block;
+			width: 100%;
+		}
+		.container:hover {
+			box-shadow: 0px 20px 10px #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<a href="#"><img src="images/wifi.png"></a>
+	</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.cls {
+			width: 200px;
+			height: 100px;
+			background-color: pink;
+			float: left;
+			margin: 20px;
+		}
+	</style>
+	<script src="jquery-1.12.2.js"></script>
+	<script>
+	// 第三步 $.fn.固定语法，放在点后面的函数可以为jQuery里的任意对象调用
+	$.fn.changeBackgroundColor = function (color){
+		$('.cls').css('backgroundColor', color);
+	};
+	// 第一步
+		$(function (){
+			// 点击按钮 改变div的背景颜色
+			$('input[type=button]').click(function (){
+				// $('.cls').css('backgroundColor', $(this).val());
+				// changeBackgroundColor( $(this).val() );
+				$('.cls').changeBackgroundColor( $(this).val() );
+
+			});
+		});
+		// 第二步 封装函数
+		/*function changeBackgroundColor(color){
+			$('.cls').css('backgroundColor', color);
+		}*/
+	</script>
+</head>
+<body>
+<input type="button" value="green">	
+<input type="button" value="red">	
+<input type="button" value="blue">	
+<div id="dv">
+	<div class="cls"></div>
+	<div class="cls"></div>
+	<div class="cls"></div>
+	<div class="cls"></div>
+	<div class="cls"></div>
+</div>
+</body>
+</html>

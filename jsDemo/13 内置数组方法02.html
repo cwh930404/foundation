@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>内置数组方法02</title>
+</head>
+<body>
+<script>
+	//1.数组迭代方法-filter()
+	/*已知工资数组[1500,1200,2000,2100,1800]把工资大于2000的删除*/
+	var arr = [1500,1200,2000,2100,1800];
+	var newArr = arr.filter( function (element, index, array){//迭代方法不会修改原数组,要赋给新数组
+		// console.log(element); //每次打印一个，打印输出所有数组元素
+		// console.log(index); //同上，迭代输出所有索引
+		// console.log(array); //同上，迭代输出5次数组
+		if (element > 2000) {
+			return false;
+		}
+		return true;
+	});
+	console.log(newArr); // [1500, 1200, 2000, 1800]
+
+	// 2.位置(索引)方法
+	var str = "abcd";//字符串.indexOf()
+	//console.log(str.indexOf("a") );//0
+	//console.log(str.indexOf("b") );//1
+	//console.log(str.indexOf("f") );//-1
+	//console.log(str.indexOf("ab") );//0
+	//console.log(str.indexOf("abc") );//0
+	//console.log(str.indexOf("") );//0 可以理解为这个字符串是""开头的
+
+
+	var arr1 = ["c","a","z","a","x","a"];//数组.indexOf()
+	/*console.log( arr1.indexOf("a") ); // 1
+	console.log( arr1.lastIndexOf("a") ); // 5
+	console.log( arr1.indexOf("e") ); // -1 :找不到 */
+
+	//位置方法有两个参数，如果省略第二个参数默认从0(索引)开始找
+	/*console.log( arr1.indexOf("a", 0) ); // 1
+	console.log( arr1.indexOf("a", 1) ); // 1  从 1 开始找(包含1) */
+
+	//找数组arr1 = ["c","a","z","a","x","a"];每一次 a 出现的位置
+	/*console.log( arr1.indexOf("a", 0) ); // 1
+	console.log( arr1.indexOf("a", 1 + 1) ); // 3
+	console.log( arr1.indexOf("a", 3 + 1) ); // 5
+	console.log( arr1.indexOf("a", 5 + 1) ); // -1 结束了找完了  */
+	var index = -1;
+	do{
+		index = arr1.indexOf("a", index + 1);
+		if(index !== -1){
+			console.log(index);
+		}	
+	} while (index !== -1);
+
+	//从数组arr1 = ["c","a","z","a","x","a"];中获取每个元素对应出现的次数(每个键值对有对应，所以用对象来做很合适)
+	var arr1 = ["c","a","z","a","x","a"];
+	var o = {}; //c:1  a:1  z:1 a:2
+	for (var i = 0; i < arr1.length; i++){
+		var item = arr1[i];
+		// 1. o[c]在o对象中没定义返回undefined--false,执行else c:1
+		// 2. 执行到第4个元素时，if ( o[a] ) --> if ( 1 ) -->if ( true ) a:2
+		if ( o[item] ){ 
+			o[item] = o[item] + 1;
+		} else{
+			o[item] = 1;
+		}
+	}
+	//console.log(o);
+	//for循环遍历输出显示
+	for (var k in o) {
+		console.log(k + "出现了" + o[k]);
+	}
+
+	// 3.从数组中截取一段 作为新数组(不会对原数组进行修改)，返回新数组。(slice()函数)
+	var arr2 = [4, 6, 7, 8, 3, 46, 8];
+	console.log( arr2.slice(0, 2) ); // [4, 6] 从0位置开始取，但是取不到位置 2处
+
+	// 4. 在数组中删除 并加入多个元素。(splice()函数 )
+	var arr2 = [4, 6, 7, 8, 3, 46, 8];
+	console.log( arr2.splice(0, 2) ); // [4, 6]  从0位置开始删除 两个 元素(会对原数组进行修改)
+	console.log( arr2 ); // [7, 8, 3, 46, 8]
+	//splice()函数 还有第三个参数 ：从删除位置加入第三个参数
+	console.log( arr2.splice(0, 1, "a", "b", "c") );  //  [7]
+	console.log( arr2 ); // ["a", "b", "c", 8, 3, 46, 8]
+
+	// 5.数组迭代遍历方法( forEach() )
+	var arr3 = new Array("张飞","关羽","刘备");
+	arr3.forEach( function (e){
+		console.log(e);
+	});
+	//方法完整格式如下 和 filter()类似
+	/*arr3.forEach( function (element, index, array){
+		console.log(element);
+		console.log(index);
+		console.log(array);
+	});*/
+	
+</script>
+</body>
+</html>

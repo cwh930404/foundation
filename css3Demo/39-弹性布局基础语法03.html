@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹性布局换行</title>
+	<style>
+		ul {
+			list-style: none;
+			padding: 0;
+			height: 400px;
+			border: 1px solid gray;
+
+			
+			display: flex; /* 开启弹性布局 */
+			/* 注意1：弹性布局默认在一行上，即使设置li的width: 100px;所有li还是要在一行宽度及自动变小了。要想换行就设置flex-wrap: wrap; */
+			flex-wrap: wrap; /* 开启弹性布局的换行 */
+			
+			/* 注意2：换行后变为多行是就不能使用align-items了，而是使用align-content,但是有一个细节要注意，当换行后还是只有一行时align-content不起作用了,要仍然用align-items。 */
+			align-content: flex-end;
+			
+			
+		}
+		li {
+			width: 100px;
+			height: 100px;
+			border: 1px solid gray;
+			margin: 5px;
+			font-size: 50px;
+			text-align: center;
+			line-height: 100px;
+		}
+
+		
+	</style>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+		<li>9</li>
+		<li>10</li>
+		<li>11</li>
+		<li>12</li>
+		<li>13</li>
+		<li>14</li>
+		<li>15</li>
+		<li>16</li>
+		<li>17</li>
+		<li>18</li>
+		<li>19</li>
+		<li>20</li>
+	</ul>
+</body>
+</html>

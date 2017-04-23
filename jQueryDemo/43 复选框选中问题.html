@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery-1.12.2.js"></script>
+	<script>
+		$(function (){
+			// 点击按钮 控制台输出复选框选中状态
+			$('#btn').click(function (){
+				// console.log( $('#ckBox').attr('checked') );
+				// 结果为undefined说明attr()不能获取元素选中状态
+
+				// .prop('属性') 一个参数 可以获取元素是否选中的状态
+				// .prop('checked', false) 两个参数 可以设置元素选中状态
+				console.log( $('#ckBox').prop('checked') );
+
+				// 点击按钮 切换复选框选中状态
+				var flag = $('#ckBox').prop('checked');
+				if( flag ){
+					//表示选中了
+					$('#ckBox').prop('checked', false);
+				} else {
+					//表示没有选中了
+					$('#ckBox').prop('checked', true);
+				}
+
+			});
+		});
+	</script>
+</head>
+<body>
+<input type="button" value="按钮" id="btn">	
+<input type="checkbox" id="ckBox">打豆豆
+</body>
+</html>

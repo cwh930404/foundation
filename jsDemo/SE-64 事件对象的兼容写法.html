@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<script>
+/*
+	document.onclick = function (evt){ 
+		//console.log(event); //这种传参的放式 仅主流浏览器可用
+		// 旧的 浏览器直接用 window.event
+		var e = evt || window.event; //在旧浏览器中 传参的方式不能用 evt 为undefined-->false,如果不能用就 window.event;
+		console.log(e);
+	};
+*/
+	document.onclick = function (event){ 
+		var event = event || window.event; 
+		console.log(event);
+	};
+	</script>
+</body>
+</html>

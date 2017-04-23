@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery-1.12.2.js"></script>
+	<script>
+		$(function (){
+			// 点击按钮 获取文本域中的内容有两种方法：
+			// 1.通过.val()方法(推荐使用，因为文本域也属于表单元素)
+			// 2.通过.text()方法
+			$('#btn').click(function (){
+				// console.log( $('textArea').val() );
+				console.log( $('textArea').text() );
+			});
+		});
+	</script>
+</head>
+<body>
+<input type="button" value="按钮" id="btn">
+<textarea name="" id="textArea" cols="30" rows="10">
+	文本域文本域
+</textarea>	
+
+</body>
+</html>

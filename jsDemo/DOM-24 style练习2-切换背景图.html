@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>style设置样式练习2-切换背景图</title>
+	<style>
+		#box {
+			width: 160px;
+			height: 160px;
+			background-image: url(images/kitty.png);
+		}
+	</style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+//鼠标经过切换背景图片
+	var box = document.getElementById("box");
+	box.onmouseover = function (){
+		this.style.backgroundImage = "url(images/tiger.png)";
+	};
+	box.onmouseout = function (){
+		this.style.backgroundImage = "url(images/kitty.png)";
+	};
+</script>
+</body>
+</html>

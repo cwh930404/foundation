@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多媒体标签-视频</title>
+</head>
+<body>
+<!-- controls 控制器(不加就不会显示控制条) -->
+<!-- autoplay 页面加载自动播放 -->
+<!-- loop 是否循环 --><!-- audio标签没有下面三个属性 -->
+<!-- width 宽度 -->
+<!-- height 高度 -->
+<!-- 设置宽高时，会优先考虑视频的大小，改变的可能只是标签的宽高 -->
+<!-- poster 属性 页面加载，视频没有播放时，显示的图片，所以要去掉autoplay的自动播放 -->
+<!-- <video src="music/[报告老板][第二季]第11集_bd.mp4" controls autoplay loop width="300px" height="100px"></video>	 -->
+
+<!-- <video src="music/[报告老板][第二季]第11集_bd.mp4" controls loop width="300px" height="100px" poster="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo_top_ca79a146.png"></video>	 -->
+
+
+<!-- 和 audio 一样 不同的浏览器对视频格式的支持也不同 -->
+<video controls autoplay loop>
+	<source src="music/movie04.ogg">
+	<source src="music/[报告老板][第二季]第11集_bd.mp4">
+	亲爱的用户，您的浏览器版本太低，不能享用本页面所有视频文件，建议升级浏览器<a href="#">戳我下载</a>
+</video>
+
+
+
+</body>
+</html>

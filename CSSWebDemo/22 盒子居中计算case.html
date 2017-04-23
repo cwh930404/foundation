@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box1 {
+			width: 400px;
+			height: 400px;
+			background-color: pink;
+			overflow: hidden;
+		}
+		.box2 {
+			width: 200px;
+			height: 200px;
+			background-color: purple;
+			margin: 100px 0 0 100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">
+		<div class="box2"></div>
+	</div>
+	<p>如何让一个200 200像素的盒子， 在一个400 400的盒子里面水平居中，垂直居中。</p>
+	<p>方法一：站在小盒子的角度思考 设置小盒子margin: 100px 0 0 100px;但是会出现margin-top合并现象，需要设置 大盒子 overflow: hidden;</p>
+	<p>方法二：站在大盒子的角度思考 设置大盒子padding: 100px 0 0 100px;但是padding会把大盒子撑大，需要设置 大盒子 width/height:300px;</p>
+</body>
+</html>

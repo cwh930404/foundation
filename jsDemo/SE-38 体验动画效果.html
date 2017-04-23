@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		#demo {
+			width: 50px;
+			height: 50px;
+			background-color: red;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+<button id="btn"> 奔跑吧盒子</button>
+<div id="demo"></div>
+<script>
+	// 点击按钮 让盒子跑
+	var btn = document.getElementById("btn");
+	var demo = document.getElementById("demo");
+	var timer = null;
+	btn.onclick = function (){
+		/*动画移动公式：
+		*对象当前位置=对象当前位置+要移动的长度
+		*leader = leader + step*/
+		clearInterval(timer); //防止重复设定定时器
+		timer = setInterval(function (){
+			var leader = demo.offsetLeft; //获取当前位置
+			var step = 10;
+			if (leader < 400){
+				leader = leader + step;
+				demo.style.left = leader + "px";
+			} else {
+				clearInterval(timer);
+			}
+			console.log("a");
+			
+		}, 15);
+		// 一秒钟60帧的动画效果会更细腻，1000ms 60帧-->1帧约15ms
+		
+		
+	};
+</script>
+</body>
+</html>

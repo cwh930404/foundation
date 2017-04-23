@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>html()方法</title>
+	<style>
+		div {
+			width: 100px;
+			height: 100px;
+			background-color: green;
+		}
+	</style>
+	
+	<script src="jquery-1.12.2.js"></script>
+	<script>
+		
+		$(function (){
+			$('#btn').click(function (){
+				// 点击按钮 设置div中的文字 .text()相当于DOM中的innerText或者是textContent
+				// $('#dv').text('这是一个div');//设置
+				// console.log( $('#dv').text() );// 获取
+
+				// 点击按钮 向div中添加一个p标签 .html()相当于DOM中的innerHTML
+				$('#dv').html('<p>这是一个p标签</p>');//设置
+				console.log($('#dv').html());// 获取
+
+			});
+		});
+	</script>
+</head>
+<body>
+<input type="button" value="显示效果" id="btn">
+<div id="dv"></div>	
+</body>
+</html>

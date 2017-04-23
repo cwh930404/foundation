@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body,html {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			background-color: skyblue;
+			position: relative;
+			overflow: hidden; /* 2.设置溢出隐藏*/
+		}
+		img {
+			position: absolute;
+			/* bottom: -190px; */ /* 1.刚开始要看不到小火箭，可以设置bottom为负值，但是会出现竖向滚动条，所以要给body添加overflow: hidden; */
+			bottom: 0; /* 3. 现在不通过设置bottom的方式隐藏，而是通过2d的方式*/
+			left: 0;
+			transform: translateY(190px); /* 4. 2d方式，但还是要加溢出隐藏*/
+		}
+		body:hover img{
+			transform: translateX(800px) translateY(-300px) rotate(70deg);
+			transition: all .5s;
+		}
+	</style>
+</head>
+<body>
+<!-- 需求：小火箭刚开始隐藏在页面左下，鼠标进入页面，让小火箭到页面的某个位置 -->
+	<img src="images/rocket.png" alt="">
+</body>
+</html>

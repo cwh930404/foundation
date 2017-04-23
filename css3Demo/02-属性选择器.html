@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	/* 1.  E[att]  表示选择具有att属性(任意属性)的E(E可以是类名/标签名)元素。 */
+		li[type] {
+			border: 1px solid red;
+		}
+	/* 2. E[att="val"] 选择具有att属性且属性值等于val的E元素。  */
+		li[type="fruit"] {
+			background-color: pink;
+		}
+	/* 3. E[att~="val"] 选择具有att属性且属性值为一用空格分隔的字词列表，其中一个等于val的E元素。  */
+		li[type~="hot"] {
+			background-color: hotpink;
+		}
+		/* 4. E[att^="val"] 选择具有att属性且属性值为以val开头的字符串的E元素。  */
+		li[color^="green"] {
+			font-size: 25px;
+		}
+		/* 5. E[att$="val"] 选择具有att属性且属性值为以val结尾的字符串的E元素。  */
+		li[type$="t"] {
+			color: blue;
+		}
+	/* 6. E[att*="val"] 选择具有att属性且属性值为包含val的字符串的E元素。  */
+		li[type*="ea"] {
+			font-weight: 900;
+		}
+
+	/* 7. E[att|="val"] 选择具有att属性且属性值为以val开头并用连接符"-"分隔的字符串的E元素，如果属性值仅为val，也将被选择。  */
+	li[price|="price"] {
+		background-color: green;
+	}
+
+	</style>
+</head>
+<body>
+	<ul>
+			<li type="fruit">西瓜</li>
+			<li type="fruit">桃子</li>
+			<li type="vegetable" color="greeng">西蓝花</li>
+			<li type="meat" color="greenYellow">牛肉</li>
+			<li type="meat hot">猪肉</li>
+			<li type="drink hot">可乐</li>
+			<li type="drink hot">雪碧</li>
+			<li price="price">红酒</li>
+			<li price="price-cheap">白酒</li>
+	</ul>	
+	<!-- type 属性 其值决定列表是 圆点 字母 等排列方式，一般不赞成使用 -->
+	<!-- color 自定义属性 -->
+	<!-- price 自定义属性 -->
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		#box {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+<input type="button" value="按钮" id="btn">	
+<div id="box"></div>
+
+<script>
+	var btn = document.getElementById("btn");
+	var box = document.getElementById("box");
+	//点击按钮 改变盒子位置
+	btn.onclick = function (){
+		box.style.top = "200px";
+
+		box.style.left = "200px";
+		// 要想使用 left top属性，box 的position不能是static，可以设置为position: absolute;
+	};
+</script>
+</body>
+</html>

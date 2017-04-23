@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box1 {
+			width: 250px;
+			height: 75px;
+			background-color: #ff0014;
+			margin: 0 auto;
+			position: relative;
+
+			text-align: center;
+			line-height: 75px;
+			font-size: 24px;
+			color: #fff;
+		}
+		.son-l {
+			position: absolute;
+			top: 17px;
+			right: 234px;
+			width: 0;
+			height: 0;
+			border-width: 36px;
+			border-color: #ff0014 #ff0014 #ff0014 transparent;
+			border-style: solid solid solid dashed;
+		
+
+		}
+		.son-r {
+			position: absolute;
+			top: 17px;
+			right: -56px;
+			width: 0;
+			height: 0;
+			border-width: 36px;
+			border-color: #ff0014 transparent #ff0014 #ff0014;
+			border-style: solid dashed solid solid;
+		
+
+		}
+		.i-r {
+			position: absolute;
+			top: 75px;
+			right: 1px;
+			width: 0;
+			height: 0;
+			border-width: 7px;
+			border-color: #bf000f transparent transparent #bf000f;
+			border-style: solid dashed dashed solid;
+		
+		}
+		.i-l {
+			position: absolute;
+			top: 75px;
+			right: 234px;
+			width: 0;
+			height: 0;
+			border-width: 7px;
+			border-color: #bf000f #bf000f transparent transparent;
+			border-style: solid solid dashed dashed;
+		
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">
+	传智博客
+		<div class="son-l"></div>
+		<div class="son-r"></div>
+		<i class="i-l"></i>
+		<i class="i-r"></i>
+	</div>
+</body>
+</html>

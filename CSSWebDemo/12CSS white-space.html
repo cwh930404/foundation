@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS 文本空白符处理 </title>
+	<style>
+		div {
+			background-color: green;
+			height: 200px;
+			width: 200px;
+			border: 1px solid red;
+
+		}
+		.txt-nowrap {
+			white-space: nowrap;/* 即使超过盒子宽度，文本也不进行换行显示 ，强制文本不能换行 除非遇到<br>*/
+		}
+		.txt-pre {
+			white-space: pre;
+		}
+	</style>
+</head>
+<body>
+	<div class="txt-normal">
+		normal: www.baidu.com http://www.baidu.com
+	</div>
+	<div class="txt-nowrap">
+		nowrap: www.baidu.com http://www.baidu.com
+	</div>
+	<div class="txt-pre">
+		pre: www.baidu.com http://www.baidu.com
+		var i=0;
+		var j=1;
+	</div>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            border: 0;
+        }
+
+        .all {
+            width: 500px;
+            height: 200px;
+            padding: 7px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .screen {
+            width: 500px;
+            height: 200px;
+            /*overflow: hidden;*/
+            position: relative;
+        }
+
+        .screen li {
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            float: left;
+        }
+
+        .screen ul {
+            position: absolute;
+            left: 0;
+            top: 0px;
+            width: 3000px;
+        }
+
+        .all ol {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            line-height: 20px;
+            text-align: center;
+        }
+
+        .all ol li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border: 1px solid #ccc;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .all ol li.current {
+            background: yellow;
+        }
+
+        #arr {
+            display: none;
+        }
+
+        #arr span {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            margin-top: -20px;
+            background: #000;
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            font-family: '黑体';
+            font-size: 30px;
+            color: #fff;
+            opacity: 0.3;
+            border: 1px solid #fff;
+        }
+
+        #arr #right {
+            right: 5px;
+            left: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="all" id='box'>
+    <div class="screen">
+        <ul>
+            <li><img src="images/SE-42/1.jpg" width="500" height="200"/></li>
+            <li><img src="images/SE-42/2.jpg" width="500" height="200"/></li>
+            <li><img src="images/SE-42/3.jpg" width="500" height="200"/></li>
+            <li><img src="images/SE-42/4.jpg" width="500" height="200"/></li>
+            <li><img src="images/SE-42/5.jpg" width="500" height="200"/></li>
+        </ul>
+        <ol></ol>
+        <!-- 因为不知道有几张图片，所以按钮也要动态生成 -->
+    </div>
+    <div id="arr"><span id="left">&lt;</span><span id="right">&gt;</span></div>
+</div>
+<script>
+//业务 实现一个完整轮播图
+var box = document.getElementById("box");
+var screen = box.children[0];
+var ul = screen.children[0];
+var ol = screen.children[1];
+var ulLis = ul.children; // 所有广告
+
+var arr = document.getElementById("arr");
+var left = document.getElementById("left");
+var right = document.getElementById("right");
+
+var timer = null;
+// 1. 动态生成结构
+// 1.1 根据图片数量动态生成按钮
+for (var i = 0; i < ulLis.length; i++){
+    var li = document.createElement("li");
+    li.innerHTML = i + 1;
+    ol.appendChild(li);
+}
+var olLis = ol.children; //获取所有按钮
+olLis[0].className = "current"; //给第一个按钮高亮样式
+// 1.2 克隆第一张广告，放到最后
+var firstImg = ulLis[0].cloneNode(true);
+ul.appendChild(firstImg);
+
+//2.鼠标经过按钮 按钮排他 并以动画效果吧ul移动到指定的位置
+var imgWidth = screen.offsetWidth;
+for (var j = 0 ; j < olLis.length; j++){
+        olLis[j].index = j;//把按钮的索引保存起来
+        olLis[j].onmouseover = function (){
+            //排他
+            for (var k = 0; k < olLis.length; k++){
+                olLis[k].className = "";
+            }
+            this.className = "current";
+            // ul以动画的方式移动到指定位置
+            target = -this.index * imgWidth;
+            animate(ul, target);
+            // 还要把几个索引统一
+            pic = this.index;
+            square = this.index;
+        };
+}
+// 3. 鼠标单击箭头
+//3.1鼠标经过盒子 显示箭头，鼠标离开盒子隐藏箭头(同时清理定时器)
+box.onmouseover = function (){
+    arr.style.display = "block";
+    clearInterval(timer);
+};
+box.onmouseout = function (){
+    arr.style.display = "none";
+    timer = setInterval(right.onclick, 1000);//从新自动播放
+};
+//3.2点击右箭头移动ul到指定位置
+var pic = 0; // pic记录当前图片的索引
+var square = 0; //记录当前正在亮起的按钮
+right.onclick = function (){
+    //先判断然后再去执行 移动ul的代码
+    if(pic == ulLis.length -1){
+    //如果是最后一张图片的索引，先让ul瞬间跳回开始位置，索引也要归零
+        ul.style.left = 0 + "px";
+        pic = 0;
+    }
+    pic++;//计算接下来要显示的图片
+    target = -pic * imgWidth;
+    animate(ul, target);
+    // 对应的按钮也要跟着走
+    if (square < olLis.length -1){
+        square++;
+    } else {
+        square = 0;
+    } 
+    for (var i = 0; i < olLis.length; i++){
+        olLis[i].className = "";
+    }
+    olLis[square].className = "current";
+}; 
+//3.3点击左箭头 移动ul到指定位置
+left.onclick = function (){
+    //先判断然后再去执行 移动ul的代码
+    if(pic == 0){//如果是第一张图片的索引，先让ul瞬间跳到最后位置，索引变为最后一个
+        ul.style.left = -(ulLis.length - 1) * imgWidth + "px";
+        pic = ulLis.length - 1;
+    }
+    pic--;//计算接下来要显示的图片
+    target = -pic * imgWidth;
+    animate(ul, target);
+    // 对应的按钮也要跟着走
+    if (square > 0){
+        square--;
+    } else {
+        square = olLis.length - 1;
+    } 
+    for (var i = 0; i < olLis.length; i++){
+        olLis[i].className = "";
+    }
+    olLis[square].className = "current";
+}; 
+
+// 4.每隔一秒钟自动播放
+timer = setInterval(right.onclick, 1000);
+
+
+
+
+
+
+function animate(obj, target){
+        clearInterval(obj.timer); 
+        obj.timer = setInterval(function (){
+            var leader = obj.offsetLeft; 
+            //var step = 10; 
+            var step = 30; //走的快一些
+            
+            step = leader < target ? step : -step;
+            if (Math.abs(leader - target) >= Math.abs( step) ){
+                leader = leader + step;
+                obj.style.left = leader + "px";
+            } else {
+                obj.style.left = target + "px";//手动放到终点
+                clearInterval(obj.timer);
+            }           
+        }, 15);     
+    }
+
+
+
+</script>
+</body>
+</html>

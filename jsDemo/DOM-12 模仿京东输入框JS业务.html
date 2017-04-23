@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模仿京东输入框JS业务逻辑</title>
+</head>
+<body>
+<input type="text" id="txt" value="金融">
+<input type="button" value="搜索">
+
+<script>
+/*
+*文本框默认是"金融",点击输入框(文本框获取焦点)时 清空"金融"。
+*点击后如果用户输入了文字后，再点击别处，文本框内保留用户输入文字,当再次获取焦点时，文本框中也要保留输入文字(只清空是默认文字的文本)。
+*点击后如果用户没有输入，再点击别处时，文本框内仍是"金融"。
+*/
+var txt = document.getElementById("txt");
+txt.onfocus = function (){//获取焦点时,只清空是默认文字的文本,但是如果用户输入的就是 金融呢？
+	if (this.value == "金融"){
+		this.value = "";
+	}
+};
+txt.onblur = function (){//失去焦点时
+	if (this.value == ""){
+		this.value = "金融";
+	}
+};
+</script>
+</body>
+</html>

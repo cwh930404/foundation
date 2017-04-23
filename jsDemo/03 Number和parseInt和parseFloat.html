@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03 Number parseInt parseFloat函数</title>
+	<script type="text/javascript">
+	var re = "100";
+	console.log(typeof Number(re), Number(re) ); // number 100
+
+	var re1 = "10.15";
+	console.log(typeof Number(re1), Number(re1) ); // number 10.15
+
+	var txt = "100岁";
+	console.log(typeof Number(txt), Number(txt) );// number NaN 注意和parseInt的区别
+
+	console.log("-----parseInt-------");
+
+	var par = "100";
+	console.log(typeof parseInt(par), parseInt(par) ); // number 100
+
+	var par1 = "100岁";
+	console.log(typeof parseInt(par1), parseInt(par1) );// number 100
+
+	var par2 = "岁100";
+	console.log(typeof parseInt(par2), parseInt(par2) );// number NaN
+
+	var par3 = "12.85";
+	console.log(typeof parseInt(par3), parseInt(par3) );// number 12
+
+	console.log("-----parseFloat-------");
+
+	var demo = "13.96";
+	console.log(typeof parseFloat(demo), parseFloat(demo) ); // number 13.96
+
+	var demo1 = "13.96岁";
+	console.log(typeof parseFloat(demo1), parseFloat(demo1) );// number 13.96
+	var demo2 = "岁13.96";
+	console.log(typeof parseFloat(demo2), parseFloat(demo2) );// number NaN
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

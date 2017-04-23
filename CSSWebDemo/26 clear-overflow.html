@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>清除浮动之给父元素添加overflow</title>
+	<style>
+		.father {
+			border: 1px solid red;
+			overflow: hidden;/* 清除浮动 overflow为 hidden|auto|scroll 都可以实现。*/
+		}
+		.son1 {
+			height: 100px;
+			width: 100px;
+			background-color: silver;
+			float: left;
+		}
+		.son2 {
+			height: 100px;
+			width: 150px;
+			background-color: purple;
+			float: left;
+
+		}
+		.next {
+			height: 150px;
+			width: 200px;
+			background-color: black;
+		}
+
+		
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son1"></div>
+		<div class="son2"></div>
+	</div>
+	<div class="next"></div>
+</body>
+</html>

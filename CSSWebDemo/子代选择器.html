@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>符合选择器之子代选择器 只作用于h1的儿子标签</title>
+	<style>
+		h1 > strong { 
+			color: yellow;
+		 }
+	</style>
+</head>
+<body>
+	<h1>
+		<strong>这是strong标签1<span>我是内部span</span></strong>
+		<strong>这是strong标签2</strong>
+		<span>
+			<strong>strong标签3</strong>
+		</span>
+	</h1>
+	
+</body>
+</html>

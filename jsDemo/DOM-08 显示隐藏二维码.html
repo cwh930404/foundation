@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .nodeSmall {
+            width: 50px;
+            height: 50px;
+            background: url(images/DOM-08/bgs.png) no-repeat -159px -51px;
+            position: fixed;
+            right: 10px;
+            top: 40%;
+        }
+
+        .erweima {
+            position: absolute;
+            top: 0;
+            left: -150px;
+        }
+
+        .nodeSmall a {
+            display: block;
+            width: 50px;
+            height: 50px;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="nodeSmall" id="node_small">
+    <a href="#"></a>
+
+    <div class="erweima hide" id="er">
+        <img src="images/DOM-08/456.png" alt=""/>
+    </div>
+</div>
+
+<script>
+    //鼠标经过父盒子 显示二维码 鼠标离开父盒子 隐藏二维码
+    var node = document.getElementById("node_small");
+    var er = document.getElementById("er");
+
+    node.onmouseover = function (){
+        //er.className = "erweima show";
+        /*找到二维码类名 将类名中的 hide 替换成 show */
+        er.className = er.className.replace("hide", "show");
+    };
+    node.onmouseout = function (){
+        //er.className = "erweima hide";
+        er.className = er.className.replace("show", "hide");
+    };
+    //onmouseover 鼠标经过事件 onmouseout 鼠标离开事件
+
+
+    //字符串部分替换内置方法
+    /*var str = "aa bb erweima show";
+    console.log(str);//aa bb erweima show
+    str = str.replace("show", "hide");
+    console.log(str);//aa bb erweima hide*/
+</script>
+</body>
+</html>                         

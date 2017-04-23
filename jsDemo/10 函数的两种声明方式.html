@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数的两种定义方式</title>
+</head>
+<body>
+	<script>
+//预解析中包含声明提升：变量声明提升和函数声明提升
+		console.log( fn1(1, 2) );//放在声明前正常使用，因为函数声明会提升到最顶端
+
+		console.log( fn2(1, 2) );//放在声明前不能使用，因为变量声明会提升到最顶端，但只提升声明（只有var fn2这一部分），不提升赋值，相当于var fn2=undefined。
+
+	// 定义方式一：函数声明
+		function fn1(a, b){
+			return a + b;
+		}
+	// 定义方式二：函数表达式
+		var fn2 = function (a, b){
+			return a + b;
+		};//一定要添加分号，此处注意与 (12 对象赋值和访问.html )的联系。
+
+		/*console.log( fn1(1, 2) );
+		console.log( fn2(1, 2) );
+		放在两种声明后面正常使用，
+		但是 fn2 放在声明前不能正常使用*/
+
+
+	/*补充1.函数表达式也可以有函数名 ，但名字不起作用
+	* 补充2.如果关键字function关键词前（仅指所在行）有非空字符，那么它就是 函数表达式
+	*/
+		/*+function foo(){
+			console.log('函数表达式');
+		}
+		(function foo(){
+			console.log('函数表达式');
+		})*/
+	/* + - * / || && () 都能产生函数表达式，调用的时候在后面直接加() */
+		/*+function foo(){
+			console.log('函数表达式');
+		}();*/
+	</script>
+</body>
+</html>

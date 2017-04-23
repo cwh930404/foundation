@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body {
+			width: 2000px;
+			height: 2000px;
+		}
+	</style>
+	<script src="jquery-1.12.2.js"></script>
+	<script>
+		$(function (){
+			$(document).click(function (){
+				// 获取卷曲出去的距离(都是数字类型)
+				// $(this).scrollLeft()  $(this).scrollTop()
+				console.log( $(this).scrollLeft(), $(this).scrollTop() );
+			});
+		});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

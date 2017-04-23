@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>属性hack</title>
+	<style>
+		div {
+			height: 100px;
+			width: 100px;
+			background-color: pink;
+			/*_background-color: purple; /* ie6专属解析 只有ie6识得 ，解析为紫色，其他浏览器解析为粉色 */ 
+			/* *background-color: purple; /* ie6/ie7专属解析 只有ie6/ie7识得，解析为紫色，其他浏览器解析为粉色 */ 
+			background-color: purple\9\0; /* ie9/ie10专属解析 只有ie9/ie10识得，解析为紫色，其他浏览器解析为粉色 */
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

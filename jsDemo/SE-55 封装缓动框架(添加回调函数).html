@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #demo {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">按钮</button>
+<div id="demo"></div>
+<script>
+// 通过回调函数可以让动画依次执行
+    var timer = null;
+    var btn = document.getElementById("btn");
+    var demo = document.getElementById("demo");
+
+    btn.onclick = function () {
+       /* animate(demo, "left", 400);
+        animate(demo, "top", 400);
+        animate(demo, "height", 400);
+        animate(demo, "width", 400);*/
+        animate(demo, {"left": 400,"top": 400,"height": 400,"width": 400}, function(){
+            //alert("执行完了");
+            animate(demo,{"left": 0,"top": 40,"height": 400,"width": 10}, function (){
+                animate(demo,{"left": 300,"top": 400,"height": 10,"width": 200});
+            });
+        }); // {attr:target}
+
+
+    };
+
+    //封装 能够让 任意对象 的指定属性 变到指定值处 的缓动动画函数
+    // 属性虽说是任意，但只能是带有单位px的 数值 的属性 
+    function animate(obj, json, fn) {
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+            var flag = true;
+            for(var k in json){ // {k:json[k]}
+
+                var leader = parseInt(getStyle(obj, k)) || 0;
+                var target = json[k];
+                var step = (target - leader) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                leader = leader + step;
+                obj.style[k] = leader + "px";
+                if (leader !== target) { 
+                    flag = false;
+                    
+                }
+            }
+            if(flag){
+
+                clearInterval(obj.timer);
+                if(fn){//如果有实参才调用,没有为undefined,注意不要写成fn()
+                    fn();//动画执行完成后执行
+                }
+                
+            }
+
+        }, 15);
+    }
+
+    function getStyle(obj, attr) {
+        if (window.getComputedStyle) {
+            return window.getComputedStyle(obj, null)[attr];
+        } else {
+            return obj.currentStyle[attr];
+        }
+    }
+</script>
+</body>
+</html>

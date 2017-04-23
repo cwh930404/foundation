@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js事件和html分离 的标准格式</title>
+</head>
+<body>
+<!-- 未分离   ("alert('1');" 必须是单引号 1)-->
+<input type="button" value="按钮1" onclick="alert('1');">
+<!-- 分离 -->
+<input type="button" value="按钮2" id="btn">
+
+<script>
+
+//事件源.事件 = function(){ 事件处理程序 };
+	var btn = document.getElementById("btn");
+	btn.onclick = function(){
+		//alert("2");
+		console.log( this );
+	};
+</script>
+</body>
+</html>

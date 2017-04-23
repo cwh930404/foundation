@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+		div {
+			width: 100%;
+			height: 100px;
+			background-color: skyblue;
+			border: 40px solid gray;
+			/* 此时，因为默认box-sizing: content-box; 加了border 之后不仅整体高度变了，而且出现了横向滚动条 width= 100%+80*/
+			box-sizing: border-box;
+			/* 设置 border-box之后，不管窗口怎么拉伸，始终与窗口保持一致 */
+		}
+	</style>
+</head>
+<body>
+<!-- 在浏览器顶部 制作一个通栏盒子 不管窗口怎么缩放都要保证通栏显示 -->
+	<div></div>
+</body>
+</html>

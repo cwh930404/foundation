@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		div {
+			width: 200px;
+			height: 100px;
+			background-color: green;
+		}
+	</style>
+	<script src="jquery-1.12.2.js"></script>
+	<script>
+		$(function (){
+			// 点击按钮 创建一个p标签添加到div中
+			$('#btn').click(function (){
+				var pObj = $('<p></p>');
+				pObj.text('这是一个段落');
+				// $('#dv').append(pObj);
+				// .appendTo() 把调用该方法的对象添加到 参数对象中
+				pObj.appendTo( $('#dv') );
+			});
+		});
+	</script>
+</head>
+<body>
+<input type="button" value="显示效果" id="btn">	
+<div id="dv"></div>
+</body>
+</html>

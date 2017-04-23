@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.door {
+			width: 300px;
+			height: 300px;
+			border: 1px solid gray;
+			margin: 50px auto;
+			background: url('images/dog.gif') no-repeat center/cover;
+			position: relative;
+			perspective: 500px; /* 设置透视属性 */
+			transform-style: preserve-3d; /* 配合backface-visibility */
+		}
+		/* 左边门 */
+		.left {
+			width: 50%;
+			height: 100%;
+			position: absolute;
+			left: 0;
+			background-color: brown;
+			transition: all 1s;
+			transform-origin: left; /* 设置旋转参照点 */
+
+		}
+		/* 左边门把手 */
+		.left::before {
+			content: "";
+			position: absolute;
+			width: 15px;
+			height: 15px;
+			border-radius: 50%;
+			right: 0px;
+			top: 50%;
+			transform: translateY(-7.5px); 
+			/* margin-top: -7.5px; */
+			background-color: orange;
+		}
+		.door:hover .left {
+			transform: rotateY(-90deg); /* 沿y轴负方向旋转90度 */
+		}
+
+		/* 右边门 */
+		.right {
+			width: 50%;
+			height: 100%;
+			position: absolute;
+			right: 0;
+			background-color: brown;
+			transition: all 1s;
+			transform-origin: right; /* 设置旋转参照点 */
+			backface-visibility: hidden; /* 设置门的反面看不到 同时设置transform-style才能有效果*/
+
+		}
+		/* 右边门把手 */
+		.right::before {
+			content: "";
+			position: absolute;
+			width: 15px;
+			height: 15px;
+			border-radius: 50%;
+			left: 0px;
+			top: 50%;
+			transform: translateY(-7.5px); 
+			/* margin-top: -7.5px; */
+			background-color: orange;
+		}
+		.door:hover .right {
+			transform: rotateY(90deg); /* 沿y轴正方向旋转90度 */
+		}
+	</style>
+</head>
+<body>
+	<div class="door">
+		<div class="left"></div>
+		<div class="right"></div>
+	</div>
+</body>
+</html>

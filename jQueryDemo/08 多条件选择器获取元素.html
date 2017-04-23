@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>通过多条件选择器来获取元素</title>
+	<style>
+		div {
+			width: 100px;
+			height: 100px;
+			background-color: green;
+		}
+	</style>
+	<script src="jquery-1.12.2.js"></script>
+	<script>
+		// 点击按钮,设置页面中的span标签,li标签,div标签的背景颜色
+		$(function (){
+			$('#btn').click(function (){
+				// 通过多条件(可以是 类 标签 也可混用)选择器来获取元素
+				$('span,li,div').css('backgroundColor','red');
+			});
+		});
+	</script>
+</head>
+<body>
+<input type="button" value="显示效果" id="btn">
+<span class="cls">这是一个span</span>
+<ul>
+	<li>项目一</li>
+	<li>项目二</li>
+</ul>
+<div></div>	
+</body>
+</html>

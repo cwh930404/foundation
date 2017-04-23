@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自己编写代码解决标签兼容性问题</title>
+	<style>
+		header {
+			width: 300px;
+			height: 200px;
+			background-color: red;
+			display: block; /* 注意添加 */
+		}
+	</style>
+</head>
+<body>
+	<header></header>
+	<!-- 新语义标签 ie8 及以下版本不兼容 -->
+	<!-- 解决方法： 通过js 添加 并且在 header样式中要加 display:block; -->
+
+<!--[if lte ie 8]>
+	<script>
+		var header = document.createElement('header');
+		document.body.appendChild(header);
+	</script>
+
+<![endif]-->
+	
+
+</body>
+</html>

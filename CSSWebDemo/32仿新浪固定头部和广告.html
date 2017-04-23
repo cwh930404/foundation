@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>固定定位-仿新浪固定头部和广告</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		.box {
+			width: 1002px;
+			margin: 0 auto; /* 给div加宽度才能居中 */
+			margin-top: 45px;/* 不加会出现top压住box的情况，box的一部分就被遮住了，所以要给top留出一点位置 */
+		}
+		.top {
+			position: fixed;
+			top: 0;
+			left: 0;
+		}
+		.ad-l, .ad-r {
+			position: fixed;
+			top: 100px;
+		}
+		.ad-l {
+			left: 0;
+		}
+		.ad-r {
+			right: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="ad-l">
+		<img src="imgs/ad-l.png" >
+	</div>
+	<div class="ad-r">
+		<img src="imgs/ad-r.png" >
+	</div>
+	<div class="top">
+		<img src="imgs/top.png" >
+	</div>
+	<div class="box">
+		<img src="imgs/box.png" >
+	</div>
+</body>
+</html>

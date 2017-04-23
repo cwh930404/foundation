@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>插入 克隆 移除节点</title>
+</head>
+<body>
+<div id="father">
+		<div id="son"></div>
+</div>
+<div id="demo"></div>	
+<input type="button" value="按钮" id="btn">
+
+<script>
+	//点击按钮 插入原有节点、插入原有节点、移除节点。
+	var btn = document.getElementById("btn");
+	var demo = document.getElementById("demo");
+	var father = document.getElementById("father");
+	var son = document.getElementById("son");
+	//克隆cloneNode 参数是布尔值，true表示克隆demo及下面的所有，false表示只克隆demo.
+	var clone = demo.cloneNode(true);
+
+	btn.onclick = function (){
+		//appendChild 追加节点(原节点/克隆节点)作为 父节点下面的一个节点
+		//father.appendChild(demo); //追加原有节点，原节点原有位置不保留。
+		//father.appendChild(clone); //追加克隆节点
+
+		//insertBefore 插入到前面:把一个节点(原节点/克隆节点)插入到son节点的前面，也作为father的一个子节点。
+		//father.insertBefore(demo, son); //插入原有节点，原节点原有位置不保留。
+		//father.insertBefore(clone, son);  //插入克隆节点
+
+		//removeChild 移除节点 移除father下的子节点 son.
+		father.removeChild(son);
+		
+	};
+
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>border 妙用 三角形-很好的兼容性写法</title>
+	<style>
+		div {
+			width: 0;
+			height: 0;
+			border-width: 10px;
+			border-color: #f00 transparent transparent transparent;
+			border-style: solid dashed dashed dashed;
+			/* border-style: solid; dashed是为了兼容ie6会出现黑色底的问题*/
+			overflow: hidden; /* 为了兼容ie6高度的问题，在ie6中高度会有奇怪的变化 */
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

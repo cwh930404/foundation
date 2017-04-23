@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>批量获取元素和在限定范围中批量获取</title>
+</head>
+<body>
+<input type="button" value="按钮">	
+<input type="button" value="按钮">	
+<input type="button" value="按钮">	
+<input type="button" value="按钮">	
+<p>在限定范围中批量获取元素：</p>
+<div id="demo1">
+	<input type="button" value="按钮">
+	<input type="button" value="按钮">
+</div>
+<div id="demo2">
+	<input type="button" value="按钮">
+	<input type="button" value="按钮">
+</div>
+
+</body>
+
+<script>
+	var aBtn = document.getElementsByTagName("input");//通过标签名获取元素集合
+	console.log(aBtn); //伪数组 (有数组的个别属性，但不是数组，只是元素集合)
+	var arr = [1, 2, 3];
+	console.log(arr);
+//通过 getElements 获得的都是 伪数组
+//通过 getElement 获得的都是 元素对象
+
+	//在限定范围内批量获取元素：
+	var demo2 = document.getElementById("demo2");
+	var aBtnD2 = demo2.getElementsByTagName("input");
+	console.log(aBtnD2);
+/*getElementsByTagName 不仅可以被document调用(表示获取页面上这一类型的所有标签);
+也可以被 普通元素对象(demo2)调用(表示获取该元素内部的这一类型所有标签)*/
+//getElementById 只能被document调用，如果想获得某元素内部的一个标签，就给该便签一个id,毕竟每个标签可以设置一个唯一的id。
+
+// getElementsByClassName通过类名获取元素 也是同样的道理
+</script>
+</html>

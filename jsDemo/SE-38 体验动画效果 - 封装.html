@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		#demo {
+			width: 50px;
+			height: 50px;
+			background-color: red;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+<button id="btn1"> 奔跑200吧盒子</button>
+<button id="btn2"> 奔跑400吧盒子</button>
+<div id="demo"></div>
+<script>
+	// 点击按钮 让盒子跑
+	var btn1 = document.getElementById("btn1");
+	var btn2 = document.getElementById("btn2");
+	var demo = document.getElementById("demo");
+	//var timer = null;不用定义了
+	btn1.onclick = function (){
+		animate(demo, 200);		
+	};
+	btn2.onclick = function (){
+		animate(demo, 400);		
+	};
+
+	// 能够让任意对象 移动到指定位置
+	/*function animate(obj, target){
+		clearInterval(obj.timer); //每个对象有自己的timer
+		obj.timer = setInterval(function (){
+			var leader = obj.offsetLeft; 
+			var step = 10; //step为正数，只能往右走，不能往回走
+			if (leader < target){
+				leader = leader + step;
+				obj.style.left = leader + "px";
+			} else {
+				clearInterval(obj.timer);
+			}			
+		}, 15);		
+	}*/
+	function animate(obj, target){
+		clearInterval(obj.timer); 
+		obj.timer = setInterval(function (){
+			var leader = obj.offsetLeft; 
+			var step = 10; 
+			/*if(leader < target){
+				step = step;
+			}else {
+				step = -step;
+			}*/
+			step = leader < target ? step : -step;
+			/*if (leader !== target){// 这样虽然可以来回跑了，但是如果demo一开始就有left:1px的位置，就会出问题*/
+			if (Math.abs(leader - target) >= Math.abs( step) ){
+				leader = leader + step;
+				obj.style.left = leader + "px";
+			} else {
+				obj.style.left = target + "px";//手动放到终点
+				clearInterval(obj.timer);
+			}			
+		}, 15);		
+	}
+</script>
+</body>
+</html>

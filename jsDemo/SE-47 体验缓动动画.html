@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		#demo {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			position: absolute;
+			/* left: 400px; */
+		}
+	</style>
+</head>
+<body>
+<button id="btn">缓动按钮</button>	
+<div id="demo"></div>
+<script>
+	var btn = document.getElementById("btn");
+	var demo = document.getElementById("demo");
+	var timer = null;
+	btn.onclick = function (){
+		clearInterval(timer);
+		timer = setInterval(function (){
+			// step = (target - leader)/10
+			// leader = leader + step
+			var target = 400;
+			var leader = demo.offsetLeft; //offsetLeft 四舍五入取整
+			var step = (target - leader)/10;
+			//step = Math.ceil(step); 向右动
+			//step = Math.floor(step); 向左动
+			step = step > 0 ? Math.ceil(step) : Math.floor(step);
+
+			console.log("target:" + target + "--leader:" + leader + "--step:" + step);
+			leader = leader + step;
+			demo.style.left = leader + "px";
+
+			if(leader === target){
+				clearInterval(timer);
+			}
+		}, 15);
+	};
+</script>
+</body>
+</html>

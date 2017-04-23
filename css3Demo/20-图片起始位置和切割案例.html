@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		a {
+
+			width: 36px;
+			height: 36px;
+			display: block;
+			padding: 40px; /* 1. 增大链接点击范围 ，但图片不在 链接的中间了*/
+			border: 1px solid gray; /* 5.可以把这个去掉了 ，这样实现了增大触发范围*/
+
+			background-image: url(images/sprites.png);
+			background-repeat: no-repeat;
+			background-position: -361px -140px;
+
+			background-origin: content-box; /* 2.图片放在链接正中央，但是问题是旁边的图片显示出来了，要切掉 */
+
+			background-clip: content-box; /* 3.切掉内容区域外的图片，隐藏起来 */
+		}
+	</style>
+</head>
+<body>
+	<a href="#"></a> <!-- 用button div 也是可以的 -->
+</body>
+</html>

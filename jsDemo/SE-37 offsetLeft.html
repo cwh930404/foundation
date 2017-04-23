@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		#father {
+			width: 200px;
+			height: 200px;
+			margin: 100px; /*不算*/
+			border: 10px solid #000; /*不算*/
+			padding: 10px;  /*  算 */
+			background-color: pink;
+			position: absolute;
+		}
+		#son {
+			width: 50px;
+			height: 50px;
+			margin: 10px; /*  算 */
+			border: 10px solid #000;  /*不算*/
+			padding: 10px;  /*不算*/
+			background-color: red;
+		}
+
+	</style>
+</head>
+<body>
+<div id="father">
+		<div id="son"></div>
+	</div>	
+<script>
+	var son = document.getElementById("son");
+	console.log(son.offsetLeft); 
+	//offsetLeft 是  自身到  它的offsetParent(距离自身最近的 并带有定位的父级)的距离，其中细节看效果
+</script>
+</body>
+</html>

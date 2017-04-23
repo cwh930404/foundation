@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			perspective: 500px;
+			/* 2. 在3D环境中旋转时，两个边，离我近的一边会比离我远的一边看起来长一些，要想有这个视觉效果 ，就要为旋转对象(div)的父元素(body)加透视属性perspective*/
+			/* perspective 值越小，效果越明显，因为这个值是表示  3d变换的元素离屏幕的距离
+			* 这个距离的效果可以配合translateZ()观察，
+			* perspective: 500px; 初始translateZ(100px);当translateZ值慢慢变大，3d变换的元素离屏幕的距离越来越近；当translateZ值为499px时，3d变换的元素会铺满浏览器窗口；当translateZ值为500px时，就看不到3d变换的元素了，此时这个元素像是和屏幕并排。
+			*/
+
+		}
+		div {
+			width: 100px;
+			height: 100px;
+			border: 1px solid gray;
+			margin: 100px auto;
+			background-color: skyblue;
+
+
+			/* 1. 3D旋转 */
+			/* 判断旋转方向：左手定则，大拇指指向轴的方向，四指弯曲的方向就是旋转的方向 */
+			/* transform: rotateY(45deg); */
+			 /* 表示绕Y轴正方向旋转45度，调试的时，数字越大，大拇指指向正方向，数字越小，大拇指指向负方向 */
+			/* transform: rotateZ(45deg); */
+			/* transform: rotateX(45deg); */
+
+			/* 3. 3D移动 */
+			transform: translateZ(100px);
+
+			/* 4. 3D缩放时，沿着Z轴缩放，看不出效果。注意区别沿着z轴移动的效果 */
+
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

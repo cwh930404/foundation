@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>设定和清除 延时定时器</title>
+</head>
+<body>
+<input type="button" value="设定定时器" id="btn1">
+<input type="button" value="关闭定时器" id="btn2">
+
+<script>
+	var btn1 = document.getElementById("btn1");
+	var btn2 = document.getElementById("btn2");
+	var timerId = null;
+
+	// 点击按钮 设定延时定时器
+	btn1.onclick = function (){
+		//setTimeout(function () {}, 3000);参数1：回调函数，参数2：延迟时间(毫秒)
+		// setTimeout() 有返回值，返回该延时定时器的id
+		timerId = setTimeout(function () {
+			console.log("boom");
+		}, 3000);
+
+	};
+	// 点击按钮 关闭延时定时器
+	btn2.onclick = function (){
+		// clearTimeout() 参数为延时定时器的id 
+		clearTimeout(timerId); 
+	};
+</script>
+</body>
+</html>

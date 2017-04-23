@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div {
+			width: 200px;
+			height: 100px;
+			background-color: pink;
+		}
+	</style>
+	<script src="jquery-1.12.2.js"></script>
+	<script>
+		/*$(function (){
+			// 获取btn1 ，通过on()为btn1 绑定点击事件
+			$('#btn1').on('click', function (){
+				alert('btn1 被点击了');
+			});
+			// 获取btn2 ，通过点击btn2 解绑btn1上的点击事件
+			$('#btn2').on('click', function (){
+				// .off('事件名') 解绑对象通过on()注册的事件
+				$('#btn1').off('click');
+			});
+		});*/
+
+		/*$(function (){
+			// 获取btn1 ，通过bind()为btn1 绑定点击事件
+			$('#btn1').bind('click', function (){
+				alert('btn1 被点击了--bind');
+			});
+			// 获取btn2 ，通过点击btn2 解绑btn1上的点击事件
+			$('#btn2').on('click', function (){
+				// .unbind('事件名') 解绑对象通过bind()注册的事件
+				$('#btn1').unbind('click');
+			});
+		});*/
+
+		$(function (){
+			// 点击btn1 ，通过delegate()为p 绑定点击事件
+			$('#btn1').click(function (){
+				$('#dv').delegate('p', 'click', function(){
+					alert('p被点击了');
+				});
+			});
+			// 通过点击btn2 解绑p上的点击事件
+			$('#btn2').click(function (){
+				// 对象.undelegate('子级', '事件名') 解绑对象通过delegate给子级注册的事件
+				$('#dv').undelegate('p', 'click');
+			});
+		});
+
+	</script>
+</head>
+<body>
+<input type="button" value="绑定事件" id="btn1">
+<input type="button" value="解绑事件" id="btn2">
+<div id="dv">
+	<p>这是div中的一个p标签</p>
+</div>
+</body>
+</html>

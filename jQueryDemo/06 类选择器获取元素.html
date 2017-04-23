@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>通过类选择器获取元素</title>
+	<style>
+		.cls {
+			background-color: pink;
+		}
+	</style>
+	<script src="jquery-1.12.2.js"></script>
+	<script>
+		// 点击按钮 设置页面上所有的cls类的元素的背景颜色
+		$(function (){
+			$('#btn').click(function (){
+				// 类选择器获取元素
+				$('.cls').css('backgroundColor','yellow');
+			});
+		});
+	</script>
+</head>
+<body>
+<input type="button" value="显示效果" id="btn">
+<span class="cls">这是一个span</span>
+<p class="cls">只是一个段落</p>	
+</body>
+</html>

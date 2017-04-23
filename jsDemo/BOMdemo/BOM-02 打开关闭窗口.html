@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>打开 关闭窗口</title>
+</head>
+<body>
+<input type="button" value="跳转" id="btn1">	
+<input type="button" value="关闭" id="btn2">	
+
+<script>
+//点击 按钮打开窗口
+	var btn1 = document.getElementById("btn1");
+	var btn2 = document.getElementById("btn2");
+	var win = null;
+
+	btn1.onclick = function (){
+		//window.open("http://www.baidu.com"); // 第二个参数默认为 _blank
+		//window.open("http://www.baidu.com", "_blank");
+		//window.open("http://www.baidu.com", "_self"); //在当前窗口打开
+		//window.open("http://www.baidu.com", "_blank", "width=400,height=400"); //打开新的窗口，窗口大小是400×400，必须是_blank,第三个参数不加单位，逗号分隔。
+		win = window.open("http://www.baidu.com", "_blank", "width=1000,height=200");
+		// window.open 有返回值 为打开窗口的索引。
+	};
+
+	// 点击按钮 关闭窗口
+	btn2.onclick = function (){
+		//window.close(); //关闭当前框口
+		win.close();  //关闭指定窗口
+	};
+</script>
+</body>
+</html>

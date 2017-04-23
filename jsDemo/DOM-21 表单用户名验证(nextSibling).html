@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单验证(nextSibling)</title>
+	<style>
+        span {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<input type="text" id="txtName"><span></span><br>
+<input type="text" id="txtPwd">
+<span></span><br>
+<input type="button" id="btn" value="注册">
+
+<script>
+//用户在 文本框中输入内容的时候 判断用户名是否符合要求
+var txtName = document.getElementById("txtName");
+txtName.onkeyup = function (){ //onkeyup键盘弹起事件
+	//如果用户名 太长或者太短 都要提示错误,把错误 信息放在span中
+	if (this.value.length < 3 || this.value.length > 6){
+		//nextSibling 下一个兄弟节点 span 是txtName的nextSibling
+		//this.nextSibling.innerText = "用户名必须在3-6位之间";
+		this.nextSibling.innerHTML = "用户名必须在3-6位之间";
+	} else {
+		//this.nextSibling.innerText = "";
+		this.nextSibling.innerHTML = "";
+	}
+};
+//innerText 有兼容性问题，所以可以使用之前封装的兼容方法；此处也可以使用innerHTML,因为这串字符不是符合标签规则的文本。
+</script>
+</body>
+</html>

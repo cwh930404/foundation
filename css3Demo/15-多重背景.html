@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>设置多重背景图片</title>
+	<style>
+		.box {
+			
+			width: 500px;
+			height: 500px;
+			border: 1px solid gray;
+			background-repeat: no-repeat;
+			/*设置多个背景图片*/
+			background-image: url(images/gyt.jpg),url(images/robot.png);
+
+			/* 设置两个背景图片大小*/
+			background-size: 300px 100px,400px 200px;
+			/* 设置两个背景图片位置*/
+			/* background-position: top left,bottom right; */
+			/* 用像素设置两个背景图片位置*/
+			background-position: top left,100px 200px;
+			
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>

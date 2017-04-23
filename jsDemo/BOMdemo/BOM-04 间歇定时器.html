@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>设定和清除 间歇定时器</title>
+</head>
+<body>
+<input type="button" value="设定定时器" id="btn1">
+<input type="button" value="关闭定时器" id="btn2">
+
+<script>
+	var btn1 = document.getElementById("btn1");
+	var btn2 = document.getElementById("btn2");
+	var timerId = null;
+
+	// 点击按钮 设定间歇定时器
+	btn1.onclick = function (){
+		//setTimeout(function () {}, 3000);参数1：回调函数，参数2：延迟时间(毫秒)
+		// setTimeout() 有返回值，返回该延时定时器的id
+		timerId = setInterval(function () {
+			console.log("起来嗨");
+		}, 1000);
+		// 像闹钟一样
+
+	};
+	// 点击按钮 关闭间歇定时器
+	btn2.onclick = function (){
+		// clearInterval() 参数为间歇定时器的id 
+		clearInterval(timerId); 
+	};
+</script>
+</body>
+</html>

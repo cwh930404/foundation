@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>给有定位的元素添加z-index 定位元素(除去静态定位)专有</title>
+	<style>
+		div {
+			height: 100px;
+			width: 100px;
+			position: absolute;/* 给三个盒子添加绝对定位 */
+			top: 0;
+			left: 0;
+
+		}
+		.box1 {
+			background-color: pink;
+			z-index: 2
+		}
+		.box2 {
+			background-color: purple;
+			top: 30px;
+			left: 30px;
+			z-index: 1;
+		}
+		.box3 {
+			background-color: blue;
+			top: 60px;
+			left: 60px;
+		}
+		/*
+		*z-index默认值为0 ，这时 当z-index取值相同时 层叠顺序跟结构化书写顺序有关。
+		*值可为正整数、负整数和0； 取值越大，定位元素在层叠元素中越居上。
+		*只有相对定位 绝对定位 固定定位有z-index值
+		*/
+	</style>
+</head>
+<body>
+	<div class="box1">1</div>
+	<div class="box2">2</div>
+	<div class="box3">3</div>
+</body>
+</html>

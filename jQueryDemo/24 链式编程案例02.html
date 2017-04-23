@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery-1.12.2.js"></script>
+	<script>
+		$(function (){
+			// 点击按钮，改变鼠标value值；经过按钮，改变按钮宽高；离开按钮时，按钮背景变为绿色
+			// $('#btn').click().mouseover().mouseout();
+			$('#btn').click(function (){
+				$(this).val('改变了');
+			}).mouseover(function (){
+				$(this).css({"width":"100px", "height":"50px"});
+			}).mouseout(function (){
+				$(this).css('backgroundColor', 'green');
+			});
+		});
+	</script>
+</head>
+<body>
+<input type="button" value="按钮" id="btn">	
+</body>
+</html>

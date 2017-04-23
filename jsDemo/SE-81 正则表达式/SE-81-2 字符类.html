@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<script>
+	// 正则表达式中： | 表示或运算符 它的优先级最低，可以用 () 提升优先级
+	console.log( /a1|b1|c1/.test('c1') ); // true
+	console.log( /a1|b1|c1/.test('c11') ); // true 只要有我想要的就可以 可以多不能少
+	console.log( /(a|b|c)1/.test('c11') ); // true
+	console.log( /[abc]1/.test('c11') ); // true 四种写法一样
+
+	// 字符类
+	console.log('----------1.简单类----------');
+	console.log(/[abc]/.test('a')); // true
+	console.log(/[abc]/.test('d')); // false
+	console.log(/[abc]/.test('da')); // true 只要有我想要的就可以 可以多不能少
+	console.log('----------2.负向类----------');
+	console.log(/[^abc]/.test('d')); // true
+	console.log(/[^abc]/.test('da')); // true 只要有我想要的就可以 可以多不能少
+	console.log('----------3.范围类----------');
+	console.log(/[abcdefghi]/.test('a')); // true
+	console.log(/[a-i]/.test('az')); // true 只要有我想要的就可以 可以多不能少
+	console.log(/[a-z]/.test('a')); // true
+	console.log(/[A-Z]/.test('a')); // false
+	console.log(/[0-9]/.test('9a')); // true
+	console.log('----------4.组合类----------');
+	console.log(/[a-zA-Z0-9]/.test("")); //false
+	console.log(/[a-zA-Z0-9]/.test("a-")); // true 只要有我想要的就可以 可以多不能少
+
+
+</script>	
+</body>
+</html>

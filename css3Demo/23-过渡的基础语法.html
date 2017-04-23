@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div {
+			width: 100px;
+			height: 100px;
+			border: 1px solid black;
+
+			/* transition-property 设置需要添加过渡的属性，如果想要所有属性均过渡，使用all即可 */
+			/* transition-property: width, height; */
+			/* transition-duration 设置过渡持续的时间 */
+			/* transition-duration: 2s; */
+			/* transition-delay设置过渡的延迟时间,1s之后开始过渡width,2s后开始过渡height */
+			/* transition-delay: 1s, 2s; */
+
+		/* transition-timing-function 用于设置动画的速度线型，线型有linear(匀速),ease-in,ease-out,steps(n)(分步执行),ease(由慢到快) 但是因为，实际开发中，不会使用transition制作太长的动画，所以该属性使用默认即可 */
+			/* transition-timing-function: ease; */ /* 默认 */
+
+			/* 复合写法 */
+			/* transition: transition-property transition-duration transition-delay transition-timing-function; */
+			/* transition: width 1s 1s linear; */
+			transition: width 1s 1s linear,
+					height 1s 2s ease,
+					background-color 1s 3s;
+			/* 这样过渡代码不写在 hover中会出现这样的现象，即当鼠标离开div时，样式仍会以过渡的方式还原，而不会立马还原。要想立马还原，把过渡代码写在 hover中即可。 */
+		}
+		div:hover {
+			width: 200px;
+			height: 200px;
+			background-color: hotpink;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

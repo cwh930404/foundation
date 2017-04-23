@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ie6中不能设置低于19px的高度</title>
+	<style>
+		div {
+			width: 400px;
+			height: 1px;
+			background-color: red;
+			/* 在ie6中高度会很高 不是1px 解决方法如下 */
+			/* overflow: hidden; */
+			
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

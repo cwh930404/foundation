@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div {
+			width: 200px;
+			height: 100px;
+			background-color: pink;
+		}
+	</style>
+	<script src="jquery-1.12.2.js"></script>
+	<script>
+		$(function (){
+			// 点击按钮 在div中创建超链接
+			$('#btn').click(function (){
+				// 创建元素
+				var aObj = $('<a href="http://www.baidu.com">百度</a>');
+				// 把元素添加到div中
+				// .append() 方法可以把参数元素追加到对象中
+				$('#dv').append(aObj);
+			});
+		});
+	</script>
+</head>
+<body>
+<input type="button" value="创建元素" id="btn">	
+<div id="dv"></div>
+</body>
+</html>

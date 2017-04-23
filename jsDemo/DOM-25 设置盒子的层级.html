@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		div {
+			width: 200px;
+			height: 200px;
+			position: absolute;
+		}
+		
+		#box1 {
+			background-color: red;
+			float: left;
+			margin: 50px;
+		}
+		#box2 {
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+<div id="box1"></div>
+<div id="box2"></div>
+
+<script>
+//点击当前盒子 使该盒子的层级变大
+	var box1 = document.getElementById("box1");
+	var box2 = document.getElementById("box2");
+	var zIndex = 0;
+
+	var arr = [box1, box2]; //盒子多的时候就要用数组
+	for(var i = 0 ; i < arr.length; i++){
+		arr[i].onclick = function (){
+			zIndex++; 
+			this.style.zIndex = zIndex;//使用层级记得加定位position: absolute;
+		};
+	}
+</script>
+</body>
+</html>

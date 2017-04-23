@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ie6中float和margin同在时产生双倍边距的bug</title>
+	<style>
+		div {
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			margin-left: 100px;
+			float: left;
+			/* 在ie6中左边距加倍显示， 解决方法如下 */
+			_display: inline;
+
+
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

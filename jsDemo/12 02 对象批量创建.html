@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>批量创建对象</title>
+</head>
+<body>
+	<script>
+	// 1.工厂模式批量生产对象
+	function createStudent(name, age, sex, score){
+		var stu = new Object();
+		stu.name = name;
+		stu.age = age;
+		stu.sex = sex;
+		stu.score = score;
+		stu.sayHi = function (){
+			console.log("大家好");
+		};
+		return stu;
+	}
+	var s1 = createStudent("zs", 18, 1, 90);
+	var s2 = createStudent("ls", 20, 0, 100);
+	console.log(typeof s1); //object 
+	console.log(s2);//不能看清楚具体对象类型
+	//这种工厂模式虽然能批量生产出对象，但不能查看具体对象类型
+
+	// 2.构造模式批量生产对象
+	function Student(name, age, sex, score){
+		this.name = name;
+		this.age = age;
+		this.sex = sex;
+		this.score = score;
+		this.sayHi = function (){
+			console.log("大家好");
+		};
+	}
+	var s3 = new Student("wu", 20, 0, 100);
+	console.log(s3); //对象类型为Student的s3
+	console.log(s3 instanceof Student); //true
+	//A instanceof B表示A是不是通过B创建出来的实例
+	console.log([] instanceof Student); 
+	//数组 不是 通过 Student创建出来的实例false
+
+	</script>
+</body>
+</html>

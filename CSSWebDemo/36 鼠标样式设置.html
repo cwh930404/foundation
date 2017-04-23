@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标样式设置cursor</title>
+	<style>
+		div {
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			cursor: default;    /* 小白*/
+		}
+		.pointer {
+			cursor: pointer;    /* 小手 例如轮播图下面的小圆点通常用ul来做，当鼠标放在圆点上时会变成小手形状。*/
+			background-color: silver;
+		}
+		.move {
+			cursor: move;     /* 移动 */
+			background-color: #eee;
+		}
+		.text {
+			cursor: text;
+			background-color: #f60;
+		}
+	</style>
+</head>
+<body>
+	<div>鼠标经过div 会变换鼠标样式-小白</div>
+	<div class="pointer">鼠标经过div 会变换鼠标样式-小手</div>
+	<div class="move">鼠标经过div 会变换鼠标样式-移动</div>
+	<div class="text">鼠标经过div 会变换鼠标样式-文本形鼠标样式</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div {
+			width: 300px;
+			height: 200px;
+			border: 2px solid red;
+		}
+		.orange {
+			background-color: orange;
+		}
+		.blue {
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="showBox"></div>
+	<input type="button" value="add">
+	<input type="button" value="remove">
+	<input type="button" value="contains">
+	<input type="button" value="toggle">
+</body>
+<script>
+	var div = document.querySelector('.showBox');
+	// .classList.add('类名') 方法 为元素 添加类名 
+	document.querySelector('input[value=add]').onclick = function (){
+		div.classList.add('orange');
+	};
+	// .classList.remove('类名') 方法 删除元素的该类名 
+
+	document.querySelector('input[value=remove]').onclick = function (){
+		div.classList.remove('orange');
+	};
+	// .classList.contains('类名') 判断元素是否有该类名，返回true|false
+
+	document.querySelector('input[value=contains]').onclick = function (){
+		alert( div.classList.contains('orange') );
+
+	};	
+	// .classList.toggle('类名') 切换class类名
+	document.querySelector('input[value=toggle]').onclick = function (){
+		div.classList.toggle('blue');
+	};
+</script>
+</html>

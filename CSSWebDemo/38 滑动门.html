@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滑动门技术</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		li {
+			list-style: none;
+			margin-left: 20px;
+			float: left;
+		}
+		a {
+			font-size: 12px;
+			color: #fff;
+			text-decoration: none;
+			display: block;
+			height: 33px;
+			line-height: 33px;
+			background: url(imgs/weixin_to.png) no-repeat;
+			padding-left: 15px;
+		}
+		a span {
+			display: block;
+			background: url(imgs/weixin_to.png) no-repeat right center;
+			padding-right: 15px;
+		}
+		/*总结就是：
+		*a 设置 背景左侧，padding撑开合适宽度。
+		*span 设置背景右侧， padding撑开合适宽度 剩下由文字继续撑开宽度。
+		*之所以a包含span就是因为 整个导航都是可以点击的。
+		*/
+	</style>
+</head>
+<body>
+	<li>
+		<a href="#">
+			<span>联系我们</span>
+		</a>
+	</li>
+
+</body>
+</html>

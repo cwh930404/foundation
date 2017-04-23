@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态创建页面结构-效率问题(解决方法1)</title>
+</head>
+<body>
+<input type="button" id="btn" value="按钮">
+<div id="box">
+	<ul>
+		<li>原有</li>
+	</ul>
+</div>
+
+<script>
+//点击按钮 动态创建页面结构
+	var btn = document.getElementById("btn");
+	var box = document.getElementById("box");
+
+	btn.onclick = function (){
+		var start = +new Date();
+		for(var i = 0;i < 10; i++){
+			//box.innerHTML += "<ul><li>111</li></ul>"; 
+			var ul = document.createElement("ul");//参数为 标签名
+			box.appendChild(ul);
+			var li = document.createElement("li");
+			ul.appendChild(li);
+			li.innerHTML = "111";
+		}
+
+		var end = +new Date();
+		console.log(end - start);
+	};
+
+	
+</script>	
+</body>
+</html>

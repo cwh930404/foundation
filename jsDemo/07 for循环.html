@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>打印人生100岁</title>
+	<script type="text/javascript">
+		for(var i = 0; i < 100 ;i++ ){
+			document.write("这个人已经" + i + "岁了<br />");
+			//document打印 在文档中 输出，"<br />"在文档中输出为换行。
+
+		}
+
+		//for循环的第二种方法
+		// 数组遍历
+		var arr = new Array("张飞","关羽","刘备");
+
+		for(var i = 0; i < arr.length; i++){
+			console.log(arr[i]);
+		}
+		//使用for循环的第二种方法 做数组遍历 常用于遍历对象
+		for(var key in arr){
+			//key就是数组的索引
+			console.log(arr[key]);
+		}
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

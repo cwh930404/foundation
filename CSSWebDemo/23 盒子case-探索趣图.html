@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.wrapper {
+			width: 238px;
+			height: 298px;
+			border: 1px solid #d9e0ee;
+			border-top: 3px solid #ff8400;
+		}
+		.top {
+			width: 238px;
+			height: 35px;
+
+			border-bottom: 1px solid #d9e0ee;
+		}
+		.top h2 {
+			font: 16px/35px "微软雅黑";
+			/* line-height: 35px; */
+			padding-left: 11px;/* 因为没有指定width所以设置padding并不会对盒子产生影响 */
+		}
+		.middle {
+			width: 230px;
+			height: 190px;
+			border-bottom: 1px solid #d9e0ee;
+			padding: 7px 0 0 8px;
+		}
+		.middle .s1 {
+			width: 218px;
+			height: 160px;
+			background: url(imgs/girl.png);
+			display: inline-block;
+
+		}
+		.wrapper  a{
+			color: #666666;
+			font: 12px/23px "微软雅黑";
+			text-decoration: none;
+
+		}
+		.wrapper  a:hover {
+			color: #f40;
+			text-decoration: underline;
+		}
+		
+		.last {
+			padding: 7px 0 0 8px;
+		} 
+		.wrapper .s2{
+			display: inline-block;
+			width: 3px;
+			height: 3px;
+			background: url(imgs/girl.png) -224px 0;
+			vertical-align: middle;
+			margin-right: 6px;
+
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="top">
+			<h2>探索趣图</h2>
+		</div>
+
+		<div class="middle">
+			<s class="s1"></s>
+			<ul>
+				<li><s class="s2"></s><a href="#">小女孩在妈妈鼓励下&nbsp;乖乖把义肢带上</a></li>
+			</ul>
+		</div>
+
+		<div class="last">
+			<ul>
+				<li><s class="s2"></s><a href="#">19岁法国少女与机器人订婚：婚后生活着</a></li>
+				<li><s class="s2"></s><a href="#">19岁法国少女与机器人订婚：婚后生活着</a></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

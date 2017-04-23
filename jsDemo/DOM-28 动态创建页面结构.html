@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态创建页面结构</title>
+</head>
+<body>
+<input type="button" id="btn" value="按钮">
+<div id="box">
+	<ul>
+		<li>原有的内容</li>
+	</ul>
+</div>
+
+<script>
+//点击按钮 动态创建页面结构
+	var btn = document.getElementById("btn");
+	var box = document.getElementById("box");
+
+	btn.onclick = function (){
+		//document.write("<ul><li>111</li></ul>");//会替换掉页面所有内容
+		//box.innerHTML = "<ul><li>111</li></ul>";
+		//可以在指定的box中添加，但是如果box中原来有结构会替换掉原来所有的内容
+
+		//解决方法
+		//box.innerHTML = box.innerHTML + "<ul><li>111</li></ul>";
+		box.innerHTML += "<ul><li>111</li></ul>"; //追加结构
+
+	};
+
+	//这样创建结构 如果想要追加很多 相应时间就会很长 就涉及到效率问题
+</script>	
+</body>
+</html>

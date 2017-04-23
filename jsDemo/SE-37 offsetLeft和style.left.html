@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		#demo {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			position: absolute;
+
+		}
+	</style>
+</head>
+<body>
+<!-- <div id="demo" style="left:10px;"></div> -->
+<div id="demo" style="left:20px; margin:20px;"></div>
+<script>
+	var demo = document.getElementById("demo");
+	console.log(demo.style.left); // 20px
+	
+	console.log(demo.offsetLeft); //40
+	
+/*
+*一、style.left只能获取行内样式,并且元素 必须加定位，如果没加，那获取多少值可能是没有意义。
+*二、offsetLeft只读，style.left可读可写。
+*三、offsetLeft是数值，style.left是字符串并且有单位px。
+*四、如果没有加定位，style.left获取的数值 可能 是无效的。
+*五、最大区别在于offsetLeft以 border左侧 为基准，style.left以 margin左侧 为基准
+*/
+
+</script>	
+</body>
+</html>

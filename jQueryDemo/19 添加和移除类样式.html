@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		div {
+			width: 200px;
+			height: 100px;
+			background-color: red;
+		}
+
+		.cls1 {
+			background-color: green;
+		}
+		.cls2 {
+			border: 10px solid yellow;
+		}
+		
+	</style>
+	<script src="jquery-1.12.2.js"></script>
+	<script>
+		$(function (){
+			// 点击按钮btn1 给dv添加类样式cls1和cls2
+			$('#btn1').click(function (){
+				// 1.第一种添加类样式的方法
+				/*$('#dv').addClass('cls1');
+				$('#dv').addClass('cls2');*/
+
+				// 2.第二种添加类样式的方法
+				// $('#dv').addClass('cls1').addClass('cls2');
+
+				// 3.第三种添加类样式的方法
+				$('#dv').addClass('cls1 cls2');
+
+			});
+			// 点击按钮btn2 移除dv的类样式cls1和cls2
+			$('#btn2').click(function (){
+				// .removeClass()方法 移除类样式 带有参数时，移除指定参数的类样式。不带参数时，移除所有类(包括原有的)样式
+				// $('#dv').removeClass('cls2');
+				$('#dv').removeClass();
+			});
+
+
+
+
+		});
+	</script>
+</head>
+<body>
+<input type="button" value="添加类样式" id="btn1">
+<input type="button" value="移除类样式" id="btn2">	
+
+<div id="dv"></div>
+</body>
+</html>

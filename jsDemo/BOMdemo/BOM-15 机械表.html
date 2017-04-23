@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .clock {
+            width: 600px;
+            height: 600px;
+            margin: 100px auto;
+            background: url(images/BOM-15/clock.jpg) no-repeat;
+            position: relative;
+        }
+        .clock div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url(images/BOM-15/hour.png) no-repeat center center;
+        }
+        #m {
+            background-image: url(images/BOM-15/minute.png);
+        }
+        #s {
+            background-image: url(images/BOM-15/second.png);
+        }
+    </style>
+</head>
+<body>
+<div class="clock">
+    <div id="h"></div>
+    <div id="m"></div>
+    <div id="s"></div>
+</div>
+
+<script>
+	//transform: rotate(60deg);让盒子旋转的设置(c3)
+	//需求：获取当前时间 根据时间，计算各个表针要旋转的度数.
+	var hh  = document.getElementById("h");
+	var mm  = document.getElementById("m");
+	var ss  = document.getElementById("s");
+	//封装一个获取当前时间 并设置表针旋转角度的函数
+	function clock(){
+		var d = new Date();
+		var ms = d.getMilliseconds();
+		var s = d.getSeconds() + ms /1000; // s是过去多少秒
+		//60秒 转一圈 360度 一秒6度
+		ss.style.transform = "rotate("+ s * 6 +"deg)";
+		var m = d.getMinutes() + s / 60;
+		//60分 转一圈 360度 一分钟6度
+		mm.style.transform = "rotate("+ m * 6 +"deg)";
+		var h = d.getHours() + m / 60;
+		//12小时 转一圈 360度 一小时30度
+		hh.style.transform = "rotate("+ h * 30 +"deg)";
+		/*但是有一个问题 只有到整点 时针才能跳动，就是只能30度30度的跳，所以要把分针的时间换算成小时(m/60)加在h上.
+		*分针也是同样的道理,这样就不会只指向整数的刻度了。
+		*要使秒针更加细腻，就加上毫秒，另外把定时器1000--1秒改成100-0.1秒
+		*/
+	}
+	setInterval(clock, 100);
+
+</script>
+</body>
+</html>

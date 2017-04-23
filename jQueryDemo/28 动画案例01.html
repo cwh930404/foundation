@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 400px;
+        }
+        img{
+            width:90px ;
+            height:90px;
+            vertical-align: top;
+        }
+
+    </style>
+    <script src="jquery-1.12.2.js"></script>
+    <script>
+        $(function (){
+            // 点击btn1 获得div中最后一张图片，将最后一张图片隐藏，隐藏完成后将前面一张的隐藏
+            $('#btn1').click(function (){
+                // .last()方法 返回和对象标签匹配相同的最后一个
+                $('div>img').last().hide(800, function (){
+                    // arguments.callee 该属性指向当前正在执行的函数 相当于递归
+                    $(this).prev().hide(800, arguments.callee);
+
+                });
+
+            });
+            // 点击btn2 获得div中第一张图片，将第一张图片显示，显示完成后将后面一张的显示
+            $('#btn2').click(function (){
+                $('div>img').first().show(800, function (){
+                    // arguments.callee 该属性指向当前正在执行的函数 相当于递归
+                    $(this).next().show(800, arguments.callee);
+
+                });
+
+            });
+        }); 
+    </script>
+    
+</head>
+<body>
+<input type="button" value="隐藏动画" id="btn1"/>
+<input type="button" value="显示动画" id="btn2"/>
+<div>
+    <img src="images/28/1.jpg"/>
+    <img src="images/28/2.jpg"/>
+    <img src="images/28/3.jpg"/>
+    <img src="images/28/4.jpg"/>
+</div>
+</body>
+</html>

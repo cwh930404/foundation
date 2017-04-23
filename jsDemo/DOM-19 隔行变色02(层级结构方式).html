@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>隔行变色-层级结构方式</title>
+	<style>
+		.even {
+			background-color: #999;
+		}
+		.odd {
+			background-color: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<ul id="list">
+		<li>aaa</li>
+		<!-- 注释 -->
+		<li>bbb</li>
+		<li>ccc</li>
+		<li>ddd</li>
+	</ul>
+</body>
+
+<script>
+	var ul = document.getElementById("list");
+	//var aLi = ul.getElementsByTagName("li");
+	var children = ul.childNodes;//通过层级结构找 li
+	var j = 0;
+	for (var i = 0; i < children.length; i++){
+	//children.length长度为9，因为数组里既有文本节点也有元素节点
+		if(children[i].nodeType === 1){// 如果是元素节点再进行操作
+			//console.log(j);
+			if(j % 2 == 0){
+				children[i].className = "odd";
+			} else {
+				children[i].className = "even";
+			}
+			j++;
+		}
+	}
+
+	//节点类型(元素节点 文本节点 注释节点 属性节点) 及节点常用属性(nodeType nodeValue nodeName) 
+	//1.文本节点
+	/*console.log(children[0].nodeType);//3
+	console.log(children[0].nodeValue);//换行 (文本节点的内容)
+	console.log(children[0].nodeName);//#text  */
+	//2.元素节点
+	/*console.log(children[1].nodeType);//1
+	console.log(children[1].nodeValue);//null (元素节点的值都是null)
+	console.log(children[1].nodeName);//LI (标签名)  */
+	//3.注释节点
+	//console.log(children);
+	/*console.log(children[3].nodeType);//8
+	console.log(children[3].nodeValue);//注释 (注释节点的内容)
+	console.log(children[3].nodeName);//#comment   */
+	//4.属性节点
+	var attrNode = ul.getAttributeNode("id"); //获取属性节点的方法
+	console.log(attrNode.nodeType);//2
+	console.log(attrNode.nodeValue);//list (属性的值)
+	console.log(attrNode.nodeName);//id 即属性   
+
+</script>
+</html>

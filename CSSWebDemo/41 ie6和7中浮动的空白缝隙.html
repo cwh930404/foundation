@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>IE6/7当li中出现2个或以上的浮动产生的空白间隙的BUG</title>
+	<style>
+		ul {
+			list-style: none;
+		}
+		li {
+			width: 200px;
+			height: 30px;
+			background-color: #f40;
+
+			vertical-align: top; /* 解决方法 */
+		}
+		span {
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>
+			<span>文字</span>
+			<span>文字</span>
+			<span>文字</span>
+		</li>
+		<li>
+			<span>文字</span>
+			<span>文字</span>
+			<span>文字</span>
+		</li>
+		<li>
+			<span>文字</span>
+			<span>文字</span>
+			<span>文字</span>
+		</li>
+	</ul>
+</body>
+</html>

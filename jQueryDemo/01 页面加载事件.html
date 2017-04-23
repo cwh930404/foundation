@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script>
+		// BOM页面加载事件
+		/*window.onload = function (){
+			console.log('1');
+		};
+		window.onload = function (){
+			console.log('2');
+		};//只执行最后一个加载事件，但jQuery中两个加载事件都会执行*/
+	</script>
+	<script src="jquery-1.12.2.js"></script>
+	<script>
+		// jQuery页面加载事件第一种写法：
+		// 页面中所有的内容加载完成后才执行(页面结构和外部资源(图片/外部js/css)都加载完)
+		/*$(window).load(function (){
+			console.log('1');
+		});
+		$(window).load(function (){
+			console.log('2');
+		});*/
+		// jQuery第二种写法：
+		// 页面中 基本的标签 加载完成就可以触发了。所以这种方式的加载速度快，比第一种先执行完。
+
+		/*$(document).ready(function (){
+			console.log('1');
+		});
+		$(document).ready(function (){
+			console.log('2');
+		});*/
+		// jQuery第三种写法：
+		// 页面中 基本的标签 加载完成就可以触发了。
+		/*jQuery(function (){
+			console.log('1');
+		});
+		jQuery(function (){
+			console.log('2');
+		});*/
+		// jQuery第四种写法(最常用)：
+		// 页面中 基本的标签 加载完成就可以触发了。
+		$(function (){
+			console.log('1');
+		});
+		$(function (){
+			console.log('2');
+		});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

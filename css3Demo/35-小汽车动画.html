@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		img {
+			width: 200px;
+
+			animation: runcar 4s linear infinite;
+
+		}
+
+		@keyframes runcar {
+			/* 1.起始位置是默认状态
+			2.移动到最右边
+			3.原地旋转180度
+			4.移动到起始位置
+			 */
+			0% {
+
+			}
+			45% {
+				transform: translateX(1000px);
+			}
+			50% {
+				transform: translateX(1000px) rotateY(180deg);
+			}
+			100% {
+				transform: translateX(0) rotateY(180deg);
+				/* 注意：rotateY(180deg)必须保留 */
+			}
+			
+		}
+
+	</style>
+</head>
+<body>
+	<img src="images/car.jpg" alt="">
+</body>
+</html>

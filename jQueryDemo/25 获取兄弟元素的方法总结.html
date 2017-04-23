@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取兄弟元素的方法总结</title>
+	<script src="jquery-1.12.2.js"></script>
+	<script>
+		$(function (){
+			// 鼠标进入当前li，使当前li的兄弟元素背景变为绿色
+			// mouseenter() 鼠标进入事件
+			$('#ul>li').mouseenter(function (){
+				// .next() 方法 获取的是当前元素的下一个兄弟元素
+				// $(this).next().css('backgroundColor', 'green');
+
+				// .nextAll() 方法 获取的是当前元素 后面的所有兄弟元素
+				// $(this).nextAll().css('backgroundColor', 'green');
+
+				// .prev() 方法 获取的是当前元素的前一个兄弟元素
+				// $(this).prev().css('backgroundColor', 'green');
+
+				// .prevAll() 方法 获取的是当前元素 前面的所有兄弟元素
+				// $(this).prevAll().css('backgroundColor', 'green');
+
+				// .siblings() 方法 获取的是当前元素的 所有兄弟元素
+				$(this).siblings().css('backgroundColor', 'green');
+
+
+
+
+			});
+		});
+		// mouseover 事件和mouseenter 事件的区别：
+		// 不论鼠标指针穿过被选元素或其子元素，都会触发 mouseover 事件。
+		// 只有在鼠标指针穿过被选元素时，才会触发 mouseenter 事件(即mouseenter不支持冒泡)。
+	</script>
+</head>
+<body>
+<ul id="ul">
+	<li>一</li>
+	<li>二</li>
+	<li>三</li>
+	<li>四</li>
+	<li>五</li>
+	<li>六</li>
+</ul>
+</body>
+</html>

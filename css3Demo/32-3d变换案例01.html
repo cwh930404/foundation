@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body {
+			text-align: center;
+		}
+		.container {
+			border: 1px solid gray;
+			overflow: hidden;
+			/* 设置透视属性 */
+			perspective: 800px;
+		}
+		.container>img {
+			width: 33.333%;
+			display: block;/* 消除图片之间默认的空隙 */
+			float: left;
+			/* transition: all 5s linear; */ /* 匀速过渡 */
+		}
+
+		.container:hover img:nth-child(1){
+			transform: rotateX(360deg);
+		}
+		.container:hover img:nth-child(2){
+			transform: rotateY(360deg);
+		}
+		.container:hover img:nth-child(3){
+			transform: rotateZ(360deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<img src="images/宋仲基.jpg" alt="">
+		<img src="images/宋仲基.jpg" alt="">
+		<img src="images/宋仲基.jpg" alt="">
+	</div>
+	<input type="range" value="0" id="range"><br>
+	<output id="output"></output>
+</body>
+<script>
+	var imgs = document.querySelectorAll('img');
+	var output = document.querySelector('#output');
+	var range = document.querySelector('#range');
+	// 当input的value 发生变化时触发
+	range.oninput = function (){
+		// range 标签的范围是0-100 ---> 0-360
+		var deg = Math.floor( this.value / 100 * 360 );
+
+		imgs[0].style.transform = 'rotateX('+ deg +'deg)';
+		imgs[1].style.transform = 'rotateY('+ deg +'deg)';
+		imgs[2].style.transform = 'rotateZ('+ deg +'deg)';
+
+		output.innerHTML = deg;
+	};
+</script>
+</html>

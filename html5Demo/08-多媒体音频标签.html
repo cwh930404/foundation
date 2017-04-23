@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多媒体标签-音频</title>
+</head>
+<body>
+<!-- <audio src="music/郝云 - 活着.mp3"></audio> -->	<!-- 这样不加controls属性，页面上什么也没有，要加controls -->
+
+<!-- controls 控制 页面加载音乐，一定要加才能看见音乐空间 -->
+<!-- autoplay 页面加载自动播放 -->
+<!-- loop 是否循环 -->
+<!-- <audio src="music/郝云 - 活着.mp3" controls autoplay loop></audio>  -->
+
+<!-- 但不同的浏览器对音频格式的支持不同，可以多加两个路径，浏览器顺序找到支持的格式音频便会播放，写法如下 -->
+<!-- 即使这样，ie8及以下版本不能加载任何格式的音频时，可以添加一个友好提示信息 -->
+<audio controls autoplay loop>
+	<source src="music/music.ogg">
+	<source src="music/郝云 - 活着.mp3">
+	亲爱的用户，您的浏览器版本太低，不能享用本页面所有音频文件，建议升级浏览器<a href="#">戳我下载</a>
+</audio> 
+
+</body>
+</html>

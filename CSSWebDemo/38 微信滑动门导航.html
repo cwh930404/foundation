@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滑动门案例</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		ul {
+			list-style: none;
+		}
+		body {
+			background: url(imgs/wx_bg.jpg) repeat-x;
+		}
+		/* nav begin */
+		.nav {
+			height: 75px;
+			
+		}
+		.nav li {
+			float: left;
+			margin: 0 10px;
+			padding-top: 21px;
+		}
+		.nav li a {
+			display: block;
+			color: #fff;
+			text-decoration: none;
+			font-size: 14px;
+			line-height: 33px;
+			padding-left: 15px;
+			background: url(imgs/weixin_to.png) no-repeat;
+		}
+
+		.nav li a:hover {
+			background-image: url(imgs/weixin_ao.png);
+		}
+		.nav li a:hover span {/* 当点击链接时，链接下面的span更换图片 */
+			background-image: url(imgs/weixin_ao.png);
+		}
+
+
+		.nav li a span {
+			display: block;
+			line-height: 33px;
+			background: url(imgs/weixin_to.png) no-repeat right center;
+			padding-right: 15px;
+		}
+		/* nav end */
+
+	</style>
+</head>
+<body>
+	<div class="nav">
+		<ul>
+			<li>
+				<a href="#">
+					<span>首页</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<span>帮助与反馈</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<span>公众平台</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<span>开放平台</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<span>微信支付</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

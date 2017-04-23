@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			width: 350px;
+			margin: 100px auto;
+		}
+		li {
+			float: left;
+			width: 48px;
+			height: 48px;
+			border: 1px solid gray;
+			text-align: center;
+			line-height: 48px;
+		}
+		/*隔行变色*/
+		li:nth-child(2n) {
+			background-color: skyblue;
+		}
+		/* 第一个，最后一个加粗*/
+		li:first-child {
+			font-size: 30px;
+			font-weight: 900;
+		}
+		li:last-child {
+			font-size: 30px;
+			font-weight: 900;
+		}
+		/* 每一行第六列 改变字体颜色*/
+		/*
+		* 6          6+7*0
+		* 13 6+7     6+7*1
+		* 20 6+7+7   6+7*2
+		* 27 6+7+7+7 6+7*3
+		*  n从0开始
+		*/
+		li:nth-child(7n+6) {
+			color: red;
+		}
+		li:nth-child(7n+7) {
+			color: green;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+			<li>9</li>
+			<li>10</li>
+			<li>11</li>
+			<li>12</li>
+			<li>13</li>
+			<li>14</li>
+			<li>15</li>
+			<li>16</li>
+			<li>17</li>
+			<li>18</li>
+			<li>19</li>
+			<li>20</li>
+			<li>21</li>
+			<li>22</li>
+			<li>23</li>
+			<li>24</li>
+			<li>25</li>
+			<li>26</li>
+			<li>27</li>
+			<li>28</li>
+			<li>29</li>
+			<li>30</li>
+			<li>31</li>
+		</ul>	
+</body>
+</html>

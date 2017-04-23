@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div {
+			width: 200px;
+			height: 100px;
+			background-color: green;
+		}
+	</style>
+	<script src="jquery-1.12.2.js"></script>
+	<script>
+		$(function (){
+			// 通过on()的方式为div中的按钮绑定点击事件，获取事件对象的内容
+			$('#dv').on('click', 'input', function (event){
+				console.log( event );
+				// event.delegateTarget---->div(谁一开始调用了on方法)
+				// event.currentTarget--->input(真正为谁(input)绑定事件)
+				// event.target--->input(谁触发了事件)
+
+			});
+		});
+	</script>
+</head>
+<body>
+<div id="dv">
+	<input type="button" value="按钮">
+</div>	
+</body>
+</html>

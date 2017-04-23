@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>浮雕文字-3D效果</title>
+	<style>
+		body {
+			background-color: gray;
+		}
+		h1 {
+			color: gray; /*默认是看不到的，因为和body颜色一样*/
+			font-size: 300px;
+			text-align: center;
+			transition: all 1s;/*过渡效果*/
+
+			
+		}
+		h1:hover {
+			/*用阴影把这个字 刻画出来*/
+			text-shadow: 1px 1px black,
+						-1px -1px white;
+		}
+	</style>
+</head>
+<body>
+	<h1>
+		LOVE
+	</h1>
+</body>
+</html>

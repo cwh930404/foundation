@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建正则表达式的方式</title>
+</head>
+<body>
+<script>
+	//1. 通过构造函数创建
+	var regEx = new RegExp(/\d/); // /\d/ 表示数字 \d是表示数字字符(预定义类的一种)
+	regEx.test("1"); 
+	// 内置方法test() 可以判断传入的字符串是否符合 正则表达式/\d/ ； 该内置方法有返回值（true/false）
+	console.log( regEx.test("1") );// true
+	console.log( regEx.test("a") );// false
+	console.log( regEx.test("a1") );// true  /\d/ 表示只要有我想要的就可以 可以多不能少
+
+
+	//2. 通过字面量的方法
+	var regEx2 = /\d/;
+
+	//3. 如果 正则表达式 只想一次性使用 就不用声明
+	/\d/.test("1");
+	console.log( /\d/.test("1") );// true
+
+	console.log( /chuan/.test('chuan') ); // true
+	console.log( /chuan/.test('chuang') ); // true 只要有我想要的就可以 可以多不能少
+	console.log( /chuan/.test('chua') ); // false
+
+</script>	
+</body>
+</html>

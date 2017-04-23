@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<button id="btn">后退</button>
+
+	<script>
+	
+		document.getElementById("btn").onclick = function () {
+			history.back(); //后退
+			//history.go(-1) 和 history.back();是一样的
+		};
+	</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .cls {
+            list-style: none;
+            width: 150px;
+            margin: 0;
+            padding: 0;
+            background-color: #0099cc;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<input type="button" id="btn" value="create"/>
+
+<div id="box"></div>
+<script>
+	//点击按钮 在box中创建列表
+	var phones = ["小米", "华为", "中兴", "苹果", "三星", "魅族"];
+	var btn = document.getElementById("btn");
+	var box = document.getElementById("box");
+	btn.onclick = function (){
+		//一进来就检测 如果页面上已经有了列表 就返回，没有才创建。
+		var ul = document.getElementById("u");
+		if(ul){
+			return;
+		}
+
+		ul = document.createElement("ul");
+		ul.id = "u";
+		ul.className = "cls";
+		box.appendChild(ul);
+		//创建li并追加到ul中
+		for (var i = 0; i < phones.length; i++){
+			var phone = phones[i];//每个品牌
+			var li = document.createElement("li");
+			li.innerHTML = phone;
+			ul.appendChild(li);
+		}
+	};
+
+</script>
+</body>
+</html> 

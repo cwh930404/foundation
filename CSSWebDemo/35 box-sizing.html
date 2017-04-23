@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>box-sizing</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		button {
+			width: 50px;
+			height: 50px;
+			background-color: red;
+			border: 10px solid green;
+			box-sizing: content-box;
+/*
+*box-sizing: border-box; 指定的宽度 和 高度包含 边框，内边距；
+*box-sizing: content-box; 指定的宽度 和高度不包含 边框，内边距(正常)。即在宽度和高度之外绘制元素的内边距和边框；
+*button 默认box-sizing属性为: border-box; 这时button为50*50；
+*button 指定box-sizing属性为: content-box; 这时button为60*60；
+*div  默认box-sizing属性为: content-box;
+*/
+		}
+		/* div {
+			width: 50px;
+			height: 50px;
+			background-color: red;
+			border: 10px solid green;
+			box-sizing: border-box;
+
+		} */
+	</style>
+</head>
+<body>
+	<button>按钮</button>
+	<!-- <div>按钮</div> -->
+</body>
+</html>

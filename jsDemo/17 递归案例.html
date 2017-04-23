@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>递归案例</title>
+</head>
+<body>
+<script>
+// 	从前有座山，山里有座庙
+// 求n个数的累加
+function getSum(n) {
+	if (n === 1){
+		return 1;
+	}
+	var sum = n + getSum(n-1);
+	return sum;
+}
+//console.log(getSum(3))
+// 求n的阶乘
+function getJC(n){
+	if(n === 1){
+		return 1;
+	}
+	var jc = n * getJC(n-1);
+	return jc;
+}
+console.log(getJC(2))
+// 求Fibonacci的第n个数1 1 2 3 5 8 13 21...
+function getFib(n){
+	if(n === 1 || n === 2){
+		return 1;
+	}
+	var fib = getFib(n-1) + getFib(n-2);
+	return fib;
+}
+console.log(getFib(12)) //114
+</script>	
+</body>
+</html>

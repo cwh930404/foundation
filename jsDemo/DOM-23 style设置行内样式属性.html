@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>style设置行内样式属性的值</title>
+</head>
+<body>
+<input type="button" id="btn" value="设置">	
+<div id="box"></div>
+
+<script>
+	var btn = document.getElementById("btn");
+	var box = document.getElementById("box");
+	btn.onclick = function (){
+		//值是字符串有单位 层级属性本身没有单位的就不要加单位 
+		box.style.width = "200px";
+		box.style.height = "200px";
+		box.style.backgroundColor = "red";
+	};
+
+</script>
+</body>
+</html>

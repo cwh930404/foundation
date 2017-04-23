@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<div>
+	<button id="btn">按钮</button>
+</div>
+
+<script>
+// 获取事件目标
+
+// 如果在文档上点击就会触发事件，但是 怎么获取 点的是按钮呢 还是div呢 还是点的文档呢 ，这就需要获取 事件目标
+	document.onclick = function (event){
+		alert("文档被点击了");
+		var event = event || window.event;
+		// console.log(event);
+		//event.target 事件目标
+		var target = event.target || event.srcElement;//兼容写法
+		console.log(target);
+		console.log(target.id);
+	};
+
+
+</script>
+</body>
+</html>

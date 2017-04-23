@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body>
+<div id="box">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+</div>
+
+<script>
+//点击当前文本框高亮显示  可以使用排他思想 这里使用获取焦点事件，因为当前页面只能有一个获取焦点。
+var inputs = document.getElementById("box").getElementsByTagName("input");
+for (var i = 0; i < inputs.length; i++){
+    inputs[i].onfocus = function (){
+        this.style.backgroundColor = "red";
+    };
+    inputs[i].onblur = function (){
+        this.style.backgroundColor = "";
+    };
+}
+
+
+</script>
+</body>
+</html> 

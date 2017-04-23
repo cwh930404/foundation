@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>typeof检测数据类型</title>
+	<script type="text/javascript">
+		console.log(typeof 123);  // number
+		console.log(typeof "字符串"); // string
+		console.log(typeof true);  //boolean
+
+		var num;
+		console.log(typeof num);  // undefined
+
+		console.log(typeof null); // object
+
+		var num1 = null;
+		console.log(typeof num1); // object
+
+		console.log(typeof function(){});//function
+		
+		var sym = Symbol();
+		console.log(typeof sym);// symbol ECMAScript 2015
+
+		/*因为它本身是运算符，它不是函数，使用时没必要加个小括号*/
+		/* 除非要先计算一下，这时要加括号*/
+		console.log(typeof (1+1)); // number
+
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

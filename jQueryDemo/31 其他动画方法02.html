@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		div {
+			width: 200px;
+			height: 100px;
+			background-color: green;
+		}
+	</style>
+	<script src="jquery-1.12.2.js"></script>
+	<script>
+		$(function (){
+			// .fadeIn()和.fadeOut()和.fadeToggle()方法 参数类型有两种
+			// 1.数字 1000表示1000毫秒
+			// 2.字符串 'slow' 'normal' 'fast'
+			$('#btn1').click(function (){
+				// $('#dv').fadeIn(); // 淡入
+				$('#dv').fadeIn(1000);
+			});
+			$('#btn2').click(function (){
+				// $('#dv').fadeOut(); // 淡出
+				$('#dv').fadeOut(1000);
+			});
+			$('#btn3').click(function (){
+				// $('#dv').fadeToggle();// 切换淡入淡出
+				$('#dv').fadeToggle(1000);
+			});
+			$('#btn4').click(function (){
+				// 0秒透明度到达0.2
+				$('#dv').fadeTo(0, 0.2);// $('#dv').css('opacity', 0.2);	
+				
+				// 1秒后透明度到0.3
+				// $('#dv').fadeTo(1000, 0.3);
+			});
+
+
+		});
+	</script>
+</head>
+<body>
+<input type="button" value="淡入" id="btn1">	
+<input type="button" value="淡出" id="btn2">	
+<input type="button" value="切换" id="btn3">	
+<input type="button" value="透明度变化" id="btn4">	
+<div id="dv"></div>
+</body>
+</html>

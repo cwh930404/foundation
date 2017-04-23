@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<input type="text" name="name">	
+<input type="text" name="name">	
+<input type="text" name="name">	
+<input type="text" name="name">	
+<div id="box" name="box1"></div>
+
+<script>
+	var inputs = document.getElementsByName('name');
+	var box1 = document.getElementsByName('box1');
+	// var div  = document.getElementById('box');
+	console.dir(inputs[0]);
+	console.dir(box1[0]); // 能不能通过 name属性获取到 打印一下就知道了
+</script>
+</body>
+</html>

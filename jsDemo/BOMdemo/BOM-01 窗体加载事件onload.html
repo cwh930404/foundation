@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>窗体加载事件 onload</title>
+	<script>
+	// onload 加载完成事件 
+	//window.onload 窗体加载完成：页面结构和外部资源(图片/外部js/css)都加载完，这样无论 <script> 标签写在哪都可以了。
+	window.onload = function (){
+		var box = document.getElementById("box");
+		console.log(box);
+
+
+	};
+		
+	</script>
+</head>
+<body>
+<div id="box"></div>
+<img src="kitty.png" alt="" id="pic">
+<script>
+	var pic = document.getElementById("pic");
+	console.log(pic.height); // 0 没有显示高度是因为 外部资源加载很慢。	
+</script>
+</body>
+</html>

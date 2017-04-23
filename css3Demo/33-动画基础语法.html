@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div {
+			width: 100px;
+			height: 100px;
+			border: 1px solid gray;
+			background-color: skyblue;
+		}
+		/*动画使用
+		* 1. 用@keyframes关键字定义一个动画
+		* 2. 为元素添加 定义好的动画名字 及动画属性
+		*/
+		@keyframes toright {
+			from {
+					/* 默认为 元素的初始状态 */
+			}to {
+					transform: translateX(800px);
+			}
+		}
+		.animation {
+			/* 使用@keyframes定义好的动画名字 */
+			animation-name: toright;
+			/* 设置动画持续多久 */
+			animation-duration: 2s;
+			/* 设置动画延迟 */
+			animation-delay: 1s;
+			/* 设置动画重复次数 */
+			animation-iteration-count: 5; /* 5次 */
+			/* animation-iteration-count: infinite; */ /* 无数次 */
+
+			/* 设置动画线型(速度) 默认为ease(由快到慢) */
+			animation-timing-function: linear;
+
+
+			/* 动画属性复合写法 (无序)*/
+			/* animation: animation-name animation-duration animation-delay animation-timing-function animation-iteration-count; */	
+			/* 如果只写一个时间默认是持续时间；如果写两个时间第一个是持续时间 */
+			/* animation: toright 2s 1s linear 5; */
+		}
+
+
+
+
+	</style>
+</head>
+<body>
+	<div class="animation"></div>
+</body>
+</html>

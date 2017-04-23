@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body {
+			background-color: skyblue;
+		}
+		ul {
+			list-style: none;
+			padding: 0;
+			width: 90px;
+			height: 90px;
+			border: 1px solid gray;
+			background-color: whitesmoke;
+			border-radius: 10px;
+			margin: 10px;
+			float: left;
+
+			display: flex;
+		}
+		li {
+			width: 20px; /* 正好够一行三个 */
+			height: 20px;
+			background-color: black;
+			border-radius: 50%;
+			margin: 5px;
+
+		}
+		/* 第2个骰子 */
+		ul:nth-child(2) {
+			justify-content: center;
+		}
+		/* 第3个骰子 */
+		ul:nth-child(3) {
+			justify-content: flex-end;
+		}
+		/* 第4个骰子 */
+		ul:nth-child(4) {
+			justify-content: flex-end;
+			align-items: center;
+		}
+		/* 第5个骰子 */
+		ul:nth-child(5) {
+			justify-content: space-between;
+		}
+		/* 第6个骰子 */
+		ul:nth-child(6) {
+			justify-content: space-between;
+		}
+		ul:nth-child(6) li:nth-child(2){
+			align-self: flex-end;
+		}
+		/* 第7个骰子 */
+		ul:nth-child(7) {
+			justify-content: space-between;
+		}
+		ul:nth-child(7) li:nth-child(2){
+			align-self: center;
+		}
+		ul:nth-child(7) li:nth-child(3){
+			align-self: flex-end;
+		}
+		/* 第8个骰子 */
+		ul:nth-child(8) {
+			flex-direction: column;
+			align-items: center;
+		}
+		/* 第9个骰子 */
+		ul:nth-child(9) {
+			flex-wrap: wrap; /* 换行 */
+			justify-content: space-between;
+			align-content: space-between;
+		}
+		ul:nth-child(9) li{
+			margin: 10px; /* 一行两个 */
+		}
+		/* 第10个骰子 */
+		ul:nth-child(10) {
+			flex-wrap: wrap; /* 换行 */	
+			justify-content: space-between;
+			align-content: space-between;
+		}
+		ul:nth-child(10) li{
+			margin: 5px 10px; /* 一行两个 */
+		}
+		ul:nth-child(10) li:nth-child(3){
+			margin: 5px 35px; /* 第三个占一行 并居中*/
+		}
+
+		
+		
+	</style>
+</head>
+<body>
+<!-- 第一个骰子 -->
+	<ul>
+		<li></li>
+	</ul>
+<!-- 第2个骰子 -->
+
+	<ul>
+		<li></li>
+	</ul>
+<!-- 第3个骰子 -->
+
+	<ul>
+		<li></li>
+	</ul>
+<!-- 第4个骰子 -->
+
+	<ul>
+		<li></li>
+	</ul>
+<!-- 第5个骰子 -->
+
+	<ul>
+		<li></li>
+		<li></li>
+	</ul>
+<!-- 第6个骰子 -->
+
+	<ul>
+		<li></li>
+		<li></li>
+	</ul>
+<!-- 第7个骰子 -->
+
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+<!-- 第8个骰子 -->
+
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<!-- 第9个骰子 -->
+
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<!-- 第10个骰子 -->
+
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+</html>

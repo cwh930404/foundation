@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>通过层次选择器获取元素</title>
+	<script src="jquery-1.12.2.js"></script>
+	<script>
+		$(function (){
+			$('#btn').click(function (){
+				// 1. 后代选择器  获取div中所有的p元素
+				// $('#dv p').css('backgroundColor','red');
+				// 2. 子代选择器  获取div中直接子元素p
+				// $('#dv>p').css('backgroundColor','red');
+				// 3.   获取div后面第一个兄弟元素p
+				// $('#dv+p').css('backgroundColor','red');
+				// 4.   获取div后面所有兄弟元素p
+				$('#dv~p').css('backgroundColor','red');
+			});
+		});
+	</script>
+
+</head>
+<body>
+<input type="button" value="显示效果" id="btn">	
+<div id="dv">
+	<p>这是div中的第一个p标签</p>
+	<ul>
+		<li>这是第一个li标签</li>
+		<li><p>这是第二个li中的一个p标签</p></li>
+		<li>这是第二个li标签</li>
+	</ul>
+	<p>这是div中的第二个p标签</p>
+</div>
+<p>这是div外面的第一个p标签</p>
+<p>这是div外面的第二个p标签</p>
+<p>这是div外面的第三个p标签</p>
+</body>
+</html>

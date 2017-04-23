@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		td {
+			border: 1px solid #369;
+		}
+	</style>
+
+	<script type="text/javascript">
+
+	document.write("<table>"); // 表格开始, 先有表格再有行
+
+	for(var i = 1; i <= 9; i++){
+
+		document.write("<tr>"); // 表格的行开始
+
+		for(var j = 1; j <= i; j++){
+			
+			var sum = j * i;
+			document.write( "<td>" + j + "×" + i + "=" + sum + "&nbsp;" + "</td>");
+		}
+
+		document.write("</tr>"); // 表格的行结束
+
+	}	
+	document.write("</table>"); // 表格结束
+
+	</script>
+	
+</head>
+<body>
+	
+</body>
+</html>

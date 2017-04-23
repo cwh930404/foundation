@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>常用伪类选择器</title>
+	<style>
+		/* E:first-child CSS2 匹配父元素的第一个子元素E。  */
+		div>h3:first-child {
+			color: pink;
+		}
+		div>h3:last-child { /*div>h3:last-child 有一个问题，如果div中最后一个不是h3标签(含有其它类型标签)，就获取不到div中最后一个h3标签*/
+			/* 千万不能想用 div:last-child 这样div 里面所有的元素都会变为绿色 */
+			/* 解决方法：div>h3:last-of-type,这样就可以获取夹杂其它标签时的目标元素*/
+			color: green;
+		}
+		div>h3:last-of-type {
+			color: green;
+		}
+		/* 类似的还有：
+		* E:last-of-type CSS3 匹配同类型中的最后一个同级兄弟元素E。 
+		 * E:first-of-type CSS3 匹配同类型中的第一个同级兄弟元素E。 
+		 * E:nth-of-type(n) CSS3 匹配同类型中的第n个同级兄弟元素E。  */
+
+
+		/* E:nth-child(n) CSS3 匹配父元素的第n个子元素E。n从1开始  */
+		div>h3:nth-child(3) {
+			color: red;
+		}
+		div>h3:nth-child(2n) { /* 设置偶数行 的背景颜色 这时n是从0/1 2开始: 0/2 4*/
+			background-color: skyblue;
+		}
+	</style>
+</head>
+<body>
+<div>
+	<h3>电影一</h3>
+	<h3>电影二</h3>
+	<h3>电影3</h3>
+	<h3>电影4</h3>
+	<h3>电影5</h3>
+	<h4>电影6</h4>
+</div>
+
+	
+</body>
+</html>

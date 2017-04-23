@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<script>
+console.log(/^chuan$/.test("chuan")); //true
+console.log(/^chuan$/.test("chuanchuan"));//false 
+// 仅 ^ 和 $ 的结合的正则表达式 限定/^chuan$/就必须是"chuan"，而不能实现"chuanchuan"，想要这样重复就要结合使用 量词。
+console.log('-----1. * 重复零次或零次以上--------');
+console.log( /^a*$/.test('') ); // true
+console.log( /^a*$/.test('d') ); //false
+
+console.log('-----2. + 重复一次或一次以上--------');
+console.log( /^a+$/.test('aaaa') ); // true
+console.log( /^a+$/.test('d') ); //false
+
+console.log('-----3. ? 重复零次或一次--------');
+console.log( /^a?$/.test('') ); // true
+console.log( /^a?$/.test('a') ); // true
+console.log( /^a?$/.test('aaaa') ); // false
+console.log( /^a?$/.test('d') ); // false
+
+console.log('-----4. {} 自定义出现的次数--------');
+console.log( /^a{2}$/.test('aa') ); // true a只能出现两次
+console.log( /^a{2,}$/.test('a') ); // false a重复出现两次或两次以上
+console.log( /^a{2,5}$/.test('aa') ); // true a重复出现两次 到 五次
+console.log('-----用 {} 代替 * + ?--------');
+
+console.log( /^a*$/.test('') ); 
+console.log( /^a{0,}$/.test('') );
+console.log( /^a+$/.test('aaaa') ); 
+console.log( /^a{1,}$/.test('aaaa') );
+console.log( /^a?$/.test('') ); 
+console.log( /^a{0,1}$/.test('') ); 
+// 括号（[] {} ()）总结 
+console.log(/^[abc]$/.test('a'));//true
+console.log(/^chuan{2}$/.test("chuanchuan"));//false
+console.log(/^(chuan){2}$/.test("chuanchuan"));//true
+
+
+
+
+</script>
+</body>
+</html>

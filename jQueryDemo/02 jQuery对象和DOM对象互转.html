@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery对象和DOM对象互转</title>
+	<script src="jquery-1.12.2.js"></script>
+	<script>
+	// DOM点击按钮，修改按钮背景颜色
+	/*
+	window.onload = function (){
+		// btnObj 是 DOM对象
+		var btnObj = document.getElementById('btn');
+		// btnObj.onclick = function (){
+		// 	this.style.backgroundColor = 'red';
+		// };
+		// DOM对象 转 jQuery对象： 把DOM对象放在 $()中
+		$(btnObj).click(function (){
+			$(this).css('backgroundColor','red');
+		});
+	}; */
+
+	// jQuery对象 转 DOM对象有两种方法：
+	// 1. $(btnObj).get(0) -----> jQuery对象 
+	// 2. $(btnObj)[0] -----> jQuery对象 
+	/*window.onload = function (){
+	
+		var btnObj = document.getElementById('btn');
+		var btn = $(btnObj).get(0);// var btn = $(btnObj)[0];
+		btn.onclick = function (){
+			this.style.backgroundColor = 'red';
+		};
+	
+	};*/
+	$(function (){
+		// $('#btn') jQuery对象
+		// $('#btn').click(function (){
+		// 	$(this).css('backgroundColor','green');
+		// });
+		// $('#btn')[0]  $('#btn').get(0) DOM对象
+		$('#btn').get(0).onclick = function (){
+			this.style.backgroundColor = 'green';
+		};
+
+	});
+	</script>
+</head>
+<body>
+<input type="button" value="按钮变色" id="btn">	
+</body>
+</html>

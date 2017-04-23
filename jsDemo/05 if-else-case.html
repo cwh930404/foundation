@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>if else判断是否中奖</title>
+	<script type="text/javascript">
+	//1.如果姓名是 刘德华  中奖  如果不是  没中奖
+		var username = prompt("请输入您的姓名：");
+		
+		if( username == "刘德华") {
+				alert("恭喜发财，您中了5块钱");
+		}else {
+				alert("谢谢惠顾，欢迎下次光临");
+		}
+
+	//2. 今天星期几
+		var week = new Date().getDay(); //获取今天星期几
+		if(week === 0){
+			console.log("周日");
+		}else if(week === 1){
+			console.log("周一");
+		}else if(week === 2){
+			console.log("周二");
+		}else if(week === 3){
+			console.log("周三");
+		}else if(week === 4){
+			console.log("周四");
+		}else if(week === 5){
+			console.log("周五");
+		}else if(week === 6){
+			console.log("周六");
+		}
+
+	// 3.从两个数中找最大值
+		var a = 10;
+		var b = 20;
+		var max;
+		if(a > b) {
+			max = a;
+		}else{
+			max = b;
+		}
+		console.log(max);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

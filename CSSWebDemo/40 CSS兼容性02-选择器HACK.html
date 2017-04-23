@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选择器HACK</title>
+	<style>
+		div {
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+		}
+		span {
+			color: pink;
+		}
+		/* 当宽度、高度、颜色这些属性效果 在某一浏览器中出现都bug(显示不出想要的效果 ） 时，在原代码的基础上 添加相对应浏览器的专用 选择器hack写法。如下 */
+		*html div { /* ie6以下版本能识别 */
+			width: 100px;
+			height: 100px;
+			background-color: purple;
+		}
+		*html .demo { /* ie6以下版本能识别 */
+			color: purple;
+		}
+
+		*+html div { /* 仅ie7能识别 */
+			width: 100px;
+			height: 100px;
+			background-color: blue;
+		}
+		*+html .demo { /* 仅ie7能识别 */
+			color: blue;
+		}
+		/* *html和*+html后面跟什么样的 选择器 都可以 */
+	</style>
+</head>
+<body>
+	<div></div>
+	<span class="demo">字体</span>
+</body>
+</html>

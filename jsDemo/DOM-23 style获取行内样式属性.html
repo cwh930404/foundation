@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取行内样式属性</title>
+	<style>
+		.cls {
+			width: 200px;
+			height: 200px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+<div id="box" style="width: 100px;" class="cls"></div>
+<script>
+	var box = document.getElementById("box");
+	console.log(box.style.width); 
+	//1. style获取不到非行内样式属性值(的200px);
+	//2. style只能获取设置行内样式 的值100px,并且100px是字符串，如果有单位还获取单位
+</script>
+</body>
+</html>

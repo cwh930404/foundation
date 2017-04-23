@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #demo {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">按钮</button>
+<div id="demo"></div>
+<script>
+    var timer = null;
+    var btn = document.getElementById("btn");
+    var demo = document.getElementById("demo");
+
+    btn.onclick = function () {
+        //animate(demo, "left", 400);
+        //animate(demo, "top", 400);
+        //animate(demo, "height", 400);
+        //animate(demo, "width", 400);
+
+    };
+
+    //封装 能够让 任意对象 的指定属性 变到指定值处 的缓动动画函数
+    // 属性虽说是任意，但只能是带有单位px的 数值 的属性 
+    function animate(obj, attr, target) {
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+            //var leader = obj.offsetLeft;//只能获取left值
+            var leader = parseInt(getStyle(obj, attr)) || 0;//获取任意样式属性
+            var step = (target - leader) / 10;
+            step = step > 0 ? Math.ceil(step) : Math.floor(step);
+            leader = leader + step;
+            //obj.style.left = leader + "px";//只能设置left
+            obj.style[attr] = leader + "px";//可以设置任意数值属性
+            if (leader === target) {
+                clearInterval(obj.timer);
+            }
+        }, 15);
+    }
+
+    function getStyle(obj, attr) {
+        if (window.getComputedStyle) {
+            return window.getComputedStyle(obj, null)[attr];
+        } else {
+            return obj.currentStyle[attr];
+        }
+    }
+</script>
+</body>
+</html>

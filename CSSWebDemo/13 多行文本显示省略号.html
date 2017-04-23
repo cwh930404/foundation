@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多行文本显示省略号-不兼容</title>
+	<style>
+		p {
+			width: 100px;
+			border: 1px solid red;
+
+			-webkit-line-clamp: 3;
+			-webkit-box-orient: vertical;
+			display: -webkit-box;
+			overflow: hidden;
+			/*
+			*1. -webkit-line-clamp: 3;显示3行，在第3行后面加省略号。需要和其他webkit属性组合实现。
+			*2. -webkit-box-orient: vertical;设置或检索弹性盒子对象的子元素的排列方式。
+			*3. display: -webkit-box;让一个对象作为一个弹性盒子模式来显示。
+			*/
+		}
+	</style>
+</head>
+<body>
+	<p>多行文本显示省略号多行文本显示省略号多行文本显示省略号多行文本显示省略号多行文本显示省略号多行文本显示省略号多行文本显示省略号</p>
+</body>
+</html>

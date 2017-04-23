@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>标签 类 id选择器 case</title>
+	<style>
+		em { 
+			font-style: normal;
+		}
+		.pink-red { 
+			color: #ff558a;
+		}
+		.purple-black {
+			color: #2a3466;
+		}
+		#desc { 
+			font-size: 14px;
+	    }
+	    li {
+	    	background-color: silver; 
+	    }
+	</style>
+</head>
+<body>
+	<h1><em class="pink-red">数据库</em><span class="purple-black">需求分析</span></h1>
+
+	<p id="desc">通过对仿淘宝商城系统工作过程的内容和数据流图分析，设计如下的数据项和数据结构。</p>
+
+	<ul>	
+		<li>用户信息，包括的<em class="pink-red">数据项</em>有：用户编号，用户名，密码，真实姓名，用户邮箱，联系方式，用户地址，状态。</li>
+		<li>商品分类信息，包括的数据项有：商品编号，商品分类名称。</li>
+		<li>商品信息，包括的数据项有：商品编号，商品名称，市场价，店铺价，图片地址，商品介绍，生产日期。</li>
+		<li>管理员信息，包括的数据项有：管理员编号，名字，密码。</li>
+		<li>订单信息，包括的数据项有：订单编号，总价，时间，状态，收货人姓名，收货人联系方式，收货人地址。</li>
+		<li>订单项信息，包括的数据项有：订单项编号，购买数量，小计。</li>
+	</ul>
+</body>
+</html>

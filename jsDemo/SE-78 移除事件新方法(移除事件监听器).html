@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<button id="btn1">按钮1</button>
+<button id="btn2">按钮2</button>
+<script>
+    var btn1 = document.getElementById("btn1");
+    var btn2 = document.getElementById("btn2");
+    btn1.onclick = function () {
+        alert("第一个人的代码");
+    };
+    btn1.onclick = null;
+
+    function fn(){
+        alert("第一个人的代码");
+    }
+    
+    //添加监听事件 （主流浏览器）
+    btn2.addEventListener("click", fn, false);
+    //移除监听事件 （主流浏览器）
+    btn2.removeEventListener("click", fn, false);
+
+    //添加监听事件 （ie 678）
+    btn2.attachEvent("onclick", fn);
+    //移除监听事件 （ie 678）
+    btn2.detachEvent("onclick", fn);
+
+
+
+
+/*function fn(){alert("绑定事件");}
+addEvent(btn1, "click", fn );
+removeEvent(btn1, "click", fn );*/
+
+    //封装 兼容所有浏览器的移除监听事件函数
+    //element要绑定事件的元素 eventName不加on的字符串 listener事件处理函数
+    function removeEvent(element, eventName, listener){
+        if(element.removeEventListener){
+            element.removeEventListener(eventName, listener, false);
+        } else if(element.detachEvent){
+            element.detachEvent("on" + eventName, listener);
+        } else {
+            //element.onclick = null;
+            element["on"+ eventName] = null;
+        }
+
+    }
+
+    //封装 兼容所有浏览器的添加监听事件函数
+    //element要绑定事件的元素 eventName不加on的字符串 listener事件处理函数
+    function addEvent(element, eventName, listener){
+        if(element.addEventListener){
+            element.addEventListener(eventName, listener, false);
+        } else if(element.attachEvent){
+            element.attachEvent("on" + eventName, listener);
+        } else {
+            //element.onclick = listener;
+            element["on"+ eventName] = listener;
+        }
+
+    }
+</script>
+</body>
+</html>

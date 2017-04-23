@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #demo {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">按钮</button>
+<div id="demo"></div>
+<script>
+// 同时 缓动改变多个属性
+    var timer = null;
+    var btn = document.getElementById("btn");
+    var demo = document.getElementById("demo");
+
+    btn.onclick = function () {
+       /* animate(demo, "left", 400);
+        animate(demo, "top", 400);
+        animate(demo, "height", 400);
+        animate(demo, "width", 400);*/
+        animate(demo, {"left": 400,"top": 400,"height": 400,"width": 400}); // {attr:target}
+
+
+    };
+
+    //封装 能够让 任意对象 的指定属性 变到指定值处 的缓动动画函数
+    // 属性虽说是任意，但只能是带有单位px的 数值 的属性 
+    function animate(obj, json) {
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+            var flag = true;// 假设所有属性都到了目标值
+            for(var k in json){ // {k:json[k]}
+
+                var leader = parseInt(getStyle(obj, k)) || 0;
+                var target = json[k];
+                var step = (target - leader) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                leader = leader + step;
+                obj.style[k] = leader + "px";
+                //console.log("代码还在运行")
+                //if (leader === target) { //如果有一个到了目标值，定时器就被清了
+                if (leader !== target) { 
+                    flag = false;//当前这个属性没有达到目标值，假设错了赋值为false
+                    
+                }
+            }
+            if(flag){//全部遍历之后，如果为true说明所有属性都到目标了
+
+                clearInterval(obj.timer);
+            }
+
+        }, 15);
+    }
+
+    function getStyle(obj, attr) {
+        if (window.getComputedStyle) {
+            return window.getComputedStyle(obj, null)[attr];
+        } else {
+            return obj.currentStyle[attr];
+        }
+    }
+</script>
+</body>
+</html>

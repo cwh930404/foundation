@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>table 细线边框 border-collapse border-spacing</title>
+	<style>
+		table, td {
+			border: 1px solid #ccc;
+		}
+		table {
+			width: 500px;
+			height: 150px;
+			border-collapse: collapse;/* 合并边框 */
+			border-spacing: 0px;        /*  定义边框之间的距离 相当于cellspacing="0"*/
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<table>
+		<caption>边框</caption>
+		<tr>
+			<td>边框样式</td>
+			<td>说明</td>
+		</tr>
+		<tr>
+			<td>border-collapse</td>
+			<td>表示边框是否合并</td>
+		</tr>
+		<tr>
+			<td>border-spacing</td>
+			<td>定义边框之间的间距</td>
+		</tr>
+	</table>
+</body>
+</html>

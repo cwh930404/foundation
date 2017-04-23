@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            vertical-align: top;
+        }
+
+        /*取消图片底部3像素距离*/
+        .box {
+            width: 300px;
+            height: 200px;
+            margin: 100px auto;
+            background-color: pink;
+            position: relative;
+            /*overflow: hidden;*/
+        }
+
+        .box ul li {
+            float: left;
+        }
+
+        .box ul {
+            width: 1500px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="screen">
+    <ul>
+        <li><img src="images/SE-41/1.jpg" alt=""/></li>
+        <li><img src="images/SE-41/2.jpg" alt=""/></li>
+        <li><img src="images/SE-41/3.jpg" alt=""/></li>
+        <li><img src="images/SE-41/1.jpg" alt=""/></li> 
+        <!-- 3 的后面再加上1，再让前面1跳回来，这样用户看不出来(无缝滚动) -->
+
+    </ul>
+</div>
+
+<script>
+var screen = document.getElementById("screen");
+var ul = screen.children[0];
+var timer = null;
+timer = setInterval(play, 15);
+
+//鼠标移入 暂停滚动，鼠标移除，再次滚动
+
+screen.onmouseover = function (){
+    clearInterval(timer);
+};
+
+screen.onmouseout = function (){
+    timer = setInterval(play, 15);
+    // 重新复值给 timer
+};
+
+
+function play(){
+    //leader = leader + step
+    var leader = ul.offsetLeft;
+    var tep = -2; //往左走
+    //if (leader > -600) {// 走到 3 不能再走了
+    if (leader > -900) {// 走到 第二个1 不能再走了
+        leader = leader + tep;
+        ul.style.left = leader + "px";
+    } else {
+        ul.style.left = 0; //到了 3 再跳到 1 循环走
+    }
+
+}
+
+</script>
+</body>
+</html>

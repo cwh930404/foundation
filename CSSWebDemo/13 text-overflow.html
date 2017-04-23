@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div {
+			width: 200px;
+			height: 30px;
+			border: 1px solid #f00;
+			white-space: nowrap;     /* 第一步1.强制一行内显示文本 */
+			overflow: hidden;        /* 第二步2.文字超出隐藏 */
+			text-overflow: ellipsis; /* 第三步3.文字显示不开用省略号替代 */
+			/* text-overflow: clip;  不显示省略标记（...），而是简单的裁切 */
+
+		}
+		/*text-overflow设置是否使用省略标记，但是它的使用要与white-space和overflow配合使用。
+		*三步缺一不可；
+		*/
+	</style>
+</head>
+<body>
+	<div>设置或检索是否使用一个省略标记（...）</div>
+</body>
+</html>

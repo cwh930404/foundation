@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>a:focus 和 a:active的区别</title>
+	<style>
+		a:active {
+			color: red; /* 当前元素 鼠标在元素上 按下 还没有松开 */
+		}
+
+		a:focus {
+			color: green;
+			/*
+			*1.一般 文本框 等会有获得焦点的时候 ，链接获得 焦点 很特别，很少；
+			*2.获得焦点的时间段内（鼠标按下/松开）都是绿色 ，这时链接是活动着的；
+			*3.当点击其他链接，或点击空白处 就会失去焦点。
+			*/
+		}
+	</style>
+</head>
+<body>
+	<a href="#">百度</a>
+	<a href="#">百度</a>
+	<a href="#">百度</a>
+</body>
+</html>

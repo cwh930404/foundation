@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		ul {
+			list-style: none;
+			padding: 0;
+			width: 480px; /* 一行两个 */
+			margin: 0 auto;
+		}
+		li {
+			float: left;
+			width: 200px;
+			height: 200px;
+			background-color: skyblue;
+			margin: 10px;
+		}
+		/* 2d移动 */
+		li:nth-child(1) {
+			/* 2d移动坐标translate(x, y) 还可以单独设置x或y，但单独设置时只能写一个，如果都写了，后面的y会覆盖x，前面的x不生效 */
+			/* transform: translate(10px, 20px); */ /* transform: translateX(10px) translateY(20px)*//* 两种写法效果一样 */
+			transform: translateX(10px); /* 没效果 被translateY覆盖了 */
+			transform: translateY(10px);
+		}
+		/* 2d缩放 */
+		li:nth-child(2):hover {
+			/* 2d缩放 scale(.5, .5) 默认是1(不缩放) 小于1是变小，大于1是变大 */
+			/* scaleX 和 scaleY可以单独设置 x和y的缩放 */
+			transform: scale(.5, .5);
+			transition: all 1s; /* 加上过渡让缩放效果更好 */
+		}
+		/* 2d旋转 */
+		li:nth-child(3):hover {
+
+			/* 2d旋转 rotate(旋转角度deg) */
+			transform: rotate(360deg);
+			transition: all 1s linear;
+		}
+		/* 2d扭曲 */
+		li:nth-child(4):hover {
+			/* 2d扭曲 skew(angle, angle) */
+			/* transform: skew(45deg, 0); *//* x方向扭曲 */
+			transform: skew(0, 45deg);/* y方向扭曲 */
+			transition: all 1s linear;
+		}
+
+
+	</style>
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<script>
+	// 七种 预定义类
+	console.log( /\d/.test("1") );// true
+	console.log( /\d/.test("a") );// false
+	console.log( /\s/.test("a") );// false
+	console.log( /\s/.test(" ") );// true
+	console.log( /\w/.test("a") );// true
+	console.log( /\w/.test("1") );// true
+	console.log( /\w/.test("_") );// true
+	console.log( /\w/.test("中") );// false
+
+
+/*	
+ .	[^\n\r]	除了换行和回车之外的任意字符
+
+ \d	[0-9]		数字字符
+ \D	[^0-9]	非数字字符
+
+ \s	[\f\r\n\t\v]	不可见字符
+ \S	[^\f\r\n\t\v]	可见字符
+
+ \w	[a-zA-Z0-9_]		单词字符(所有的英文字母数字和_)
+ \W	[^a-zA-Z0-9_]	非单词字符
+*/
+
+</script>	
+</body>
+</html>

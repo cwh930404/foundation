@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box1 {
+			width: 120px;
+			height: 50px;
+			background-color: #f00;
+			position: relative;
+
+			text-align: center;
+			line-height: 50px;
+		}
+		i {/* 因为要给i加宽高，所以要加display: block;但是由于要给i添加绝对定位会自动带有行内元素的特性 */
+			position: absolute;
+			top: 10px;
+			right: -30px;
+			width: 0;
+			height: 0;
+			border-width: 15px;
+			border-color: transparent transparent transparent blue;
+			border-style: dashed dashed dashed solid;
+		}
+		/* 做三角常用<i></i><em></em> */
+
+		.box2 {
+			width: 20px;
+			height: 20px;
+			background-color: #f00;
+			position: relative;
+		}
+		em {
+			position: absolute;
+			top: -10px;
+			right: -12px;
+			width: 0;
+			height: 0;
+			border-width: 20px;
+			border-color: transparent #f00 transparent transparent;
+			border-style: dashed solid dashed dashed;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">
+		形状一
+		<i></i>
+	</div>
+	<br><br>
+	<!-- 音量形状 -->
+	<div class="box2">
+		<em></em>
+	</div>
+</body>
+</html>

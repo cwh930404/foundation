@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery-1.12.2.js"></script>
+	<script>
+		$(function (){
+			$('#btnAll').click(function (){
+				// $('#dv :checkbox') 也是一种选择器 #dv :checkbox中间的那个空格一定要有
+				$('#dv :checkbox').prop('checked', true);
+			});
+			$('#btnNoAll').click(function (){
+				$('#dv :checkbox').prop('checked', false);
+				// $('#dv').find(':checkbox').prop('checked', false);
+			});
+		});
+	</script>
+</head>
+<body>
+<input type="button" value="全选" id="btnAll">	
+<input type="button" value="全不选" id="btnNoAll">
+<div id="dv">
+<input type="checkbox">吃饭	
+<input type="checkbox">睡觉	
+<input type="checkbox">看电视	
+<input type="checkbox">玩手机	
+<input type="checkbox">看书	
+<input type="checkbox">打代码
+</div>	
+</body>
+</html>

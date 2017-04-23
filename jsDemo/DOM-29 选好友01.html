@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        select {
+            width: 100px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+<select name="" id="left" multiple="multiple">
+    <option value="">张三</option>
+    <option value="">李四</option>
+    <option value="">王五</option>
+    <option value="">赵六</option>
+</select>
+<input type="button" id="btn1" value="&gt;&gt;"/>
+<input type="button" id="btn2" value="&lt;&lt;"/>
+<input type="button" id="btn3" value="&gt;"/>
+<input type="button" id="btn4" value="&lt;"/>
+<select name="" id="right" multiple="multiple"></select>
+
+<script>
+	//var btn1 = document.getElementById("btn1");
+	function $(id){
+		return document.getElementById(id);
+	}
+	var btn1 = $("btn1");
+	var btn2 = $("btn2");
+	var btn3 = $("btn3");
+	var btn4 = $("btn4");
+	var left = $("left");
+	var right = $("right");
+	//点击btn1 把左边的选项全部放在右边列表
+	btn1.onclick = function (){
+		var options = left.children;
+		for (var i = 0 ; i < options.length; ){
+			var option = options[i];//每一个选项 i不能++，i要一直为0，因为select中的选项索引是动态改变的。
+			right.appendChild(option);
+		}
+	};
+	//点击btn2 把right的选项全部放在左边列表
+	btn2.onclick = function (){
+		var options = right.children;
+		for (var i = 0 ; i < options.length; i++){
+			var option = options[i];
+			left.appendChild(option);
+			i--;
+		}
+	};
+	//点击btn3 把左边 选中的选项全部放在right列表
+	btn3.onclick = function (){
+		var options = left.children;
+		for (var i = 0 ; i < options.length; i++){
+			var option = options[i];
+			//if(option.selected == true){
+			if(option.selected){
+				right.appendChild(option);
+				i--;
+			}
+		}
+	};
+	//点击btn4 把右边 选中的选项全部放在left列表
+	btn4.onclick = function (){
+		var options = right.children;
+		for (var i = 0 ; i < options.length; i++){
+			var option = options[i];
+			//if(option.selected == true){
+			if(option.selected){
+				left.appendChild(option);
+				i--;
+			}
+		}
+	};
+</script>
+</body>
+</html>
