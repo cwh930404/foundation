@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>QQ注册表单</title>
+	</head>
+	<body>
+		<h1>web前端</h1>
+		<hr><!-- 单标签，不需要闭合，会产生一条线 -->
+	<!-- 无序列表-->
+	<!-- 表单	 -->
+	<!-- checked="checked"和checked一样的效果：默认选中 -->
+	<!-- multiple="multiple"和multiple一样的效果 -->
+	<form action="#">
+		<table>
+			<tr>
+				<td>昵称</td>
+				<td><input type="text"></td>
+			</tr>
+			<tr>
+				<td>密码</td>
+				<td><input type="password"></td>
+			</tr>
+			<tr>
+				<td>确认密码</td>
+				<td><input type="password"></td>
+			</tr>
+			<tr>
+				<td>性别</td>
+				<td> <!-- 点击label标签自动获得单选按钮焦点 方法一 -->
+					<input type="radio" checked name="gender" id="gender-man">
+					<label for="gender-man">男</label>&nbsp;&nbsp;
+					<!-- 方法二 -->
+				    <label><input type="radio" name="gender">女</label>
+				</td>
+			</tr>
+			<tr>
+				<td>生日</td>
+				<td>
+					<select name="" id="">
+						<option value="1">公历</option>
+						<option value="2">农历</option>
+					</select>
+					<select name="" id="">
+					<!-- option{200$年}*10+tab -->
+						<option value="">2001年</option>
+						<option value="">2002年</option>
+						<option value="">2003年</option>
+						<option value="">2004年</option>
+						<option value="">2005年</option>
+						<option value="">2006年</option>
+						<option value="">2007年</option>
+						<option value="">2008年</option>
+						<option value="">2009年</option>
+						<option value="">2010年</option>
+					</select>
+					<select name="" id="">
+						<option value="1">月</option>
+						<option value="2">01</option>
+					</select>
+					<select name="" id="">
+						<option value="1">日</option>
+						<option value="2">02</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>所在地</td>
+				<td>
+					<select name="" id="">
+						<option value="1">阿富汗</option>
+						<option value="2">墨西哥</option>
+					</select>
+					<select name="" id="">
+						<option value="1">&nbsp;&nbsp;</option>
+						<option value="2">&nbsp;&nbsp;</option>
+					</select>
+					<select name="" id="">
+						<option value="1">赫拉特</option>
+						<option value="2">02</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>验证码</td>
+				<td>
+				<input type="text"><input type="text">
+				</td>
+			</tr>
+			<tr>
+				<td>手机号码</td>
+				<td>
+				<input type="text">
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+				<input type="text"><input type="text" value="获取短信验证码">
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+				<input type="checkbox" checked>同时开通QQ空间
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+				<input type="checkbox" checked>我已阅读并同意相关服务条款和隐私政策
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+				<input type="submit" value="提交注册">
+				<!-- <input type="button" value="普通按钮"> -->
+				<!-- <input type="reset" value="重置"> -->
+				</td>
+			</tr>
+		</table>
+		
+
+	</form>
+
+</html>
